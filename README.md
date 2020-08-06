@@ -44,7 +44,7 @@
 ## creditsテーブル
 |Column|Type|Options|
 |------|----|-------|
-|credit_number|integer|null: false|unique: true|
+|credit_number|integer|null: false, unique: true|
 |expiration_year|integer|null: false|
 |expiration_month|integer|null: false|
 |security_code|integer|null: false|
@@ -96,14 +96,14 @@
 ## brandsテーブル
 |Column|Type|Options|
 |------|----|-------|
-|name|string|null: false|
+|name|string||
 ### Assiciation
 - has_many: items
 
 ## sizesテーブル
 |Column|Type|Options|
 |------|----|-------|
-|size|string|null: false|
+|size|string||
 ### Assiciation
 - has_many: items
 
