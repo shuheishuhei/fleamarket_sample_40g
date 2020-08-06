@@ -1,3 +1,89 @@
-// Place all the styles related to the items controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+* {
+  box-sizing: border-box;
+  font-family: "Source Sans Pro", Helvetica, Arial, "游ゴシック体", "YuGothic", "メイリオ", "Meiryo", sans-serif;
+}
+
+.main {
+  width: 100vw;
+  overflow: scroll;
+}
+
+.icon--app {
+  width: 185px; 
+  height: 60px;
+  margin: 13px 0;
+
+}
+.icon--google {
+  width: 200px;
+  height: 85px;
+
+}
+
+.header {
+  height: 110px;
+  &__top {
+    &__logo {
+      width: 10%;
+      height: 10%;
+    }
+  }
+}
+
+.mainVisual {
+  height: 530px;
+  background-image: url("material/pict/bg-mainVisual-pict_pc.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  &__content {
+  }
+}
+
+.topNav {
+  height: 600px;
+  &__content {
+    display: flex;
+    &__list {
+      &__img {
+        width: 70%;
+        height: 70%;
+      }
+    }
+  }
+}
+
+.topDl {
+  height: 350px;
+  background-image: url("material/pict/bg-topMiddleDl-pict.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.bottomNav {
+  height: 670px;
+  &__content {
+    display: flex;
+    &__list {
+      &__img {
+        width: 60%;
+        height: 60%;
+      }
+    }
+  }
+}
+
+.bottomDl {
+  height: 350px;
+  background-image: url("material/pict/bg-appBanner-pict.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.footer {
+  background-color: rgb(37, 37, 37);
+  height: 350px;
+  &__logo {
+    width: 10%;
+    height: 10%;
+  }
+}
