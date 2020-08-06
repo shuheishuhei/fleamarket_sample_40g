@@ -1,6 +1,8 @@
 * {
   box-sizing: border-box;
   font-family: "Source Sans Pro", Helvetica, Arial, "游ゴシック体", "YuGothic", "メイリオ", "Meiryo", sans-serif;
+  padding: 0;
+  margin: 0;
 }
 
 .main {
@@ -21,11 +23,10 @@
 }
 
 .header {
-  height: 90px;
+  height: 100px;
   padding: 10px 60px;
   font-size: 14px;
   &__top {
-    padding-top: 10px;
     &__logo {
       width: 15%;
       height: 15%;
@@ -58,7 +59,20 @@
   background-image: url("material/pict/bg-mainVisual-pict_pc.jpg");
   background-size: cover;
   background-repeat: no-repeat;
+  display: flex;
+  align-items: center;
   &__content {
+    color: white;
+    text-shadow: 1px 1px 4px #808080;
+    padding: 70px 0 0 50px;
+    &__title {
+      font-size: 45px;
+      padding-bottom: 10px;
+    }
+    &__text {
+      font-size: 18px;
+      padding-bottom: 10px;
+    }
   }
 }
 
