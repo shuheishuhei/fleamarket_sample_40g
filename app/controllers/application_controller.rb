@@ -14,3 +14,4 @@ class ApplicationController < ActionController::Base
     Rails.env.production?
   end
 end
+ 
