@@ -110,6 +110,18 @@
       &__img{
         width: 75%;
         height: 80%; 
+      // .num{
+      //   position: absolute;
+      //   top: 0;
+      //   left: 0;
+      //   border-radius: 4%;
+      //   font-size: 30px;
+      //   text-align: center;
+      //   margin: 0 5px 0 0;
+      //   padding: 10px 20px;
+      //   background-color: #3CCACE;
+      //   color: #fff;
+      // }
       }
       &__title {
         font-size: 20px;
@@ -123,10 +135,22 @@
 }
 
 .topDl {
-  height: 350px;
+  height: 380px;
   background-image: url("material/pict/bg-topMiddleDl-pict.jpg");
   background-size: cover;
   background-repeat: no-repeat;
+  &__content {
+    color: #fff;
+    text-shadow: 1px 1px 4px #808080;
+    padding: 80px 0 0 60px;
+    &__title {
+      padding-bottom: 10px;
+    }
+    &__text {
+      padding-bottom: 10px;
+      font-size: 18px;
+    }
+  }
 }
 
 .bottomNav {
