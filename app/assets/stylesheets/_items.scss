@@ -82,6 +82,7 @@
   height: 600px;
   text-align: center;
   padding: 60px 20px;
+  margin-bottom: 30px;
   &__title {
     position: relative;
     margin-bottom: 25px;
@@ -142,7 +143,7 @@
   &__content {
     color: #fff;
     text-shadow: 1px 1px 4px #808080;
-    padding: 80px 0 0 60px;
+    padding: 80px 0 0 100px;
     &__title {
       padding-bottom: 10px;
     }
@@ -189,10 +190,37 @@
 }
 
 .footer {
-  background-color: rgb(37, 37, 37);
+  background-color:#272727;
   height: 350px;
+  color: #fff;
+  padding: 60px 0;
+  &__overview{
+    display: flex;
+    justify-content: space-around;
+    &__list {
+      list-style: none;
+      .title {
+        font-size: 16px;
+        padding-bottom: 20px;
+      }
+      .list { 
+        font-size: 12px;
+        padding-bottom: 10px;
+        .item {
+          display: block;
+          padding-bottom: 10px;
+        }
+      }
+    }
+  }
   &__logo {
-    width: 10%;
-    height: 10%;
+    width: 13%;
+    height: 20%;
+    display: block;
+    margin : 0 auto
+  }
+  .copyright {
+    text-align: center;
+    font-size: 14px;
   }
 }
