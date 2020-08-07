@@ -4,6 +4,21 @@
   padding: 0;
   margin: 0;
 }
+.icon--app {
+  transition: 0.5s;
+}
+.icon--google {
+  transition: 1.0s;
+}
+.icon--app {
+  transition: 1.0s;
+}
+.icon--app:hover {
+  opacity: 0.5;
+}
+.icon--google:hover {
+  opacity: 0.5;
+}
 
 .main {
   width: 100vw;
