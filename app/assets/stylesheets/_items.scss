@@ -171,6 +171,21 @@
   background-image: url("material/pict/bg-appBanner-pict.jpg");
   background-size: cover;
   background-repeat: no-repeat;
+  display: flex;
+  text-align: center;
+  justify-content: center;
+  &__content {
+    color: #fff;
+    text-shadow: 1px 1px 4px #808080;
+    padding-top: 95px;
+    &__title {
+      font-size: 22px;
+      font-weight: bold;
+    }
+    &__text {
+      font-size: 35px;
+    }
+  }
 }
 
 .footer {
