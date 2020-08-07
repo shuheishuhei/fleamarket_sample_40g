@@ -1,13 +1,35 @@
-.header
+.myPage
+  .myPage__header
+    .myPage__headerTop
+      .myPage__headerLogo
+        logo
+      .myPage__headerSearchbox
+        何かお探しですか？※formにする
+    .myPage__headerMiddle
+      .myPage__headerSearchL
+        .li カテゴリーから探す
+        .li ブランドから探す
+      .myPage__headerSearchR
+        .li イイね！一覧
+        .li お知らせ
+        .li to doリスト
+        .li マイページ
+    .myPage__headerBottom
+      .myPage__headerCategoryL
+        go to furima > マイページ
+      .myPage__headerCategoryR
 
-.main
-%aaaa
-.footeraa
-aaaaaaa
-
-aaaaaaa
-
-
-%aaaaa
-%aaaaaa
-%ssssssss
+  .myPage__main
+    .myPage__leftBox
+      .myPage__indexBox
+        = render 'sideBox'
+    .myPage__rightBox
+      .myPage__infoBox
+        .myPage__picBox
+          .myPage__picinBox
+            profile写真
+        .myPage__nameBox
+          nickname イイね数
+        .myPage__contentsBox
+          .li2 筋トレグッズを中心に出品しています
+          .li2 プロテインもあるyo
