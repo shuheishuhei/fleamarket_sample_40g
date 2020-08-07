@@ -1,8 +1,6 @@
 * {
   box-sizing: border-box;
   font-family: "Source Sans Pro", Helvetica, Arial, "游ゴシック体", "YuGothic", "メイリオ", "Meiryo", sans-serif;
-  padding: 0;
-  margin: 0;
 }
 
 .top {
@@ -13,6 +11,7 @@
   width: 100vw;
   overflow: scroll;
 }
+
 .icon--app {
   transition: 0.5s;
   width: 185px; 
@@ -24,11 +23,9 @@
   width: 200px;
   height: 85px;
 }
-
 .icon--app:hover {
   opacity: 0.5;
 }
-
 .icon--google:hover {
   opacity: 0.5;
 }
@@ -58,7 +55,7 @@
       &__btn {
         width: 32px;
         height: 32px;
-        background-color: #3CCACE;
+        background-color: $mainBlueColor;
         text-align: center;
         text-decoration: none;
         border-style: none;
@@ -120,21 +117,11 @@
   padding: 60px 10px;
   margin-bottom: 30px;
   &__title {
+    @include clearfix();
     position: relative;
     margin-bottom: 25px;
     padding-bottom: 15px;
     font-size: 18px;
-  }
-  &__title:after {
-    content:"";
-    display:block;
-    width:70px;
-    height:4px;
-    background-color:#3CCACE;
-    position:absolute;
-    bottom:0;
-    left: 50%;
-    transform: translateX(-50%);
   }
   &__content {
     display: flex;
@@ -160,7 +147,7 @@
           text-align: center;
           margin: 0 5px 0 0;
           padding: 10px 20px;
-          background-color: #3CCACE;
+          background-color: $mainBlueColor;
           color: #fff;
         }
       }      
@@ -168,7 +155,7 @@
         font-size: 20px;
         margin: 20px 0;
         .color {
-          color: #3CCACE;
+          color: $mainBlueColor;
         }
       }
       &__explanation {
@@ -203,21 +190,11 @@
   text-align: center; 
   margin-bottom: 30px;
   &__title {
+    @include clearfix();
     position: relative;
     margin-bottom: 25px;
     padding-bottom: 15px;
     font-size: 18px;
-  }
-  &__title:after {
-    content:"";
-    display:block;
-    width:70px;
-    height:4px;
-    background-color:#3CCACE;
-    position:absolute;
-    bottom:0;
-    left: 50%;
-    transform: translateX(-50%);
   }
   &__content {
     display: flex;
@@ -249,9 +226,23 @@
   background-color: #f8f8f8;
   &__category {
     padding-top: 80px;
+    .category {
+      font-size: 28px;
+    }
+    .items {
+      font-size: 23px;
+      color: $mainBlueColor;
+    }
   }
   &__brand {
     padding-top: 80px;
+    .brand {
+      font-size: 28px;
+    }
+    .archive {
+      font-size: 23px;
+      color: $mainBlueColor;
+    }
   }
 }
 .bottomDl {
@@ -317,7 +308,7 @@
   width: 120px;
   bottom: 32px;
   right: 32px;
-  background-color: #3CCACE;
+  background-color: $mainBlueColor;
   text-align: center;
   border-radius: 4%;
   color: #fff;
