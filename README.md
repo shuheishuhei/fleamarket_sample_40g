@@ -60,7 +60,6 @@
 |price|integer|null: false|
 |brand_id|references|null: false, foreingn_key: true|
 |category_id|references|null: false, foreign_key: true|
-|item_images_id|references|null: false, foreign_ker: true|
 |sizing_id|references|foreign_key: true|
 |item_conditions_id|references|foreign_key: true|
 |postage_pay_id|references|null: false, foreign_key: true|
