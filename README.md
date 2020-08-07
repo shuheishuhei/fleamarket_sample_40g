@@ -27,12 +27,12 @@
 ## addressesテーブル
 |Column|Type|Options|
 |------|----|-------|
-|distination_first_name|string|null: false|
-|distination_family_name|string|null: false|
-|distination_first_name_kana|string|null: false|
-|distination_family_name_kana|string|null: false|
+|destination_first_name|string|null: false|
+|destination_family_name|string|null: false|
+|destination_first_name_kana|string|null: false|
+|destination_family_name_kana|string|null: false|
 |post_code|integer|null: false|
-|prefucture_code|integer|null: false|
+|prefecture_code|integer|null: false|
 |city|string|null: false|
 |house_number|integer|null: false|
 |building_name|string||
@@ -56,17 +56,17 @@
 |Column|Type|Options|
 |------|----|-------|
 |name|string|null: false|
-|introducion|text|null: false|
+|introduction|text|null: false|
 |price|integer|null: false|
-|brand_id|references|null: false, foreingn_key: true|
+|brand_id|references|null: false, foreign_key: true|
 |category_id|references|null: false, foreign_key: true|
 |sizing_id|references|foreign_key: true|
 |item_conditions_id|references|foreign_key: true|
 |postage_pay_id|references|null: false, foreign_key: true|
 |preparation_day_id|references|null: false,foreign_key: true|
-|prefucture_code|integer||
+|prefecture_code|integer||
 |buyer_id|references|null: false, foreign_key: true|
-|seller_id|references|null: false, foreing_key: true|
+|seller_id|references|null: false, foreign_key: true|
 ### Association
 - has_many: item_images
 - belongs_to: user
@@ -97,5 +97,5 @@
 |Column|Type|Options|
 |------|----|-------|
 |name|string|null: false|
-### Assoiciation
+### Association
 - has_many: items
