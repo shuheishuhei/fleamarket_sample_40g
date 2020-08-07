@@ -83,7 +83,7 @@
 |image|string|null: false|
 |item_id|references|null: false, foreign_key|
 ### Association
-- belongs_to: items
+- belongs_to: item
 
 ## categoriesテーブル
 |Column|Type|Options|
