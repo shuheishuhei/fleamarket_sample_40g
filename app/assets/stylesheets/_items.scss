@@ -199,7 +199,17 @@
     }
   }
 }
-
+.productList {
+  text-align: center;
+  height: 1000px;
+  background-color: #f8f8f8;
+  &__category {
+    padding-top: 80px;
+  }
+  &__brand {
+    padding-top: 80px;
+  }
+}
 .bottomDl {
   height: 350px;
   background-image: url("material/pict/bg-appBanner-pict.jpg");
