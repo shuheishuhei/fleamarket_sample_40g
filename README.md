@@ -58,6 +58,7 @@
 |name|string|null: false|
 |introducion|text|null: false|
 |price|integer|null: false|
+|brand_id|references|null: false, foreingn_key: true|
 |category_id|references|null: false, foreign_key: true|
 |item_images_id|references|null: false, foreign_ker: true|
 |sizing_id|references|foreign_key: true|
@@ -68,7 +69,7 @@
 |buyer_id|references|null: false, foreign_key: true|
 |seller_id|references|null: false, foreing_key: true|
 ### Association
-- has_many: images
+- has_many: item_images
 - belongs_to: user
 - belongs_to: category
 - belongs_to: brand
@@ -83,7 +84,7 @@
 |image|string|null: false|
 |item_id|references|null: false, foreign_key|
 ### Association
-- has_many: items
+- belongs_to: items
 
 ## categoriesテーブル
 |Column|Type|Options|
@@ -96,34 +97,6 @@
 ## brandsテーブル
 |Column|Type|Options|
 |------|----|-------|
-|name|string||
-### Assiciation
+|name|string|null: false|
+### Assoiciation
 - has_many: items
-
-## sizesテーブル
-|Column|Type|Options|
-|------|----|-------|
-|size|string||
-### Assiciation
-- has_many: items
-
-## preparation_daysテーブル
-|Column|Type|Options|
-|------|----|-------|
-|preparation_day|string|null: false|
-### Association
-- has_many :items
-
-## item_conditionsテーブル
-|Column|Type|Options|
-|------|----|-------|
-|item_condition|string|null: false|
-### Association
-- has_many :items
-
-## postage_payersテーブル
-|Column|Type|Options|
-|------|----|-------|
-|postage_payer|string|null: false|
-### Association
-- has_many :items
