@@ -5,11 +5,14 @@
   margin: 0;
 }
 
-.main {
+.top {
   width: 100vw;
   overflow: scroll;
 }
-
+.bottom {
+  width: 100vw;
+  overflow: scroll;
+}
 .icon--app {
   transition: 0.5s;
   width: 185px; 
@@ -67,8 +70,6 @@
       }
     } 
   }
-   
-  
   &__bottom {
     display: flex;
     justify-content: space-between;
@@ -116,7 +117,7 @@
 .topNav {
   height: 650px;
   text-align: center;
-  padding: 60px 20px;
+  padding: 60px 10px;
   margin-bottom: 30px;
   &__title {
     position: relative;
@@ -142,7 +143,7 @@
       display: flex;
       flex-direction: column;
       align-items: center;
-      padding: 0 50px;
+      padding: 0 20px;
       &__reason {
         position: relative;
         &__img{
@@ -197,9 +198,9 @@
 }
 
 .bottomNav {
-  height: 670px;
-  text-align: center;
   padding: 60px 100px;
+  height: 650px;
+  text-align: center; 
   margin-bottom: 30px;
   &__title {
     position: relative;
