@@ -114,7 +114,7 @@
 .topNav {
   height: 650px;
   text-align: center;
-  padding: 60px 30px;
+  padding: 60px 10px;
   margin-bottom: 50px;
   &__title {
     @include clearfix();
@@ -204,8 +204,7 @@
       flex-direction: column;
       align-items: center;
       padding: 0 30px;
-      &__reason {
-        
+      &__reason {        
         &__img {
           width: 70%;
           height: 90%;
@@ -214,6 +213,7 @@
       }
       &__title {
         padding-bottom: 10px;
+        font-size: 20px;
       }
       &__explanation {
         font-size: 17px;
@@ -225,26 +225,6 @@
   text-align: center;
   height: 1000px;
   background-color: #f8f8f8;
-  &__category {
-    padding-top: 80px;
-    .category {
-      font-size: 28px;
-    }
-    .items {
-      font-size: 23px;
-      color: $mainBlueColor;
-    }
-  }
-  &__brand {
-    padding-top: 80px;
-    .brand {
-      font-size: 28px;
-    }
-    .archive {
-      font-size: 23px;
-      color: $mainBlueColor;
-    }
-  }
 }
 .bottomDl {
   height: 350px;
