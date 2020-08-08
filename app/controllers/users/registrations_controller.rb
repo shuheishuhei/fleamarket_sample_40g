@@ -35,16 +35,16 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   def create_address
     @user = User.new(session["devise.regist_data"]["user"])
+    @profile = Profile.new(session["profile"])
     @address = Address.new(address_params)
     unless @address.valid?
       flash.now[:alert] = @address.errors.full_messages
       render :new_address and return
     end
+    @user.build_profile(@profile.attributes)
     @user.build_address(@address.attributes)
     @user.save
-    session["devise.regist_data"]["user"].clear
     sign_in(:user, @user)
-    render :root_path
   end
 
 
@@ -75,11 +75,11 @@ class Users::RegistrationsController < Devise::RegistrationsController
   protected
 
   def profile_params
-    params.require(:profile).permit(:first_name, :family_name, :first_name_kana, :family_name_kana, :birth_year, :birth_month, :birth_day)
+    params.require(:profile).permit(:first_name, :family_name, :first_name_kana, :family_name_kana, :birthday)
   end
 
   def address_params
-    params.require(:address).permit(:destination_first_name, :destination_family_name, :destination_first_name_kana, :destination_family_name_kana, :post_code, :prefecture_code, :city, :house_number, :building_name, :phone_number)
+    params.require(:address).permit(:destination_first_name, :destination_family_name, :destination_first_name_kana, :destination_family_name_kana, :post_code, :prefecture, :city, :house_number, :building_name, :phone_number)
   end
 
   # If you have extra params to permit, append them to the sanitizer.

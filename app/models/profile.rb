@@ -1,5 +1,5 @@
 class Profile < ApplicationRecord
   belongs_to :user, optional: true
   validates :family_name, :first_name, :family_name_kana, :first_name_kana, presence: true, format: { with: /\A[一-龥ぁ-ん]/ } 
-  validates :birth_year, :birth_month, :birth_day, presence: true
+  validates :birthday, presence: true
 end

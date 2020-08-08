@@ -9,5 +9,4 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable, password_length: 7..128
 
   validates :nickname, presence: true, uniqueness: true
-
 end

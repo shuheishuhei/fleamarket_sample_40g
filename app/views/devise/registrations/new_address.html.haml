@@ -22,9 +22,9 @@
     %br/
     = f.number_field :post_code
   .field
-    = f.label :prefecture_code
+    = f.label :prefecture
     %br/
-    = f.text_field :prefecture_code
+    = f.select :prefecture, Address.prefectures.keys,{}
   .field
     = f.label :city
     %br/
