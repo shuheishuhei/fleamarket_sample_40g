@@ -1,0 +1,191 @@
+* {
+  box-sizing: border-box;
+}
+
+html {
+  height: 100%;
+  width: 100%;
+}
+
+
+body {
+  height: 100%;
+  width: 100%;
+
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+body {
+  margin: 0;
+  padding: 0;
+}
+
+.exhibition {
+  // header {
+  //   align-items: center;
+  //   .headerLogo1 {
+
+  //   }
+  // }
+}
+
+
+.logo1 {
+  display: flex;
+  justify-content: center;
+}
+
+.requireBox {
+  background-color: red;
+  color: white;
+  padding:3px;
+  margin: 2px;
+  
+}
+
+.content {
+  background-color: rgb(228, 226, 225);
+  display: flex;
+  justify-content: center;
+  .contentFlame {
+    width: 700px;
+    height: 2000px;
+    background-color: white;
+    
+  }
+}
+
+.image {
+  margin: 40px 40px;
+  // border: solid 1px black;
+  input.fileBox {
+    width: 615px;
+    height: 150px;
+    background-color: white;
+    border: solid 1px black;
+  }
+}
+
+.name {
+  margin: 40px 40px;
+  // border: solid 1px black;
+  input.productName {
+    width: 615px;
+    height: 45px;
+  }
+}
+
+.explanation {
+  margin: 40px 40px;
+  // border: solid 1px black;
+  textarea.explanationForm {
+    width: 615px;
+    height: 150px;
+  }
+}
+
+.show {
+  margin: 40px 40px;
+  select.categoryChoice {
+    width: 615px;
+    height: 45px;
+    margin-bottom: 40px;
+  }
+  input.brandChoice {
+    width: 615px;
+    height: 45px;
+    margin-bottom: 40px;
+  }
+  select.statusChoice {
+    width: 615px;
+    height: 45px;
+    margin-bottom: 40px;
+  }
+}
+
+.delivery {
+  margin: 40px 40px;
+  select.berdenChoice {
+    width: 615px;
+    height: 45px;
+    margin-bottom: 40px;
+  }
+  select.areaChoice {
+    width: 615px;
+    height: 45px;
+    margin-bottom: 40px;
+  }
+  select.daysChoice {
+    width: 615px;
+    height: 45px;
+  }
+}
+
+.price {
+  margin: 40px 40px;
+  // background-color: white;
+  .priceTitle {
+    margin-bottom: 30px;
+  }
+  .priceSellingprice {
+    display: flex;
+    justify-content: space-between;
+  }
+  input.moneyForm {
+    width: 300px;
+    height: 45px;
+    margin-bottom: 30px;
+  }
+  .priceFee {
+    .priceFeeTitle {
+      display: flex;
+      justify-content: space-between;
+      .priceFeeTitleRight {
+        margin-bottom: 30px;
+      }
+    }
+    .priceProfit {
+      display: flex;
+      justify-content: space-between;
+    }
+  }
+}
+
+.button {
+  display: flex;
+  align-items: center;
+  flex-direction: column; 
+  button.buttonRed {
+    width: 300px;
+    height: 45px;
+    margin-bottom: 30px;
+    background-color: red;
+    color: white;
+    display: inline-block;
+    cursor: pointer;
+  }
+  button.buttonGrey {
+    width: 300px;
+    height: 45px;
+    margin-bottom: 30px;
+    display: inline-block;
+    cursor: pointer;
+  }
+  .backToTopPage {
+    text-decoration: none;
+    display: inline-block;
+    cursor: pointer;
+    margin-bottom: 30px;
+  }
+}
+
+.importantPoint {
+  display: flex;
+  justify-content: center;
+}
