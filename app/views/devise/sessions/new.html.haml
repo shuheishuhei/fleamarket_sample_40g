@@ -1,8 +1,18 @@
 .AccountPage
   .AccountPage__title
-    %h2 Log in
-    %h5 登録しているユーザーでログイン
+    %h2 
+    = image_tag 'logo.png', alt: '失敗', height: '50px', width: '100%', class: 'pic'
+    %h5 アカウントをお持ちでない方はこちら
     = render "devise/shared/links"
+  .AccountPage__snsBox
+    .AccountPage__google
+      = link_to image_tag 'btn_google_signin_dark_normal_web.png', alt: '失敗', height: '50px', width: '100%', class: 'pic'
+    .AccountPage__twitter
+      = link_to image_tag 'facebook.png', alt: '失敗', height: '50px', width: '100%', class: 'pic'
+    .AccountPage__facebook
+      = link_to image_tag 'apple.png', alt: '失敗', height: '50px', width: '100%', class: 'pic'
+    .memo
+      ↑イメージで入れいます
   .AccountPage__form
     = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
       .FormField
@@ -18,3 +28,4 @@
             = f.password_field :password, autocomplete: "off"
         .actions
           = f.submit "Log in", class: 'Button UserButton'
+

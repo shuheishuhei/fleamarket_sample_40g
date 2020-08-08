@@ -82,7 +82,7 @@
   &__picBox{
     height: 200px;
     width: 800px;
-    background-color: seagreen;
+    
     @include flexBox-center;
     text-align: center;
     
@@ -97,14 +97,14 @@
   &__nameBox{
     height: 50px;
     @include flexBox-center;
-    background-color: paleturquoise;
+    
 
 }
   &__contentsBox{
     height: 200px;
     width: 800px;
-    @include flexBox-center;
-    background-color: peru;
+    //@include flexBox-center;
+    
 
 }
   &__li2{

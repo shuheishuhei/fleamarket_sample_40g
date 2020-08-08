@@ -1,6 +1,10 @@
 class ApplicationController < ActionController::Base
   before_action :basic_auth, if: :production?
 
+  def after_sign_out_path_for(resource)
+    new_user_session_path
+  end
+
   private
 
   def basic_auth

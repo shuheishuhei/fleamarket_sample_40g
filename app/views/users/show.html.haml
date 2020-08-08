@@ -24,12 +24,21 @@
       .myPage__indexBox
         = render 'sideBox'
     .myPage__rightBox
+      
       .myPage__infoBox
+        
         .myPage__picBox
+          = link_to image_tag 'background.jpg', alt: '失敗', height: '200px', width: '800px', class: 'pic1'
           .myPage__picinBox
-            profile写真
+            = image_tag 'toshiki-no-pic.jpg', alt: '失敗', height: '100%', width: '100%', class: 'pic2'
         .myPage__nameBox
-          nickname イイね数
+          toshiki 4いいね
+          //= current_user.name イイね数
         .myPage__contentsBox
-          .li2 筋トレグッズを中心に出品しています
-          .li2 プロテインもあるyo
+          .myPage__contentinfo
+            プロフィール
+            .li2 筋トレグッズを中心に出品しています
+            .li2 プロテインもあるyo
+          .myPage__contentnews
+            お知らせ
+            

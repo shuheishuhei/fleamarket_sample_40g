@@ -1,16 +1,18 @@
 .AccountPage
   .AccountPage__title
-    %h2 Create Account
+    %h2 
+      = image_tag 'logo.png', alt: '失敗', height: '50px', width: '100%', class: 'pic'
     %h5 新規アカウントの作成
     = render "devise/shared/links"
   .AccountPage__form
     = form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
       = devise_error_messages!
+      
       .FormField
         .FormField__label--normal
-          = f.label :name
+          = f.label :nickname
         .FormField__input--normal
-          = f.text_field :name, autofocus: true
+          = f.text_field :nickname, autofocus: true
       .FormField
         .FormField__label--normal
           = f.label :email
@@ -29,3 +31,31 @@
           = f.password_field :password_confirmation, autocomplete: "off"
       .actions
         = f.submit "Create Account", class: 'Button UserButton'
+
+%h2 Sign up
+= form_for(@user, url: user_registration_path) do |f|
+  = render "devise/shared/error_messages", resource: @user
+  .FormField__label--normal
+    = f.label :nickname
+    %br/
+    = f.text_field :nickname
+  .field
+    = f.label :email
+    %br/
+    = f.email_field :email, autofocus: true, autocomplete: "email"
+  .field
+    = f.label :password
+    - if @minimum_password_length
+      %em
+        (#{@minimum_password_length} characters minimum)
+    %br/
+    = f.password_field :password, autocomplete: "new-password"
+  .field
+    = f.label :password_confirmation
+    %br/
+    = f.password_field :password_confirmation, autocomplete: "new-password"
+  .actions
+    = f.submit "Next"
+  = render "devise/shared/links"
+
+
