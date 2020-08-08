@@ -1,11 +1,49 @@
 .bottom
   .productList
-    .productList__area
+    %h2.itemsTitle 全商品一覧
+    .product__area
+      %a.itemsNew 新規投稿一覧
       .product__area__all
-        .product__area__all__catalogue 
-          全商品一覧
-        .product__area__all__post 
-          新規投稿一覧
+        .product__area__all__list
+          - @items.each do |item|
+            .product__all__image
+              = image_tag (item.image.to_s) if item.image?
+            .product__all____name
+              = item.name
+            .product__all____price
+              = item.price
+        -# .product__area__all__list
+        -#   - @items.each do |item|
+        -#     .product__all__image
+        -#       = image_tag (item.image.to_s) if item.image?
+        -#     .product__all____name
+        -#       = item.name
+        -#     .product__all____price
+        -#       = item.price
+        -# .product__area__all__list
+        -#   - @items.each do |item|
+        -#     .product__all__image
+        -#       = image_tag (item.image.to_s) if item.image?
+        -#     .product__all____name
+        -#       = item.name
+        -#     .product__all____price
+        -#       = item.price
+        -# .product__area__all__list
+        -#   - @items.each do |item|
+        -#     .product__all__image
+        -#       = image_tag (item.image.to_s) if item.image?
+        -#     .product__all____name
+        -#       = item.name
+        -#     .product__all____price
+        -#       = item.price
+        -# .product__area__all__list
+        -#   - @items.each do |item|
+        -#     .product__all__image
+        -#       = image_tag (item.image.to_s) if item.image?
+        -#     .product__all____name
+        -#       = item.name
+        -#     .product__all____price
+        -#       = item.price
   .bottomDl
     .bottomDl__content
       .bottomDl__content__title
