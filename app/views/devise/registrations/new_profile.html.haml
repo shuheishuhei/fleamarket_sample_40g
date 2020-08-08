@@ -19,16 +19,15 @@
   .field
     = f.label :birth_year
     %br/
-    = f.date_select :birth_year> |
-      </div>                     |
-      <div class="field">        |
-      <%= f.label :birth_month   |
+    = f.date_select :birth_year,  {discard_month: true, discard_day: true}
+  .field
+    = f.label :birth_month
     %br/
-    = f.text_field :birth_month
+    = f.date_select :birth_month,{discard_year: true, discard_day: true, use_month_numbers: true}
   .field
     = f.label :birth_day
     %br/
-    = f.text_field :birth_day
+    = f.date_select :birth_day,  {discard_month: true}
   .actions
     = f.submit "Next"
 = render "devise/shared/links"
