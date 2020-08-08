@@ -320,6 +320,8 @@ DEPENDENCIES
   capybara (>= 2.15)
   carrierwave
   devise
+
+
   haml-rails
   jbuilder (~> 2.7)
   jquery-rails
