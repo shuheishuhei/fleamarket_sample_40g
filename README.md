@@ -17,9 +17,7 @@
 |family_name|string|null: false|
 |first_name_kana|string|null: false|
 |family_name_kana|string|null: false|
-|birth_year|date|null: false|
-|birth_month|date|null: false|
-|birth_day|date|null: false|
+|birthday|date|null: false|
 |user_id|references|null: false, foreign_key: true|
 ### Association
 - belongs_to :user
@@ -32,7 +30,7 @@
 |destination_first_name_kana|string|null: false|
 |destination_family_name_kana|string|null: false|
 |post_code|integer|null: false|
-|prefecture_code|integer|null: false|
+|prefecture|integer|null: false|
 |city|string|null: false|
 |house_number|integer|null: false|
 |building_name|string||
@@ -64,7 +62,7 @@
 |item_conditions_id|references|foreign_key: true|
 |postage_pay_id|references|null: false, foreign_key: true|
 |preparation_day_id|references|null: false,foreign_key: true|
-|prefecture_code|integer||
+|prefecture|integer||
 |buyer_id|references|null: false, foreign_key: true|
 |seller_id|references|null: false, foreign_key: true|
 ### Association

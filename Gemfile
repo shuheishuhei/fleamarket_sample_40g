@@ -38,6 +38,10 @@ group :development, :test do
   gem 'capistrano-rails'
   gem 'capistrano3-unicorn'
   gem 'capistrano-rails-console'
+  gem 'rspec-rails', '~> 4.0.0.beta2'
+  gem 'factory_bot_rails'
+  gem 'rails-controller-testing'
+  gem 'database_cleaner'
 end
 
 group :development do
@@ -64,17 +68,11 @@ group :production do
   gem 'unicorn'
 end
 
-
-
 gem 'active_hash'
 
 gem 'devise'
-
+gem 'haml-rails'
 gem 'carrierwave'
 gem 'mini_magick'
 gem 'ancestry'
 gem 'jquery-rails'
-
-gem 'haml-rails'
-
-

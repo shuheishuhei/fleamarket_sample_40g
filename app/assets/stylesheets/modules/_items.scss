@@ -80,10 +80,13 @@
     }
     &__nav__right {
       display: flex;
-      &__login {
+      &__login,&__mypage {
         padding-right: 30px;
       }
-    }
+      a {
+        text-decoration: none;
+        color: black;
+      }
   }
 }
 

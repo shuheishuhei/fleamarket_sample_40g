@@ -13,10 +13,16 @@
         .header__bottom__nav__left__brand
           ブランド
       .header__bottom__nav__right
-        .header__bottom__nav__right__login
-          ログイン
-        .header__bottom__nav__right__registration
-          新規会員登録
+        - if user_signed_in?
+          .header__bottom__nav__right__mypage
+            =link_to "マイページ", "#"
+          .header__bottom__nav__right__logout
+            =link_to "ログアウト", destroy_user_session_path, method: :delete
+        - else
+          .header__bottom__nav__right__login
+            =link_to "ログイン", new_user_session_path
+          .header__bottom__nav__right__registration
+            =link_to "新規会員登録", new_user_registration_path
   .mainVisual
     .mainVisual__content
       .mainVisual__content__title
