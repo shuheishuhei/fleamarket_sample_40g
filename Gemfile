@@ -68,6 +68,8 @@ group :production do
   gem 'unicorn'
 end
 
+gem 'active_hash'
+
 gem 'devise'
 gem 'haml-rails'
 gem 'carrierwave'

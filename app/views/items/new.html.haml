@@ -1,0 +1,145 @@
+.exhibition
+  %header
+    .logo1
+      = link_to "root_path" do
+        = image_tag("logo.png", size: '420x220', class: "logo2")
+  %form.content
+    .contentFlame
+      .image
+        %h3.imageWordTop
+          出品画像
+          %span.requireBox
+            必須
+        .imageWordUnder
+          %p 最大10枚までアップロードできます
+        .imageArea
+          %input{type: "file", class: "fileBox", placeholder: "ドラッグアンドドロップ<br>またはクリックしてファイルをアップロード"}
+      .name
+        %h3.nameTitle
+          商品名
+          %span.requireBox
+            必須
+        .nameForm
+          %input.productName{placeholder: "商品名 (必須 40文字まで)"}
+      .explanation
+        %h3.explanationTitle
+          商品の説明
+          %span.requireBox
+            必須
+        .explanationForm
+          %textarea{class: "explanationForm",placeholder: "商品の説明 (必須 1,000文字以内) (色、素材、重さ、定価、注意点など) 例) 2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。合わせやすいのでおすすめです。"}
+      .show
+        .showTitle
+          %h3 商品の詳細
+        .showCategory
+          %h3.showCategoryTitle
+            カテゴリー
+            %span.requireBox
+              必須
+          .showCategoryForm
+            %select.categoryChoice
+              %option{value: "0"} 選択してください
+              %option{value: "1"} レディース
+              %option{value: "2"} メンズ
+              %option{value: "3"} ベビー・キッズ
+              %option{value: "4"} インテリア・住まい・小物
+              %option{value: "5"} 本・音楽・ゲーム
+              %option{value: "6"} おもちゃ・ホビー・グッズ
+              %option{value: "7"} コスメ・香水・美容
+              %option{value: "8"} 家電・スマホ・カメラ
+              %option{value: "9"} スポーツ・レジャー
+              %option{value: "10"} ハンドメイド
+              %option{value: "11"} チケット
+              %option{value: "12"} 自動車・オートバイ
+              %option{value: "13"} その他
+        .showBrand
+          %h3.showBrandTitle
+            ブランド
+            %span.requireBox
+              必須
+          .showBrandForm
+            %input.brandChoice{placeholder:"例) プラダ"}
+        .showStatus
+          %h3.showStatusTitle
+            商品の状態
+            %span.requireBox
+              必須
+          .showStatusForm
+            %select.statusChoice
+              %option{value: "0"} 選択してください
+              %option{value: "1"} 新品・未使用
+              %option{value: "2"} 未使用に近い
+              %option{value: "3"} 目立った傷や汚れなし
+              %option{value: "4"} やや傷や汚れあり
+              %option{value: "5"}傷や汚れあり 
+              %option{value: "6"} 全体的に状態が悪い
+      .delivery
+        .deriveryTitle
+          %h3 配送について
+        .deliveryBerden
+          %h3.deriveryBerdenTitle
+            配送料の負担
+            %span.requireBox
+              必須
+          .deriveryBerdenForm
+            %select.berdenChoice
+              %option{value: "0"} 選択してください
+              %option{value: "1"} 送料込み(出品者負担)
+              %option{value: "2"} 着払い(購入者負担)
+        .deriveryArea
+          %h3.deriveryAreaTitle
+            発送元の地域
+            %span.requireBox
+              必須
+          .deriveryAreaForm
+            .areaChoice
+              = form_with model: @item do |form| 
+                = form.collection_select(:prefecture_id, Prefecture.all, :id, :name, {include_blank: "選択してください"}, {class: "areaChoiceList"}) 
+        .deriveryDays
+          %h3.deriveryDaysTitle
+            発送までの日数
+            %span.requireBox
+              必須
+          .deriveryDaysForm              
+            %select.daysChoice
+              %option{value: "0"} 選択してください
+              %option{value: "1"} 1〜2日で発送
+              %option{value: "2"} 2〜3日で発送
+              %option{value: "3"} 4〜7日で発送
+      .price
+        .priceTitle
+          価格 (￥300~9,999,999)
+        .priceSellingprice
+          %h3.priceSellingpriceTitle
+            販売価格
+            %span.requireBox
+              必須
+          .priceSellingSymbol
+            ￥
+            %input{placeholder: "金額を入力してください", class: "moneyForm"}   
+        .priceFee
+          .priceFeeTitle
+            .priceFeeTitleLeft
+              %h3 販売手数料 (10%)
+            .priceFeeTitleRight
+              %h3 ー
+          .priceProfit
+            .priceProfitTitleLeft
+              %h3 販売利益
+            .priceProfitTitleRight
+              %h3 ー
+      .button
+        %button{type: "submit", class: "buttonRed"}
+          出品する
+        %button{type: "submit", class: "buttonGrey"}
+          下書きに保存
+        .backToTopPage
+          = link_to "root_path" do
+            戻る
+      .importantPoint
+        %p 禁止されている行為及出品物を必ずご確認ください。偽ブランド品や盗品物などの販売は犯罪であり、法律により処罰される可能性があります。また、出品をもちまして加盟店規約に同意したことになります。
+  .footer
+    .logo1
+      =link_to "root_path" do
+        = image_tag("logo.png", size: '420x220',class: "footerLogo")
+    .footer
