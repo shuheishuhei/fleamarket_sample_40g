@@ -1,0 +1,103 @@
+.top
+  .header
+    .header__top
+      = link_to image_tag ("material/logo/logo.png"), class: "header__top__logo"
+      .header__top__search
+        %input{ class: "header__top__search__form", placeholder: "キーワードから探す"}
+        %button.header__top__search__btn 
+          = image_tag ("material/icon/icon-search 1.png"), class: "header__top__search__btn__icon" 
+    .header__bottom
+      .header__bottom__nav__left
+        .header__bottom__nav__left__category
+          カテゴリー
+        .header__bottom__nav__left__brand
+          ブランド
+      .header__bottom__nav__right
+        .header__bottom__nav__right__login
+          ログイン
+        .header__bottom__nav__right__registration
+          新規会員登録
+  .mainVisual
+    .mainVisual__content
+      .mainVisual__content__title
+        %h2 人生を変えるフリマアプリ
+      .mainVisual__content__text 
+        %p
+          FURIMAはだれでもかんたんに出品・購入できる
+          %br
+          フリマアプリです
+      = link_to image_tag ("material/icon/Download_on_the_App_Store_Badge_US-UK_RGB_blk_092917.svg"), class: "icon--app"
+      = link_to image_tag ("material/icon/google-play-badge.png"), class: "icon--google"
+      
+  .topNav
+    .topNav__title
+      %h2 FURIMAが選ばれる3つの理由
+    .topNav__content
+      .topNav__content__list
+        .topNav__content__list__reason
+          = image_tag ("material/pict/pict-reason-01.jpg"), class: "topNav__content__list__reason__img"
+          .number 1
+        .topNav__content__list__title
+          %h3 
+            %span.color 3分
+            ですぐに出品
+        .topNav__content__list__explanation
+          スマホで入力するだけで簡単に出品できる！
+      .topNav__content__list
+        .topNav__content__list__reason
+          = image_tag ("material/pict/pict-reason-02.jpg"), class: "topNav__content__list__reason__img"
+          .number 2
+        .topNav__content__list__title
+          %h3 
+            %span.color シンプル
+            で使いやすい
+        .topNav__content__list__explanation
+          めんどくさい入力は必要なく、検索も購入もスムーズ！
+      .topNav__content__list
+        .topNav__content__list__reason
+          = image_tag ("material/pict/pict-reason-03.jpg"), class: "topNav__content__list__reason__img"
+          .number 3
+        .topNav__content__list__title
+          %h3 
+            手数料
+            %span.color 業界最安
+        .topNav__content__list__explanation
+          最大3%でお得に出品&購入！    
+  .topDl
+    .topDl__content
+      .topDl__content__title
+        %h2 会員数日本一位
+      .topDl__content__text
+        %p
+          FURIMAは、フリマアプリで最も人気。
+          %br
+          出品・購入回数も業界最多です！
+          %br
+          欲しかったあの商品に出会えるかもしれません。
+      = link_to image_tag ("material/icon/Download_on_the_App_Store_Badge_US-UK_RGB_blk_092917.svg"), class: "icon--app"
+      = link_to image_tag ("material/icon/google-play-badge.png"), class: "icon--google"
+  .bottomNav
+    .bottomNav__title
+      %h2 FURIMAの特徴
+    .bottomNav__content
+      .bottomNav__content__list
+        .bottomNav__content__list__reason
+          = image_tag ("material/icon/icon-01.png"), class: "bottomNav__content__list__reason__img"
+        .bottomNav__content__list__title
+          %h3 簡単に売り買いできる
+        .bottomNav__content__list__explanation
+          スマホひとつで、いつでもどこでも簡単に出品・購入が可能！
+      .bottomNav__content__list
+        .bottomNav__content__list__reason
+          = image_tag ("material/icon/icon-03.png"), class: "bottomNav__content__list__reason__img"
+        .bottomNav__content__list__title
+          %h3 売上金は即日振込みに対応
+        .bottomNav__content__list__explanation
+          午前9時までに振込を依頼いただければ、翌日に指定の口座に入金いたします！
+      .bottomNav__content__list
+        .bottomNav__content__list__reason
+          = image_tag ("material/icon/icon-04.png"), class: "bottomNav__content__list__reason__img"
+        .bottomNav__content__list__title
+          %h3 様々な支払いに対応
+        .bottomNav__content__list__explanation
+          お支払いは、クレジットカードだけでなく、ポイントや売上金など多彩な方法があります。
