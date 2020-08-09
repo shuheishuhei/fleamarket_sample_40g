@@ -37,6 +37,8 @@ GEM
       erubi (~> 1.4)
       rails-dom-testing (~> 2.0)
       rails-html-sanitizer (~> 1.1, >= 1.2.0)
+    active_hash (3.1.0)
+      activesupport (>= 5.0.0)
     activejob (6.0.3.2)
       activesupport (= 6.0.3.2)
       globalid (>= 0.3.6)
@@ -308,7 +310,11 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+
+  active_hash
+
   ancestry
+
   bootsnap (>= 1.4.2)
   byebug
   capistrano
@@ -318,8 +324,11 @@ DEPENDENCIES
   capistrano-rbenv
   capistrano3-unicorn
   capybara (>= 2.15)
+
+
   carrierwave
   devise
+
 
 
   haml-rails

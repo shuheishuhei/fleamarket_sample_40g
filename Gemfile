@@ -65,6 +65,9 @@ group :production do
 end
 
 
+
+gem 'active_hash'
+
 gem 'devise'
 
 gem 'carrierwave'
@@ -73,4 +76,5 @@ gem 'ancestry'
 gem 'jquery-rails'
 
 gem 'haml-rails'
+
 
