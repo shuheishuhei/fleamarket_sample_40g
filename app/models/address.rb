@@ -1,19 +1,20 @@
 class Address < ApplicationRecord
   belongs_to :user, optional: true
 
+  validates :phone_number, uniqueness: true
+
   with_options presence: true do
     validates :post_code
     validates :prefecture
     validates :city
     validates :house_number
-    validates :phone_number, uniqueness: true
     
     with_options format: {with: /\A(?:\p{Hiragana}|\p{Katakana}|[ー－]|[一-龠々])+\z/} do
       validates :destination_first_name
       validates :destination_family_name
     end
 
-    with_options format: {with: /^[ぁ-ん]+$/} do
+    with_options format: {with: /\A[ぁ-ん]+\z/} do
       validates :destination_first_name_kana
       validates :destination_family_name_kana
     end

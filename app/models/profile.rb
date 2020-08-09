@@ -9,7 +9,7 @@ class Profile < ApplicationRecord
       validates :family_name
     end
 
-    with_options format: {with: /^[ぁ-ん]+$/} do
+    with_options format: {with: /\A[ぁ-ん]+\z/} do
       validates :first_name_kana
       validates :family_name_kana
     end
