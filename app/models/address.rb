@@ -1,7 +1,7 @@
 class Address < ApplicationRecord
   belongs_to :user, optional: true
 
-  validates :phone_number, uniqueness: true
+  validates :phone_number, uniqueness: {case_sensitive: false}
 
   with_options presence: true do
     validates :post_code

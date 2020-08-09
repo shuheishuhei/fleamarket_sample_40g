@@ -39,6 +39,8 @@ group :development, :test do
   gem 'capistrano-rails-console'
   gem 'rspec-rails', '~> 4.0.0.beta2'
   gem 'factory_bot_rails'
+  gem 'rails-controller-testing'
+  gem 'database_cleaner'
 end
 
 group :development do
@@ -66,4 +68,8 @@ group :production do
 end
 
 gem 'devise'
-gem "haml-rails", ">= 1.0", '<= 2.0.1'
+gem 'haml-rails'
+gem 'carrierwave'
+gem 'mini_magick'
+gem 'ancestry'
+gem 'jquery-rails'

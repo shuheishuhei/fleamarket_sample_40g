@@ -8,6 +8,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
     @user = User.new
   end
 
+#ユーザー登録ウィザード形式1ページ目
   def create
     @user = User.new(sign_up_params)
     unless @user.valid?
@@ -20,6 +21,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
     render :new_profile
   end
 
+#ユーザー登録ウィザード形式2ページ目
   def create_profile
     @user = User.new(session["devise.regist_data"]["user"])
     @profile = Profile.new(profile_params)
@@ -33,6 +35,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
     render :new_address
   end
 
+#ユーザー登録ウィザード形式3ページ目
   def create_address
     @user = User.new(session["devise.regist_data"]["user"])
     @profile = Profile.new(session["profile"])

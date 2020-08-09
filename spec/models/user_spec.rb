@@ -2,59 +2,60 @@ require 'rails_helper'
 
 describe User do
   describe '#create' do
-    #nicknameとemail、passwordとpassword_confirmationが存在すれば登録できること
-    it "is valid with a nickname, email, password, password_confirmation" do
-      user = build(:user)
-      expect(user).to be_valid
+  #ウィザード形式1ページ目(必須項目は埋まっていないとエラー表示をするか)'
+    it "必須項目が間違いなく入力されていれば進める" do
+    user = build(:user)
+    expect(user).to be_valid
     end
 
-    #nicknameが空では登録できないこと
-    it "is invalid without a nickname" do
+    it "ニックネームが空だと登録できない" do
       user = build(:user, nickname: nil)
       user.valid?
       expect(user.errors[:nickname]).to include("can't be blank")
     end
 
-    #emailが空では登録できないこと
-    it "is invalid without a email" do
-      user = build(:user, email: nil)
+    it "メールアドレスがないと登録できない" do
+      user = build(:user, email: "")
       user.valid?
       expect(user.errors[:email]).to include("can't be blank")
     end
 
-    #passwordが空では登録できないこと
-    it "is invalid without a password" do
-      user = build(:user, password: nil)
+    it "パスワードがないと登録できない" do
+      user = build(:user, password: "")
       user.valid?
       expect(user.errors[:password]).to include("can't be blank")
     end
 
-    #passwordが存在してもpassword_confirmationが空では登録できないこと
-    it "is invalid without a password_confirmation although with a password" do
+    it "パスワードは2回入力しないと登録できない" do
       user = build(:user, password_confirmation: "")
       user.valid?
       expect(user.errors[:password_confirmation]).to include("doesn't match Password")
     end
-
-    #重複したemailが存在する場合登録できないこと
-    it "is invalid with a duplicate email address" do
+  
+  #ウィザード形式1ページ目(誤入力時のエラー表示がされるか)
+    it "すでに登録されているメールアドレスは登録できない" do
       user = create(:user)
       another_user = build(:user, email: user.email)
       another_user.valid?
       expect(another_user.errors[:email]).to include("has already been taken")
     end
 
-    #passwordが7文字以上であれば登録できること
-    it "is valid with a password that has more than 7 characters " do
+    it "メールアドレスが誤入力された（@とドメインを含んでいない）場合は進めない" do
+      user = build(:user,email: %w[user@foo..com user_at_foo,org example.user@foo.
+        foo@bar_baz.com foo@bar+baz.com])
+      user.valid?
+      expect(user.errors[:email]).to include("is invalid")
+    end
+
+    it "パスワードが7文字以上でないと進めない" do
       user = build(:user, password: "0000000", password_confirmation: "0000000")
       expect(user).to be_valid
     end
 
-    #passwordが6文字以下であれば登録できないこと
-    it "is invalid with a password that has less than 6 characters " do
+    it "パスワードが6文字以下だと登録できない" do
       user = build(:user, password: "000000", password_confirmation: "000000")
       user.valid?
-      expect(user.errors[:password]).to include("is too short (minimum is 6 characters)")
+      expect(user.errors[:password]).to include("is too short (minimum is 7 characters)")
     end
   end
 end
