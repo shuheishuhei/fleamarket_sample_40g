@@ -79,7 +79,7 @@ describe Profile do
       profile.valid?
       expect(profile.errors[:family_name_kana]).to include("is invalid")
     end
-    it "名字(カナ)が全角で入力されていないと進めない(半角ｶﾀｶﾅver)" do
+    it "名字(かな)が全角で入力されていないと進めない(半角ｶﾀｶﾅver)" do
       profile = build(:profile,family_name_kana: "ﾔﾏﾀﾞ")
       profile.valid?
       expect(profile.errors[:family_name_kana]).to include("is invalid")
