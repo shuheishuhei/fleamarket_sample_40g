@@ -14,7 +14,6 @@
           %p 最大10枚までアップロードできます
         .imageArea
           %input{type: "file", class: "fileBox", placeholder: "ドラッグアンドドロップ<br>またはクリックしてファイルをアップロード"}
-          
       .name
         %h3.nameTitle
           商品名
@@ -53,10 +52,6 @@
               %option{:value => "11"} チケット
               %option{:value => "12"} 自動車・オートバイ
               %option{:value => "13"} その他
-        
-        
-        
-        
         .showBrand
           %h3.showBrandTitle
             ブランド
@@ -78,7 +73,6 @@
               %option{:value => "4"} やや傷や汚れあり
               %option{:value => "5"}傷や汚れあり 
               %option{:value => "6"} 全体的に状態が悪い
-
       .delivery
         .deriveryTitle
           %h3 配送について
@@ -101,8 +95,6 @@
             .areaChoice
               = form_with model: @item do |form| 
                 = form.collection_select(:prefecture_id, Prefecture.all, :id, :name, {include_blank: "選択してください"}, {class: "areaChoiceList"}) 
-
-
         .deriveryDays
           %h3.deriveryDaysTitle
             発送までの日数
@@ -136,7 +128,6 @@
               %h3 販売利益
             .priceProfitTitleRight
               %h3 ー
-
       .button
         %button{type: "submit", class: "buttonRed"}
           出品する
@@ -145,16 +136,8 @@
         .backToTopPage
           = link_to "root_path" do
             戻る
-      
-
-
-
       .importantPoint
         %p 禁止されている行為及出品物を必ずご確認ください。偽ブランド品や盗品物などの販売は犯罪であり、法律により処罰される可能性があります。また、出品をもちまして加盟店規約に同意したことになります。
-        
-
-    
-
   .footer
     .logo1
       =link_to "root_path" do
