@@ -7,6 +7,15 @@
         <%= image.file_field :src, class: 'js-file' %><br>
         <span class="js-remove">削除</span>
       </div>
+      <% if @product.persisted? %>
+        <%= image.check_box :_destroy, data:{ index: image.index }, class: 'hidden-destroy' %>
+      <% end %>
+    <% end %>
+    <% if @product.persisted? %>
+      <div data-index="<%= @product.images.count %>" class="js-file_group">
+        <%= file_field_tag :src, name: "product[images_attributes][#{@product.images.count}][src]", class: 'js-file' %>
+        <div class="js-remove">削除</div>
+      </div>
     <% end %>
   </div>
   <%= f.submit %>
