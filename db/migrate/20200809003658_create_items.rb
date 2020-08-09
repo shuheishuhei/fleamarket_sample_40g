@@ -13,7 +13,7 @@ class CreateItems < ActiveRecord::Migration[6.0]
       # t.integer :prefecture
       # t.references :buyer_id, null: false, foreign_key: true
       # t.references :seller_id, null: false, foreign_key: true
-      # t.timestamps
+      t.timestamps
     end
   end
 end
