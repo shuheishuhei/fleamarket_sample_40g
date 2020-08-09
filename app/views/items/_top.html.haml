@@ -15,9 +15,9 @@
       .header__bottom__nav__right
         - if user_signed_in?
           .header__bottom__nav__right__mypage
-            =link_to "マイページ", "/users/#{current_user.id}"
+            =link_to "マイページ", "#"
           .header__bottom__nav__right__logout
-            =link_to "ログアウト", destroy_user_session_path
+            =link_to "ログアウト", destroy_user_session_path, method: :delete
         - else
           .header__bottom__nav__right__login
             =link_to "ログイン", new_user_session_path
