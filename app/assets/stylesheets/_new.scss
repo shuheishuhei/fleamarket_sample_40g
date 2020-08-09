@@ -107,10 +107,14 @@ body {
     height: 45px;
     margin-bottom: 40px;
   }
-  select.areaChoice {
+  .areaChoice {
     width: 615px;
     height: 45px;
     margin-bottom: 40px;
+    .areaChoiceList {
+      width: 615px;
+      height: 45px;
+    }
   }
   select.daysChoice {
     width: 615px;
