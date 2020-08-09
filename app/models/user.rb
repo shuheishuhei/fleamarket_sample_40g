@@ -2,11 +2,14 @@ class User < ApplicationRecord
   has_many :items
   has_one :profile
   has_one :address
-  
-  # Include default devise modules. Others available are:
-  # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
-  devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :validatable, password_length: 7..128
 
-  validates :nickname, presence: true, uniqueness: true
+  devise :database_authenticatable, :registerable,
+         :recoverable, :rememberable, :validatable
+
+  with_options presence: true do
+    validates :nickname
+    validates :email, uniqueness: {case_sensitive: false},
+    format: {with: /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i}
+    validates :password, length: {minimum: 7}
+  end
 end

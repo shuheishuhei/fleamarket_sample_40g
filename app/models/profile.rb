@@ -1,6 +1,17 @@
 class Profile < ApplicationRecord
   belongs_to :user, optional: true
-  
-  validates :family_name, :first_name, :family_name_kana, :first_name_kana, presence: true, format: { with: /\A[一-龥ぁ-ん]/ } 
-  validates :birthday, presence: true
+
+  with_options presence: true do
+    validates :birthday
+
+    with_options format: {with: /\A(?:\p{Hiragana}|\p{Katakana}|[ー－]|[一-龠々])+\z/} do
+      validates :first_name
+      validates :family_name
+    end
+
+    with_options format: {with: /^[ぁ-ん]+$/} do
+      validates :first_name_kana
+      validates :family_name_kana
+    end
+  end
 end
