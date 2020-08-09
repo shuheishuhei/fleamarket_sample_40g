@@ -1,8 +1,13 @@
-<%= form_for @item do |f| %>
+<%= form_for @product do |f| %>
   商品名<%= f.text_field :name %><br>
   価格<%= f.number_field :price %><br>
-  <%= f.fields_for :images do |i| %>
-    <%= i.file_field :src %><br>
-  <% end %>
+  <div id="image-box">
+    <%= f.fields_for :images do |image| %>
+      <div data-index="<%= image.index %>" class="js-file_group">
+        <%= image.file_field :src, class: 'js-file' %><br>
+        <span class="js-remove">削除</span>
+      </div>
+    <% end %>
+  </div>
   <%= f.submit %>
 <% end %>
