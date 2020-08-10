@@ -1,0 +1,106 @@
+header {
+  height: 70px;
+  border-bottom: solid 1px lightgray;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+main {
+  height: 600px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  .buyItem {
+    position: absolute;
+    width: 600px;
+    top: 40px;
+    &__box {
+      border: solid 1px lightgray;
+      padding: 30px 100px;
+      &__title {
+        font-size: 20px;
+        font-weight: bold;
+        padding-bottom: 20px;
+        text-align: center;
+      }
+      &__info {
+        border-top: solid 1px lightgray;
+        display: flex;
+        justify-content: center;
+        padding: 20px;
+        &__image {
+          .item__image {
+            border-radius: 5px;
+          }
+        }
+        &__detail {
+          padding-left: 10px;
+          ul {
+            display: flex;
+            justify-content: flex-end;
+            li {
+              font-size: 12px;
+              padding-left: 10px;
+            }
+            .itemPrice {
+              font-weight: bold;
+            }
+          }
+        }
+      }
+      &__price {
+        border-top: solid 1px lightgray;
+        padding: 20px;
+        display: flex;
+        justify-content: space-around;
+        font-size: 20px;
+      }
+      &__address {
+        border-top: solid 1px lightgray;
+        padding: 20px;
+        display: flex;
+        justify-content: space-around;
+        p {
+          font-size: 13px;
+        }
+        a {
+          text-decoration: none;
+          color: #3CCACE;
+
+        }
+      }
+      &--btn {
+        .buy_btn {
+          width: 400px;
+          background-color: #3CCACE;
+          border: none;
+          outline: none;
+          padding: 10px 0;
+          border-radius: 10px;
+        }
+      }
+    }
+  }
+}
+
+footer {
+  height: 120px;
+  background-color: #272727;
+  color: white;
+  text-align: center;
+  padding-top: 20px;
+  .item {
+    font-size: 12px;
+    margin-left: 10px;
+  }
+  .footer__logo {
+    height: 50px;
+    width: 100px;
+    padding-top: 20px;
+  }
+  .copyright {
+    font-size: 7px;
+  }
+}
