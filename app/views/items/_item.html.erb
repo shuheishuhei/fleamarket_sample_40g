@@ -1,8 +1,0 @@
-<div class="content">
-  <p><%= item.name %></p>
-  <p><%= item.price %>円</p>
-  <% items.images.each do |image| %>
-    <%= image_tag image.src.url %>
-  <% end %>
-  <%= link_to '編集', edit_item_path(item) %>
-</div>

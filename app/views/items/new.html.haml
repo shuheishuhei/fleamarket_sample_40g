@@ -6,15 +6,26 @@
   %form.content
     .contentFlame
       .image
-        %h3.imageWordTop
-          出品画像
-          %span.requireBox
-            必須
-        .imageWordUnder
-          %p 最大10枚までアップロードできます
-        .imageArea
-          = render partial: 'form'
-          -# %input{type: "file", class: "fileBox", placeholder: "ドラッグアンドドロップ<br>またはクリックしてファイルをアップロード"}
+        .image__block
+          .image__block__form
+            %h3.imageWordTop
+              出品画像
+              %span.requireBox
+                必須
+            %p 最大5枚までアップロードできます
+            .image__block__area
+              .image__block__area__prev
+              .image__block__area__label
+                %label{for: "item_images_attributes_0_image", class: "labelBox", id: "label-box--0"}
+                  %pre.fileBox クリックして画像をアップロード
+              .hidden__content
+                = form_with model: @item, local: true do |f|
+                  =f.fields_for :images do |i|
+                    =i.file_field :image, class: "hidden__content__field"
+                    %input{class:"hidden__content__field", type: "file", name: "item[images_attributes][1][image]", id: "item_images_attributes_1_image" }
+                    %input{class:"hidden__content__field", type: "file", name: "item[images_attributes][2][image]", id: "item_images_attributes_2_image" }
+                    %input{class:"hidden__content__field", type: "file", name: "item[images_attributes][3][image]", id: "item_images_attributes_3_image" }
+                    %input{class:"hidden__content__field", type: "file", name: "item[images_attributes][4][image]", id: "item_images_attributes_4_image" }
       .name
         %h3.nameTitle
           商品名
@@ -117,9 +128,9 @@
             %span.requireBox
               必須
           .priceSellingSymbol
-            = form_for @item do |f|
-              ¥
-              = f.text_field :price, placeholder: "金額を入力してください", class: "moneyForm"
+            -# = form_for @item do |f|
+            -#   ¥
+            -#   -# = f.text_field :price, placeholder: "金額を入力してください", class: "moneyForm"
         .priceFee
           .priceFeeTitle
             .priceFeeTitleLeft
