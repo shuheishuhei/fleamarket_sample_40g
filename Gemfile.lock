@@ -105,7 +105,7 @@ GEM
       mini_mime (>= 0.1.3)
     childprocess (3.0.0)
     coderay (1.1.3)
-    concurrent-ruby (1.1.6)
+    concurrent-ruby (1.1.7)
     crass (1.0.6)
     database_cleaner (1.8.5)
     devise (4.7.2)
@@ -320,11 +320,8 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-
   active_hash
-
   ancestry
-
   bootsnap (>= 1.4.2)
   byebug
   capistrano
@@ -334,15 +331,12 @@ DEPENDENCIES
   capistrano-rbenv
   capistrano3-unicorn
   capybara (>= 2.15)
-
-
   carrierwave
   database_cleaner
   devise
-
   factory_bot_rails
   haml-rails
-  jbuilder (~> 2'7)
+  jbuilder (~> 2.7)
   jquery-rails
   listen (>= 3.0.5, < 3.2)
   mini_magick
@@ -351,7 +345,7 @@ DEPENDENCIES
   puma (~> 3.11)
   rails (~> 6.0.0)
   rails-controller-testing
-  rspec-rails (~> 4.0.0.beta2)
+  rspec-rails
   sass-rails (~> 5)
   selenium-webdriver
   spring
