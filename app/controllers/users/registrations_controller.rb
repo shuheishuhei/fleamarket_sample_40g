@@ -48,6 +48,11 @@ class Users::RegistrationsController < Devise::RegistrationsController
     @user.build_address(@address.attributes)
     @user.save
     sign_in(:user, @user)
+    if @user.save
+      redirect_to root_path
+    else
+      render :new
+    end
   end
 
 

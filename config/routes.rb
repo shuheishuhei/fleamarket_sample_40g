@@ -9,6 +9,11 @@ Rails.application.routes.draw do
     post 'addresses', to: 'users/registrations#create_address'
   end
   root 'items#index'
-  resources :items, only: [:index, :new]
+  resources :items, only: [:index, :new] do
+    collection do
+      get 'purchase_comfirmation'
+    end
+  end
+
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
