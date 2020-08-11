@@ -1,0 +1,23 @@
+.AccountPage {
+  width: 400px;
+  margin: 60px auto;
+  padding: 60px;
+  text-align: center;
+}
+.AccountPage__title {
+  font-size: 14px;
+  font-weight: 200;
+
+  h2 {
+    margin-bottom: 10px;
+    letter-spacing: 3px;
+    font-size: 40px;
+    &:after {
+      content: "";
+      display: block;
+      width: 60px;
+      margin-top: 5px;
+      
+    }
+  }
+}

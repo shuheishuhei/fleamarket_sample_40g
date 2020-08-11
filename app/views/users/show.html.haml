@@ -1,0 +1,58 @@
+.myPage
+  .myPage__header
+    .myPage__headerTop
+      .myPage__headerLogo
+        = link_to image_tag 'logo.png', alt: '失敗', height: '60px', width: '100px', class: 'pic1'
+      .myPage__headerSearchbox
+        %input{ class: "headerSearchbox", placeholder: "何かお探しですか？"}
+          
+    .myPage__headerMiddle
+      .myPage__headerSearchL
+        .myPage__headerSearchbox
+          カテゴリーから探す
+        .myPage__headerSearchbox
+          ブランドから探す
+      .myPage__headerSearchR
+        .myPage__headerSearchbox
+          イイね！一覧
+        .myPage__headerSearchbox
+          お知らせ
+        .myPage__headerSearchbox
+          to doリスト
+        .myPage__headerSearchbox
+          マイページ
+    .myPage__headerBottom
+      .myPage__headerCategoryL   
+        .myPage__headerCategory
+          go to furima
+        .myPage__headerCategory
+          = link_to image_tag 'syounari-icon.png', alt: '失敗', height: '20px', width: '30px'
+        .myPage__headerCategory
+          マイページ 
+
+  .myPage__main
+    .myPage__leftBox
+      .myPage__indexBox
+        = render 'sideBox'
+    .myPage__rightBox
+      
+      .myPage__infoBox    
+        .myPage__picBox
+          = link_to image_tag 'background.png', alt: '失敗', height: '250px', width: '800px', class: 'pic2'
+          .myPage__picinBox
+            = image_tag 'toshiki-no-pic.jpg', alt: '失敗', height: '100%', width: '100%', class: 'pic3'
+        .myPage__nameBox
+          toshiki
+          .myPage__name
+            .myPage__in
+              イイね数 8  
+            .myPage__in
+              出品数 6
+          //= current_user.name イイね数
+        .myPage__contentsBox
+          .myPage__contentinfos
+            プロフィール
+            .myPage__contentinfo
+              筋トレグッズを中心に出品しています
+          .myPage__contentnews
+            = render 'news'
