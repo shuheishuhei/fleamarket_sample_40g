@@ -25,12 +25,19 @@ body {
   margin: 0;
   padding: 0;
 }
-.exhibition {
+
+header {
+  background-color: rgb(228, 226, 225);
+  height: 130px;
+  width:100%;
 }
 
 .logo1 {
   display: flex;
   justify-content: center;
+  .logo2 {
+    margin: 40px 0 60px 0;
+  }
 }
 
 .requireBox {
@@ -79,42 +86,50 @@ body {
 
 .show {
   margin: 40px 40px;
-  select.categoryChoice {
+  .categoryChoice {
     width: 615px;
     height: 45px;
     margin-bottom: 40px;
+    // .categoryChoiceList {
+    //   width: 615px;
+    //   height: 45px;
+    // }
   }
   input.brandChoice {
     width: 615px;
     height: 45px;
     margin-bottom: 40px;
   }
-  select.statusChoice {
-    width: 615px;
-    height: 45px;
+  .statusChoice {
     margin-bottom: 40px;
+    .statusChoiceList {
+      width: 615px;
+      height: 45px;
+    }
   }
 }
 
 .delivery {
   margin: 40px 40px;
-  select.berdenChoice {
-    width: 615px;
-    height: 45px;
+  .burdenChoice {
     margin-bottom: 40px;
+    .burdenChoiceList {
+      width: 615px;
+    height: 45px;
+    }
   }
   .areaChoice {
-    width: 615px;
-    height: 45px;
     margin-bottom: 40px;
     .areaChoiceList {
       width: 615px;
       height: 45px;
     }
   }
-  select.daysChoice {
-    width: 615px;
-    height: 45px;
+  .dayChoice {
+    .dayChoiceList {
+      width: 615px;
+      height: 45px;
+    }
   }
 }
 
@@ -155,7 +170,7 @@ body {
     width: 300px;
     height: 45px;
     margin-bottom: 30px;
-    background-color: red;
+    background-color: #3ccace;
     color: white;
     display: inline-block;
     cursor: pointer;
@@ -178,4 +193,13 @@ body {
 .importantPoint {
   display: flex;
   justify-content: center;
+}
+
+.footer1 {
+  background-color: #272727;
+  height: 130px;
+  width: 100%;
+  .logo4 {
+    margin: 30px 0 40px 0;
+  }
 }

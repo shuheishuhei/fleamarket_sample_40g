@@ -1,8 +1,7 @@
 .exhibition
   %header
     .logo1
-      = link_to "root_path" do
-        = image_tag("logo.png", size: '420x220', class: "logo2")
+      = link_to image_tag("logo.png", size: '150x50', class: "logo2"),root_path  
   %form.content
     .contentFlame
       .image
@@ -52,6 +51,11 @@
               %option{value: "11"} チケット
               %option{value: "12"} 自動車・オートバイ
               %option{value: "13"} その他
+
+            -# カテゴリーのタブもactive_hashで記載してと指示されたら上記のoptionを消して下記を使用します。
+            -# .categoryChoice
+            -#   = form_with model: @item do |form| 
+            -#     = form.collection_select(:category_id, Category.all, :id, :name, {include_blank: "選択してください"}, {class: "categoryChoiceList"})
         .showBrand
           %h3.showBrandTitle
             ブランド
@@ -65,14 +69,10 @@
             %span.requireBox
               必須
           .showStatusForm
-            %select.statusChoice
-              %option{value: "0"} 選択してください
-              %option{value: "1"} 新品・未使用
-              %option{value: "2"} 未使用に近い
-              %option{value: "3"} 目立った傷や汚れなし
-              %option{value: "4"} やや傷や汚れあり
-              %option{value: "5"}傷や汚れあり 
-              %option{value: "6"} 全体的に状態が悪い
+            .statusChoice
+              =form_with model: @item do |form|
+                =form.collection_select(:status_id, Status.all, :id, :name, {include_blank: "選択してください"}, {class: "statusChoiceList"})
+
       .delivery
         .deriveryTitle
           %h3 配送について
@@ -81,11 +81,10 @@
             配送料の負担
             %span.requireBox
               必須
-          .deriveryBerdenForm
-            %select.berdenChoice
-              %option{value: "0"} 選択してください
-              %option{value: "1"} 送料込み(出品者負担)
-              %option{value: "2"} 着払い(購入者負担)
+          .deriveryBurdenForm
+            .burdenChoice
+              = form_with model: @item do |form|
+                = form.collection_select(:burden_id, Burden.all, :id, :name, {include_blank: '選択してください'}, {class: "burdenChoiceList"})
         .deriveryArea
           %h3.deriveryAreaTitle
             発送元の地域
@@ -95,17 +94,16 @@
             .areaChoice
               = form_with model: @item do |form| 
                 = form.collection_select(:prefecture_id, Prefecture.all, :id, :name, {include_blank: "選択してください"}, {class: "areaChoiceList"}) 
-        .deriveryDays
-          %h3.deriveryDaysTitle
+        .deriveryDay
+          %h3.deriveryDayTitle
             発送までの日数
             %span.requireBox
               必須
-          .deriveryDaysForm              
-            %select.daysChoice
-              %option{value: "0"} 選択してください
-              %option{value: "1"} 1〜2日で発送
-              %option{value: "2"} 2〜3日で発送
-              %option{value: "3"} 4〜7日で発送
+          .deriveryDayForm              
+            .dayChoice
+              = form_with model: @item do |form|
+                = form.collection_select(:day_id, Day.all, :id, :name, {include_blank: "選択してください"}, {class: 'dayChoiceList'})
+              
       .price
         .priceTitle
           価格 (￥300~9,999,999)
@@ -138,8 +136,6 @@
             戻る
       .importantPoint
         %p 禁止されている行為及出品物を必ずご確認ください。偽ブランド品や盗品物などの販売は犯罪であり、法律により処罰される可能性があります。また、出品をもちまして加盟店規約に同意したことになります。
-  .footer
+  .footer1
     .logo1
-      =link_to "root_path" do
-        = image_tag("logo.png", size: '420x220',class: "footerLogo")
-    .footer
+      = link_to image_tag("logo-white.png", size: '150x50', class: "logo4"),root_path
