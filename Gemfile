@@ -38,7 +38,6 @@ group :development, :test do
   gem 'capistrano-rails'
   gem 'capistrano3-unicorn'
   gem 'capistrano-rails-console'
-  
   gem 'factory_bot_rails'
   gem 'rails-controller-testing'
   gem 'database_cleaner'
@@ -69,7 +68,6 @@ group :production do
 end
 
 gem 'active_hash'
-
 gem 'devise'
 gem 'haml-rails'
 gem 'carrierwave'
