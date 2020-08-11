@@ -134,16 +134,18 @@
     background-color: #ffffff;
 }
 
+//お知らせ
 .newscontents{
   overflow: scroll;
   background-color: #ffffff;
   height: 200px;
   &__newscontent{
     height: 40px;
-    margin: 30px;
+    margin: 60px;
+  }
   }
 }
-}
+
 
 
 
