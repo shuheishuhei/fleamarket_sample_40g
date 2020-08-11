@@ -1,0 +1,157 @@
+* {
+  box-sizing: border-box;
+}
+
+@mixin flexBox-around {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+@mixin flexBox-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+
+.myPage{
+  height: 100vh;
+  width: 100vw;
+
+  &__header{
+    height: 200px;
+    width: 100%;
+
+}
+  &__headerTop{
+    height: 70px;
+    width: 100%;
+    @include flexBox-around
+
+  }
+  
+  &__headerMiddle{
+    height: 70px;
+    @include flexBox-around
+  }
+  .li{
+    display: inline-block;
+    
+  }
+  &__headerSearchL{
+    @include flexBox-around;
+    
+  }
+  &__headerSearchR{
+    @include flexBox-around;
+    
+  }
+  &__headerSearchbox{
+    margin: 15px;
+  }
+
+
+  &__headerBottom{
+    height: 60px;
+  }
+  &__headerCategoryL{
+    display: flex;
+    margin-left: 200px;
+
+  }
+  &__headerCategory{
+    margin: 10px;
+  }
+
+
+  &__main{
+    height: calc(100vh - 200px);
+    width: 100vw;
+    background-color: #EEEEEE;
+    @include flexBox-center;
+  }
+  &__leftBox{
+
+    width: 300px;
+  
+  }
+
+  &__indexBox{
+    
+
+  }
+
+  &__rightBox{
+    @include flexBox-center;
+    text-align: center;
+    
+}
+  &__infoBox{
+    
+    
+}
+  &__picBox{
+    height: 200px;
+    width: 800px;
+    @include flexBox-center;
+    text-align: center;
+    position: relative;
+
+}
+  &__picinBox{
+    height: 100px;
+    width: 100px;
+    background-color: peachpuff;
+    position: absolute;
+
+  }
+  &__nameBox{
+    height: 50px;
+    font-size: 10px;
+    background-color: #ffffff;
+    position: absolute;
+    //top: 100px;
+    //left: 100px;
+}
+  &__name{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  &__contentsBox{
+    margin-top: 50px;
+    height: 200px;
+    width: 800px; 
+    //@include flexBox-center;
+}
+  &__contentinfos{
+    margin: 10px;
+    background-color: #ffffff;
+}
+
+.newscontents{
+  overflow: scroll;
+  background-color: #ffffff;
+  
+  &__newscontent{
+    height: 40px;
+    margin: 20px;
+  }
+}
+}
+
+//サイドメニューバー
+.contentBox{
+  height: 60px;
+  width: 250px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #ffffff;
+  margin: 30px;
+
+}
+
+
+

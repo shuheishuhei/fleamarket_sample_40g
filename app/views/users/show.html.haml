@@ -2,34 +2,58 @@
   .myPage__header
     .myPage__headerTop
       .myPage__headerLogo
-        logo
+        = link_to image_tag 'logo.png', alt: '失敗', height: '60px', width: '100px', class: 'pic1'
       .myPage__headerSearchbox
-        何かお探しですか？※formにする
+        %input{ class: "headerSearchbox", placeholder: "何かお探しですか？"}
+          
     .myPage__headerMiddle
       .myPage__headerSearchL
-        .li カテゴリーから探す
-        .li ブランドから探す
+        .myPage__headerSearchbox
+          カテゴリーから探す
+        .myPage__headerSearchbox
+          ブランドから探す
       .myPage__headerSearchR
-        .li イイね！一覧
-        .li お知らせ
-        .li to doリスト
-        .li マイページ
+        .myPage__headerSearchbox
+          イイね！一覧
+        .myPage__headerSearchbox
+          お知らせ
+        .myPage__headerSearchbox
+          to doリスト
+        .myPage__headerSearchbox
+          マイページ
     .myPage__headerBottom
-      .myPage__headerCategoryL
-        go to furima > マイページ
-      .myPage__headerCategoryR
+      .myPage__headerCategoryL   
+        .myPage__headerCategory
+          go to furima
+        .myPage__headerCategory
+          = link_to image_tag 'syounari-icon.png', alt: '失敗', height: '20px', width: '20px'
+        .myPage__headerCategory
+          マイページ 
 
   .myPage__main
     .myPage__leftBox
       .myPage__indexBox
         = render 'sideBox'
     .myPage__rightBox
+      
       .myPage__infoBox
+        
         .myPage__picBox
+          = link_to image_tag 'background.png', alt: '失敗', height: '250px', width: '800px', class: 'pic2'
           .myPage__picinBox
-            profile写真
+            = image_tag 'toshiki-no-pic.jpg', alt: '失敗', height: '100%', width: '100%', class: 'pic3'
         .myPage__nameBox
-          nickname イイね数
+          .myPage__name
+            toshiki
+            .myPage__good
+              イイね数 8
+            .myPage__item
+              出品数 6
+          //= current_user.name イイね数
         .myPage__contentsBox
-          .li2 筋トレグッズを中心に出品しています
-          .li2 プロテインもあるyo
+          .myPage__contentinfos
+            プロフィール
+            .myPage__contentinfo
+              筋トレグッズを中心に出品しています
+          .myPage__contentnews
+            = render 'news'
