@@ -9,7 +9,10 @@ Rails.application.routes.draw do
     post 'addresses', to: 'users/registrations#create_address'
   end
   root 'items#index'
+  resources :users
+  resources :cards, only: [:new, :show]
   resources :items, only: [:index, :new, :show] do
+
     collection do
       get 'purchase_comfirmation'
     end

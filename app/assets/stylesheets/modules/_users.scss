@@ -1,0 +1,142 @@
+* {
+  box-sizing: border-box;
+}
+
+@mixin flexBox-around {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+@mixin flexBox-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+
+.myPage{
+  height: 100vh;
+  width: 100vw;
+
+  &__header{
+    height: 200px;
+    width: 100%;
+
+}
+  &__headerTop{
+    height: 70px;
+    width: 100%;
+    @include flexBox-around
+
+  }
+  
+  &__headerMiddle{
+    height: 70px;
+    @include flexBox-around
+  }
+  .li{
+    display: inline-block;
+    
+  }
+  &__headerSearchL{
+    @include flexBox-around;
+    
+  }
+  &__headerSearchR{
+    @include flexBox-around;
+    
+  }
+  &__headerSearchbox{
+    margin: 15px;
+  }
+
+  &__headerBottom{
+    height: 60px;
+  }
+  &__headerCategoryL{
+    display: flex;
+    margin-left: 200px;
+
+  }
+  &__headerCategory{
+    margin: 10px;
+  }
+
+
+  &__main{
+    width: 100vw;
+    background-color: #EEEEEE;
+    @include flexBox-center;
+  }
+  &__leftBox{
+    width: 300px;
+  }
+
+  &__rightBox{
+    @include flexBox-center;
+    text-align: center;
+    
+}
+  &__picBox{
+    height: 150px;
+    width: 800px;
+    @include flexBox-center;
+    position: relative;
+
+}
+  &__picinBox{
+    height: 100px;
+    width: 100px;
+    position: absolute;
+
+  }
+  &__nameBox{
+    font-size: 16px;
+    font-weight: bold;
+    position: relative;
+    color: #EFEFEF;
+}
+  &__name{
+    display: flex;
+    position: absolute;
+    left: 320px;
+    
+  }
+  &__in{
+    margin: 5px;
+  }
+
+  &__contentsBox{
+    margin-top: 50px;
+    height: 200px;
+    width: 800px; 
+}
+  &__contentinfos{
+    margin: 10px;
+    background-color: #ffffff;
+}
+//お知らせ
+.newscontents{
+  overflow: scroll;
+  background-color: #ffffff;
+  height: 200px;
+  &__newscontent{
+    height: 40px;
+    margin: 60px;
+  }
+  }
+}
+//サイドメニューバー
+.contentBox{
+  height: 60px;
+  width: 250px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #ffffff;
+  margin: 30px;
+}
+
+
+
