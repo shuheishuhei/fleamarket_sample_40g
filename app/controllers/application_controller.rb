@@ -15,6 +15,10 @@ class ApplicationController < ActionController::Base
     Rails.env.production?
   end
 
+  
+
+  
+
   protected
 
   def configure_permitted_parameters

@@ -3,11 +3,11 @@
 .contentBox
   発送元・お届け先住所
 .contentBox
-  クレジットカード登録/変更
+  = link_to "クレジットカード登録/変更", destroy_us_path, method: :, class: 'Button'
 .contentBox
   メール・パスワード
 .contentBox
   本人情報
 .contentBox
-  ログアウト
+  = link_to "ログアウト", destroy_user_session_path, method: :delete, class: 'Button'
   
