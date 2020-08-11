@@ -1,0 +1,128 @@
+.wrapper
+.top
+  .header
+    .header__top
+      = link_to image_tag("material/logo/logo.png", class: "header__top__logo"), root_path
+      .header__top__search
+        %input{ class: "header__top__search__form", placeholder: "キーワードから探す"}
+        %button.header__top__search__btn 
+          = image_tag ("material/icon/icon-search 1.png"), class: "header__top__search__btn__icon" 
+    .header__bottom
+      .header__bottom__nav__left
+        .header__bottom__nav__left__category
+          カテゴリー
+        .header__bottom__nav__left__brand
+          ブランド
+      .header__bottom__nav__right
+        - if user_signed_in?
+          .header__bottom__nav__right__mypage
+            =link_to "マイページ", "#"
+          .header__bottom__nav__right__logout
+            =link_to "ログアウト", destroy_user_session_path, method: :delete
+        - else
+          .header__bottom__nav__right__login
+            =link_to "ログイン", new_user_session_path
+          .header__bottom__nav__right__registration
+            =link_to "新規会員登録", new_user_registration_path
+.header__category
+  FURIMA > 家電・スマホ・カメラ > スマートフォン/携帯電話 > スマートフォン携帯
+
+.main-show
+  .itemDetail
+    .itemDetail__box
+      .itemDetail__box__title
+        【新品・未使用】iPhone 6 Gold 16GB
+      .itemDetail__box__image
+        = image_tag("material/pict/pict-reason-02.jpg", width: 400,height: 400, class: "item__image")
+      %ul.imagelist
+        %li.images
+          = image_tag("material/pict/pict-reason-02.jpg", width: 100,height: 100, class: "item__image")
+        %li.images
+          = image_tag("material/pict/pict-reason-02.jpg", width: 100,height: 100, class: "item__image")
+      .itemDetail__box__price
+        %h1.itemprice ¥6,900
+        %span.taxPostage (税込)送料込み
+      .itemDetail__box__introduction
+        【商品説明】
+        %br
+        本体と箱の出品です。
+        docomoにて購入しました。
+        %br
+        ■機種名:iPhene 6
+        %br
+        ■カラー:Gold
+        %br
+        ■要領:16GB
+      %table
+        %tr
+          %th 出品者
+          %td 太郎
+        %tr
+          %th カテゴリー
+          %td 家電・スマホ・カメラ > スマートフォン/携帯電話 > スマートフォン本体
+        %tr
+          %th ブランド
+          %td Apple
+        %tr
+          %th 商品のサイズ
+          %td
+        %tr
+          %th 商品の状態
+          %td 新品/未使用
+        %tr 
+          %th 配送料の負担
+          %td 送料込み(出品者負担)
+        %tr
+          %th 発送元の地域
+          %td 北海道
+        %tr
+          %th 発送日の目安
+          %td 1~2日で発送
+
+      .itemDetail__box--btn
+        =submit_tag("購入手続きへ", class: 'purchaseBtn')
+    
+      .itemDetail__box__comment
+        =form_with local: true do |f|
+          = f.text_area :comment, class: 'commentText'
+          相手のことを考え、丁寧なコメントを心掛けましょう。
+          %br
+          不快な言葉遣いなどは利用制限や退会処分となることがあります。
+          = f.submit "コメントする（未実装）", class: 'commentBtn'
+
+
+
+.bottomDl
+  .bottomDl__content
+    .bottomDl__content__title
+      だれでもかんたん、人生を変えるフリマアプリ
+    .bottomDl__content__text
+      今すぐ無料ダウンロード！
+    .bottomDl__content__icon
+    = link_to image_tag ("material/icon/Download_on_the_App_Store_Badge_US-UK_RGB_blk_092917.svg"), class: "icon--app"
+    = link_to image_tag ("material/icon/google-play-badge.png"), class: "icon--google"
+.footer
+  .footer__overview
+    .footer__overview__list
+      %h2.title FURIMAについて
+      %p.list
+        %a.item 会社概要(運営会社)
+        %a.item プライバシーポリシー
+        %a.item FURIMA利用規約
+        %a.item ポイントに関する特約
+    .footer__overview__list
+      %h2.title FURIMAを見る
+      %p.list
+        %a.item カテゴリー一覧
+        %a.item ブランド一覧
+    .footer__overview__list
+      %h2.title ヘルプ&ガイド
+      %p.list
+        %a.item FURIMAガイド
+        %a.item FURIMAロゴ利用ガイドライン
+        %a.item お知らせ
+  = link_to image_tag ("material/logo/logo-white.png"), class: "footer__logo"
+  %p.copyright ©︎FURIMA
+= link_to new_item_path, class: "sellBtn" do
+  %p.sellBtn__text 出品する
+  = image_tag ("material/icon/icon_camera.png"), class: "sellBtn__icon"
