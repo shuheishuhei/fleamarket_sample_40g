@@ -12,7 +12,7 @@ Rails.application.routes.draw do
   end
   root 'items#index'
   resources :users
-  resources :items, only: [:index, :new] do
+  resources :items, only: [:index, :new, :show] do
     collection do
       get 'purchase_comfirmation'
     end
