@@ -1,0 +1,41 @@
+%header
+  = link_to image_tag("logo.png", size: '150x50'), root_path
+  
+%main
+  .buyItem
+    .buyItem__box
+      .buyItem__box__title
+        購入内容の確認
+      .buyItem__box__info
+        .buyItem__box__info__image
+          = image_tag("material/pict/pict-reason-02.jpg", width: 70,height: 70,class: "item__image")
+        .buyItem__box__info__detail
+          %p.itemTitle
+            【新品・未使用】iPhone 6 Gold 16GB docomo
+          %ul.itemPrice
+            %li.postage 送料込み(税込)
+            %li.itemPrice ¥6,900
+      .buyItem__box__price
+        .buyItem__box__price__text
+          支払い金額
+        .buyItem__box__price__cell
+          ¥6,900
+      .buyItem__box__address
+        .buyItem__box__address__destination
+          %b.destination 配送先
+          %p.post-code 〒111-1111
+          %p.address 大阪府大阪市××区××1丁目1番地10
+          %p.fullname 山田 太郎
+        .buyItem__box__address__change
+          =link_to '変更', "#"
+      .buyItem__box--btn
+        =submit_tag("購入する", class: 'buy_btn')
+
+%footer
+  %list
+    %a.item プライバシーポリシー
+    %a.item FURIMA利用規約
+    %a.item 特定商取引に関する表記
+    %br
+  = link_to image_tag ("material/logo/logo-white.png"), class: "footer__logo"
+  %p.copyright ©︎FURIMA
