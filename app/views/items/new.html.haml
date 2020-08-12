@@ -14,6 +14,8 @@
               %span.requireBox
                 必須
             %p 最大10枚までアップロードできます
+            .image__block__area__label
+              %pre.fileBox クリックして画像をアップロード         
             .image__block__area
               #image-box
                 = f.fields_for :item_images do |image|
@@ -21,8 +23,7 @@
                     = image.file_field :image, class: 'js-file'
                     %br/
                     %span.js-remove 削除
-              .image__block__area__label
-                %pre.fileBox クリックして画像をアップロード         
+                    = link_to "編集", edit_item_image_path, remote: true, class: "btn btn-lg btn-primary"
       .name
         %h3.nameTitle
           商品名

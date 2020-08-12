@@ -19,7 +19,7 @@ class ItemsController < ApplicationController
   end
 
   def update
-    @item.update(item_params)     
+    @item.update(item_params)
   end
 
   def destroy
@@ -29,7 +29,7 @@ end
 private
 
 def item_params
-  params.require(:item).permit(:name, :introduction, :price, :brand_id, :category_id, :sizing_id, :item_conditions_id, :postage_pay_id, :preparation_day_id, :prefecture_code, :buyer_id, :seller_id, item_images_attributes: [:id, :item_id, :image])
+  params.require(:item).permit(:name, :introduction, :price, :brand_id, :category_id, :sizing_id, :item_conditions_id, :postage_pay_id, :preparation_day_id, :prefecture_code, :buyer_id, :seller_id, item_images_attributes: [:id, :item_id, :image, :_destroy])
 end
 
 def set_item
