@@ -1,8 +1,0 @@
-= form_with model: @item, url: items_path ,locate: true, id: "new_item",method: :post do |f|
-  #image-box
-    = f.fields_for :item_images do |image|
-      .js-file_group{"data-index" => "#{image.index}"}
-        = image.file_field :image, class: 'js-file', id:"image-label",type: 'file'
-        %br/
-        %span.js-remove 削除
-  = f.submit
