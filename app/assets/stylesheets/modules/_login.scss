@@ -1,0 +1,56 @@
+//login画面
+.logIn{
+  width: 100vw;
+  height: 100vh;
+  text-align: center;
+  background-color: #efefef;
+}
+
+.header{
+  height: 100px;
+  width: 100px;
+  background-color: red;
+  display: flex;
+}
+  
+.new_user{
+  width: 300px;
+  height: 500px;
+  background-color:#ffffff;
+}
+.snsicon{
+  color: red;
+  background-color: red;
+}
+
+
+
+.field{
+  margin-top: 15px;
+}
+
+.actions{
+  margin-top: 15px;
+  margin-bottom: 15px;
+
+  &__btn{
+    
+  }
+}
+
+
+
+
+
+
+
+
+//passward忘れ画面
+
+
+//passward変更画面
+
+
+
+
+//新規登録画面
