@@ -5,45 +5,9 @@
       %a.itemsNew 新規投稿一覧
       .product__area__all
         .product__area__all__list
-          - @items.each do |item|
-            .product__all__image
-              = image_tag (item.image.to_s) if item.image?
-            .product__all____name
-              = item.name
-            .product__all____price
-              = item.price
-        -# .product__area__all__list
-        -#   - @items.each do |item|
-        -#     .product__all__image
-        -#       = image_tag (item.image.to_s) if item.image?
-        -#     .product__all____name
-        -#       = item.name
-        -#     .product__all____price
-        -#       = item.price
-        -# .product__area__all__list
-        -#   - @items.each do |item|
-        -#     .product__all__image
-        -#       = image_tag (item.image.to_s) if item.image?
-        -#     .product__all____name
-        -#       = item.name
-        -#     .product__all____price
-        -#       = item.price
-        -# .product__area__all__list
-        -#   - @items.each do |item|
-        -#     .product__all__image
-        -#       = image_tag (item.image.to_s) if item.image?
-        -#     .product__all____name
-        -#       = item.name
-        -#     .product__all____price
-        -#       = item.price
-        -# .product__area__all__list
-        -#   - @items.each do |item|
-        -#     .product__all__image
-        -#       = image_tag (item.image.to_s) if item.image?
-        -#     .product__all____name
-        -#       = item.name
-        -#     .product__all____price
-        -#       = item.price
+          .product__all__image            
+          .product__all____name            
+          .product__all____price
   .bottomDl
     .bottomDl__content
       .bottomDl__content__title
@@ -75,6 +39,6 @@
           %a.item お知らせ
     = link_to image_tag ("material/logo/logo-white.png"), class: "footer__logo"
     %p.copyright ©︎FURIMA
-  = link_to "/items/new", method: :get, class: "sellBtn" do
+  = link_to "new_item_path", method: :get, class: "sellBtn" do
     %p.sellBtn__text 出品する
     = image_tag ("material/icon/icon_camera.png"), class: "sellBtn__icon" 
