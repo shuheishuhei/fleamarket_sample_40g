@@ -59,7 +59,15 @@
           %td 太郎
         %tr
           %th カテゴリー
-          %td 家電・スマホ・カメラ > スマートフォン/携帯電話 > スマートフォン本体
+          - if [46, 74, 134, 142, 147, 150, 158].include?8@category_id)
+            %td
+              = link_to "#{@category_child.name}","#"
+              %br= link_to "#{@category_grandchild.name}","#"
+          - else
+            %td
+              = link_to "#{@category_parent.name}","#"
+              %br= link_to "#{@category_child.name}","#"
+              = link_to "#{@category_grandchild.name}","#"
         %tr
           %th ブランド
           %td Apple
