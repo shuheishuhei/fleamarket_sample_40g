@@ -1,7 +1,7 @@
-class Status < ActiveHash::Base
-
+class Status < Active::Base
+  
   self.data = [
-    {id: 1, name: '新品・未使用'}, {id: 2, name: '未使用に近い'}, {id:3, name: '目立った傷や汚れなし'}, {id: 4, name: 'やや傷や汚れあり'}, {id: 5, name: '傷や汚れあり'}, {id: 6, name: '全体的に状態が悪い'}
+    {id: 1, name: '出品中'}, {id: 2, name: '出品停止'}, {id: 3, name: '取引中'}, {id: 4, name: '取引完了'}
   ]
 
   include ActiveHash::Associations

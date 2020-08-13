@@ -60,31 +60,44 @@
           %h3.showBrandTitle
             ブランド
             %span.requireBox
-              必須
+              任意
           .showBrandForm
             %input.brandChoice{placeholder:"例) プラダ"}
-        .showStatus
-          %h3.showStatusTitle
+        .showCondition
+          %h3.showConditionTitle
             商品の状態
             %span.requireBox
               必須
-          .showStatusForm
-            .statusChoice
+          .showConditionForm
+            .conditionChoice
               =form_with model: @item do |form|
-                =form.collection_select(:status_id, Status.all, :id, :name, {include_blank: "選択してください"}, {class: "statusChoiceList"})
+                =form.collection_select(:condition_id, Condition.all, :id, :name, {include_blank: "選択してください"}, {class: "conditionChoiceList"})
 
       .delivery
         .deriveryTitle
           %h3 配送について
-        .deliveryBerden
-          %h3.deriveryBerdenTitle
+        .deliveryPostage
+          %h3.deriveryPostageTitle
             配送料の負担
             %span.requireBox
               必須
-          .deriveryBurdenForm
-            .burdenChoice
+          .deriveryPostageForm
+            .postageChoice
               = form_with model: @item do |form|
-                = form.collection_select(:burden_id, Burden.all, :id, :name, {include_blank: '選択してください'}, {class: "burdenChoiceList"})
+                = form.collection_select(:postage_id, Postage.all, :id, :name, {include_blank: '選択してください'}, {class: "postageChoiceList"})
+        
+        .deriveryWay
+          %h3.deliveryWayTitle
+            配送方法
+            %span.requireBox
+              必須
+          .deriveryWayForm
+            .wayChoice
+              = form_with model: @item do |form|
+                = form.collection_select(:way_id, Way.all, :id, :name, {include_blank:'選択してください'}, {class: "wayChoiceList"})
+
+            
+
         .deriveryArea
           %h3.deriveryAreaTitle
             発送元の地域

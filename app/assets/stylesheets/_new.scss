@@ -100,9 +100,9 @@ header {
     height: 45px;
     margin-bottom: 40px;
   }
-  .statusChoice {
+  .conditionChoice {
     margin-bottom: 40px;
-    .statusChoiceList {
+    .conditionChoiceList {
       width: 615px;
       height: 45px;
     }
@@ -111,13 +111,23 @@ header {
 
 .delivery {
   margin: 40px 40px;
-  .burdenChoice {
+  .postageChoice {
     margin-bottom: 40px;
-    .burdenChoiceList {
+    .postageChoiceList {
       width: 615px;
-    height: 45px;
+      height: 45px;
     }
   }
+  .deriveryWay {
+    display: none;
+    .wayChoice {
+      margin-bottom: 40px;
+      .wayChoiceList {
+        width: 615px;
+        height: 45px;
+      }
+    }
+  }  
   .areaChoice {
     margin-bottom: 40px;
     .areaChoiceList {
