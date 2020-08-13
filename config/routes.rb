@@ -12,10 +12,10 @@ Rails.application.routes.draw do
   resources :users
   resources :cards, only: [:new, :show]
   resources :items, only: [:index, :new, :show] do
-
     collection do
-      get 'purchase_comfirmation'
+      get 'purchase_comfirmation' #商品購入確認
+      get 'get_category_children', defaults: { format: 'json'}
+      get 'get_category_grandchildren', defaults: { format: 'json'}
     end
   end
-  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
