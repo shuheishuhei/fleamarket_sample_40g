@@ -2,7 +2,7 @@
   %header
     .logo1
       = link_to "root_path" do
-        = image_tag("material/logo/logo.png", size: '420x220', class: "logo2")
+        = image_tag("material/logo/logo.png", size: "420x220", class: "logo2")
 .content
   .contentFlame
     = form_for @item do |f|
@@ -13,30 +13,30 @@
               出品画像
               %span.requireBox
                 必須
-            %p 最大10枚までアップロードできます
+            %p 最大5枚までアップロードできます
             .image__block__area
               .image__block__area__label
-                %pre.fileBox クリックして画像をアップロード       
-              .image__block__area__prev
-                #image-box
-                  #previews
-                    - @item.item_images.each do |image|
-                      - if image.persisted?
-                        = @item.item_images.each_with_index do |image, i|
-                          = image_tag item_image.image.url, data: { index: i }, width: "100", height: '100'
-                  = f.fields_for :images do |image|
-                    .js-file_group{"data-index" => "#{image.index}"}
-                      = image.file_field :image, class: 'js-file'
-                      %br/
-                      %span.js-remove 削除
-                      = link_to '編集' #, edit_item_path(item)
+                %pre.fileBox クリックして画像をアップロード
+                .image__prev
+                  #image-box
+                    .hidden__content 
+                      #previews
+                      - @item.item_images.each do |image|
+                        - if image.persisted?
+                          = @item.item_images.each_with_index do |image, i|
+                            = image_tag item_image.image.url, data: { index: i }, width: "100", height: "100"
+                    = f.fields_for :images do |image|
+                      .js-file_group{"data-index" => "#{image.index}"}
+                        = image.file_field :image, class: "js-file"
+                        %br/
+                        %span.js-remove 削除
                   - @item.item_images.each do |image|
                     - if image.persisted?
-                      = image.check_box :_destroy, data:{ index: image.index }, class: 'hidden-destroy'
+                      = image.check_box :_destroy, data:{ index: image.index }, class: "hidden-destroy"
                     - if image.persisted?
                       .js-file_group{"data-index" => "#{@item.item_images.count}"}
-                        = file_field_tag :image, name: "item[item_images_attributes][#{@item.item_images.count}][image]", class: 'js-file'
-                        .js-remove 削除
+                        = file_field_tag :image, name: "item[item_images_attributes][#{@item.item_images.count}][image]", class: "js-file"
+                        = link_to "削除", method: delete, class: "js-remove" 
       .name
         %h3.nameTitle
           商品名
