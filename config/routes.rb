@@ -7,6 +7,7 @@ Rails.application.routes.draw do
     post 'profiles', to:'users/registrations#create_profile'
     get 'addresses', to: 'users/registrations#new_address'
     post 'addresses', to: 'users/registrations#create_address'
+    get 'users/:id', to: 'users#show'
   end
   root 'items#index'
   resources :users
