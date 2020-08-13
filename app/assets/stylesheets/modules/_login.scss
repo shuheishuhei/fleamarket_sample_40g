@@ -3,20 +3,13 @@
   width: 400px;
   margin: 60px auto;
   padding: 60px;
-  //background-color: palegoldenrod;
-  //border: 1px solid #ddd;
-  //border-radius: 5px;
   text-align: center;
-  //display: flex;
-  //justify-content: space-between;
+  
 }
 .AccountPage__title {
-  //width: 50%;
-  font-size: 14px;
-  font-weight: 200;
 
   h2 {
-    margin-bottom: 10px;
+    margin: 10px;
     letter-spacing: 3px;
     font-size: 40px;
     &:after {
@@ -24,8 +17,6 @@
       display: block;
       width: 60px;
       margin-top: 5px;
-      
-      
     }
   }
 
@@ -36,7 +27,6 @@
   }
 }
 .AccountPage__snsBox {
-  //width: 50%;
   font-size: 14px;
   font-weight: 200;
   margin-top: 20px;
@@ -131,6 +121,7 @@
     color: #d65f4c;
     font-size: 14px;
   }
+  
 
   ul {
     margin: 0;
@@ -146,27 +137,14 @@
 }
 
 
-//wizard.ver
-
-
 .actions{
 
 }
 
 
 
-
-
-
-
-
-
 //passward忘れ画面
 
-
 //passward変更画面
-
-
-
 
 //新規登録画面
