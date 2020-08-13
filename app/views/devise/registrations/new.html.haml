@@ -1,22 +1,37 @@
-%h2 Sign up
-= form_for(@user, url: user_registration_path) do |f|
-  = render "devise/shared/error_messages", resource: @user
-  .field
-    = f.label :ニックネーム
-    %br/
-    = f.text_field :nickname
-  .field
-    = f.label :メールアドレス
-    %br/
-    = f.email_field :email, autofocus: true, autocomplete: "email"
-  .field
-    = f.label :パスワード7文字以上
-    %br/
-    = f.password_field :password, autocomplete: "new-password"
-  .field
-    = f.label :パスワード確認
-    %br/
-    = f.password_field :password_confirmation, autocomplete: "new-password"
-  .actions
-    = f.submit "Next"
-  = render "devise/shared/links"
+.accountRegistration
+  .accountRegistration__title
+  = image_tag 'logo.png', alt: '失敗', height: '50px', width: '100%', class: 'pic'
+  .accountRegistration__title
+  %h2 ユーザー情報登録
+  = form_for(@user, url: user_registration_path) do |f|
+    = render "devise/shared/error_messages", resource: @user
+    .FormField
+      .FormField__label--normal
+        = f.label :ニックネーム
+        %span.requireBox
+          必須
+      .FormField__input--normal
+        = f.text_field :nickname
+      .FormField__label--normal
+        = f.label :メールアドレス
+        %span.requireBox
+          必須
+      .FormField__input--normal
+        = f.email_field :email, autofocus: true, autocomplete: "email"
+      .FormField__label--normal
+        = f.label :パスワード
+        %i (英数字7文字以上)
+        %span.requireBox
+          必須
+      .FormField__input--normal
+        = f.password_field :password, autocomplete: "new-password"
+      .FormField__label--normal
+        = f.label :パスワード確認
+        %span.requireBox
+          必須
+      .FormField__input--normal
+        = f.password_field :password_confirmation, autocomplete: "new-password"
+
+    .actions
+      = f.submit "Next!", class: "Button"
+  //= render "devise/shared/links"
