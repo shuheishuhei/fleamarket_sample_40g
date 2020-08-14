@@ -2,6 +2,7 @@ class User < ApplicationRecord
   has_many :items
   has_one :profile
   has_one :address
+  has_one :credit_card, dependent: :destroy
 
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
