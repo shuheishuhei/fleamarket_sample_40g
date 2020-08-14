@@ -3,7 +3,7 @@
     .logo1
       = link_to image_tag("logo.png", size: '420x220', class: "logo2"), root_path
 
-  %form
+.formContent
   = form_with model: @item,local: true do |f|
     .contentFlame
       .image
@@ -126,8 +126,8 @@
             戻る
       .importantPoint
         %p 禁止されている行為及出品物を必ずご確認ください。偽ブランド品や盗品物などの販売は犯罪であり、法律により処罰される可能性があります。また、出品をもちまして加盟店規約に同意したことになります。
+.footer
+  .logo1
+    =link_to "root_path" do
+      = image_tag("logo.png", size: '420x220',class: "footerLogo")
   .footer
-    .logo1
-      =link_to "root_path" do
-        = image_tag("logo.png", size: '420x220',class: "footerLogo")
-    .footer

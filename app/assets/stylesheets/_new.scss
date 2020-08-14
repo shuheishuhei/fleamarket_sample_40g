@@ -26,6 +26,7 @@ body {
   padding: 0;
 }
 .exhibition {
+  text-align: center;
 }
 
 .logo1 {
@@ -40,16 +41,15 @@ body {
   margin: 2px;
 }
 
-form {
-  background-color: rgb(228, 226, 225);
-  display: flex;
-  justify-content: center;
+.formContent {
   .contentFlame {
     width: 700px;
     height: 2000px;
-    background-color: white;
+    margin: auto;
+    margin: auto;
   }
 }
+
 
 .image {
   margin: 40px 40px;
@@ -176,6 +176,4 @@ form {
 }
 
 .importantPoint {
-  display: flex;
-  justify-content: center;
 }

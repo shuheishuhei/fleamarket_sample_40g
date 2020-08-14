@@ -1,47 +1,72 @@
-%h2 商品送付先住所情報登録
-= form_for(@address, url:addresses_path, method: :post) do |f|
-  = render "devise/shared/error_messages", resource: @address
-  .field
-    = f.label :名前漢字
-    %br/
-    = f.text_field :destination_first_name
-  .field
-    = f.label :名字漢字
-    %br/
-    = f.text_field :destination_family_name
-  .field
-    = f.label :名前かな
-    %br/
-    = f.text_field :destination_first_name_kana
-  .field
-    = f.label :名字かな
-    %br/
-    = f.text_field :destination_family_name_kana
-  .field
-    = f.label :郵便番号ハイフンなし7ケタ
-    %br/
-    = f.number_field :post_code
-  .field
-    = f.label :都道府県
-    %br/
-    = f.select :prefecture, Address.prefectures.keys,{}
-  .field
-    = f.label :市町村
-    %br/
-    = f.text_field :city
-  .field
-    = f.label :番地
-    %br/
-    = f.text_field :house_number
-  .field
-    = f.label :マンション建物名
-    %br/
-    = f.text_field :building_name
-  .field
-    = f.label :電話番号
-    %br/
-    = f.number_field :phone_number
-  .actions
-    = f.submit "Sign up"
+.accountRegistration
+  .accountRegistration__title
+  = image_tag 'logo.png', alt: '失敗', height: '50px', width: '100%', class: 'pic'
+  .accountRegistration__title
+    %h2 商品送付先住所情報登録
+  = form_for(@address, url:addresses_path, method: :post) do |f|
+    = render "devise/shared/error_messages", resource: @address
+    .FormField
+      .FormField__label--normal
+        = f.label :名前漢字
+        %span.requireBox
+          必須
+      .FormField__input--normal
+        = f.text_field :destination_first_name
+      .FormField__label--normal
+        = f.label :名字漢字
+        %span.requireBox
+          必須
+      .FormField__input--normal
+        = f.text_field :destination_family_name
+      .FormField__label--normal
+        = f.label :名前かな
+        %span.requireBox
+          必須
+      .FormField__input--normal
+        = f.text_field :destination_first_name_kana
+      .FormField__label--normal
+        = f.label :名字かな
+        %span.requireBox
+          必須
+      .FormField__input--normal
+        = f.text_field :destination_family_name_kana
+      .FormField__label--normal
+        = f.label :郵便番号ハイフンなし7ケタ
+        %span.requireBox
+          必須
+      .FormField__input--normal
+        = f.number_field :post_code
+      .FormField__label--normal
+        = f.label :都道府県
+        %span.requireBox
+          必須
+      .FormField__input--normal
+        = f.select :prefecture, Address.prefectures.keys,{}
+      .FormField__label--normal
+        = f.label :市町村
+        %span.requireBox
+          必須
+      .FormField__input--normal
+        = f.text_field :city
+      .FormField__label--normal
+        = f.label :番地
+        %span.requireBox
+          必須
+      .FormField__input--normal
+        = f.text_field :house_number
+      .FormField__label--normal
+        = f.label :マンション建物名
+        %span.requireBox
+          必須
+      .FormField__input--normal
+        = f.text_field :building_name
+      .FormField__label--normal
+        = f.label :電話番号
+        %span.requireBox
+          必須
+      .FormField__input--normal
+        = f.number_field :phone_number
+      .actions
+        = f.submit "Sign up", class: "Button"
 
-= render "devise/shared/links"
+    //= render "devise/shared/links"
