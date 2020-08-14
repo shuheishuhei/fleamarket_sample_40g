@@ -3,7 +3,7 @@
 |Column|Type|Options|
 |------|----|-------|
 |nickname|string|null: false|
-|mail|string|null: false, unique:true|
+|email|string|null: false, unique:true|
 ### Association
 - has_many :items
 - has_one :profile
@@ -34,7 +34,7 @@
 |city|string|null: false|
 |house_number|integer|null: false|
 |building_name|string||
-|phone_number|integer|unique: true|
+|phone_number|string||
 |user_id|references|null: false, foreign_key: true|
 ### Association
 - belongs_to :user
@@ -58,7 +58,7 @@
 |price|integer|null: false|
 |brand_id|references|null: false, foreign_key: true|
 |category_id|references|null: false, foreign_key: true|
-|sizing_id|references|foreign_key: true|
+|size_id|references|foreign_key: true|
 |item_conditions_id|references|foreign_key: true|
 |postage_pay_id|references|null: false, foreign_key: true|
 |preparation_day_id|references|null: false,foreign_key: true|
