@@ -25,18 +25,21 @@
             .header__bottom__nav__right__registration
               =link_to "新規会員登録", new_user_registration_path
 
-  %ul.headerCategory
-    %li.headerCategory__list
-      = link_to "FURIMA", root_path
-      =icon('fas','chevron-right')
-    %li.headerCategory__list
-      = @item.category.parent.parent.name
-      =icon('fas','chevron-right')
-    %li.headerCategory__list
-      = @item.category.parent.name
-      =icon('fas','chevron-right')
-    %li.headerCategory__list
-      = @item.category.name
+  .header__category
+    FURIMA > 家電・スマホ・カメラ > スマートフォン/携帯電話 > スマートフォン携帯
+
+    %ul.headerCategory
+      %li.headerCategory__list
+        = link_to "FURIMA", root_path
+        =icon('fas','chevron-right')
+      %li.headerCategory__list
+        = @item.category.parent.parent.name
+        =icon('fas','chevron-right')
+      %li.headerCategory__list
+        = @item.category.parent.name
+        =icon('fas','chevron-right')
+      %li.headerCategory__list
+        = @item.category.name
 
   .main-show
     .itemDetail
