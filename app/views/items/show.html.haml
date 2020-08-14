@@ -24,6 +24,7 @@
               =link_to "ログイン", new_user_session_path
             .header__bottom__nav__right__registration
               =link_to "新規会員登録", new_user_registration_path
+
   %ul.headerCategory
     %li.headerCategory__list
       = link_to "FURIMA", root_path
@@ -42,9 +43,8 @@
       .itemDetail__box
         .itemDetail__box__title
           【新品・未使用】iPhone 6 Gold 16GB
-        .itemDetail__box__image
+        %ul.mainimage
           = image_tag("material/pict/pict-reason-02.jpg", width: 400,height: 400, class: "item__image")
-        %ul.imagelist
           %li.images
             = image_tag("material/pict/pict-reason-02.jpg", width: 100,height: 100, class: "item__image")
           %li.images
@@ -62,7 +62,7 @@
           %br
           ■カラー:Gold
           %br
-          ■要領:16GB
+          ■容量:16GB
         %table
           %tr
             %th 出品者
