@@ -45,11 +45,11 @@ ul.headerCategory {
           font-size: 13px;
         }
       }
-      ul.imagelist {
-        display: flex;
-        justify-content: center;
-        li.images {
-          margin: 10px;
+      &__image {
+        ul.mainimage {
+          li.images {
+            display: inline;
+          }
         }
       }
       &__introduction {

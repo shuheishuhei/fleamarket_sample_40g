@@ -14,7 +14,6 @@ $(function(){
               <option value="---" data-category="---">---</option>
               ${insertHTML}
             </select>
-            <i class='fas fa-chevron-down categoryWrapper__box--icon></i>
           </div>
         </div>`;
     $('.showCategoryDetail').append(childSelectHtml);
@@ -29,7 +28,6 @@ $(function(){
                 <option value="---" data-category="---">---</option>
                 ${insertHTML}
               </select>
-              <i class='fas fa-chevron-down categoryWrapper__box--icon></i>
             </div>
           </div>`;
     $('.showCategoryDetail').append(grandchildSelectHtml);

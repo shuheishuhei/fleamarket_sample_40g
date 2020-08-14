@@ -43,12 +43,13 @@
       .itemDetail__box
         .itemDetail__box__title
           【新品・未使用】iPhone 6 Gold 16GB
-        %ul.mainimage
-          = image_tag("material/pict/pict-reason-02.jpg", width: 400,height: 400, class: "item__image")
-          %li.images
-            = image_tag("material/pict/pict-reason-02.jpg", width: 100,height: 100, class: "item__image")
-          %li.images
-            = image_tag("material/pict/pict-reason-02.jpg", width: 100,height: 100, class: "item__image")
+        .itemDetail__box__image
+          %ul.mainimage
+            = image_tag("material/pict/pict-reason-02.jpg", width: 400,height: 400, class: "item__mainimage")
+            %li.images
+              = image_tag("material/pict/pict-reason-02.jpg", width: 100,height: 100, class: "item__images")
+            %li.images
+              = image_tag("material/pict/pict-reason-02.jpg", width: 100,height: 100, class: "item__images")
         .itemDetail__box__price
           %h1.itemprice ¥6,900
           %span.taxPostage (税込)送料込み
