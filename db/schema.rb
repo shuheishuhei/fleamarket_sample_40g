@@ -34,8 +34,10 @@ ActiveRecord::Schema.define(version: 2020_08_13_101522) do
     t.integer "expiration_year", null: false
     t.integer "expiration_month", null: false
     t.integer "security_code", null: false
+    t.bigint "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_cards_on_user_id"
   end
 
   create_table "items", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -72,5 +74,6 @@ ActiveRecord::Schema.define(version: 2020_08_13_101522) do
   end
 
   add_foreign_key "addresses", "users"
+  add_foreign_key "cards", "users"
   add_foreign_key "profiles", "users"
 end

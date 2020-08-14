@@ -1,6 +1,6 @@
 .creditcardHeader
   = link_to image_tag 'logo.png', alt: '失敗', height: '60px', width: '100px', class: 'pic1'
-= form_tag(card_new_path, method: :post, id: 'charge-form',  name: "inputForm", class: "inputForm") do
+= form_tag(card_path, method: :post, id: 'charge-form',  name: "inputForm", class: "inputForm") do
   %label カード番号
   = text_field_tag "number", "", class: "number", placeholder: "半角数字のみ" ,maxlength: "16", type: "text", id: "card_number"
   %br
