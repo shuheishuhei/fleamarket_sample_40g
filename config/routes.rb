@@ -11,7 +11,6 @@ Rails.application.routes.draw do
   end
   root 'items#index'
   resources :users
-  resources :cards, only: [:new, :show]
   resources :items, only: [:index, :new, :show] do
 
     collection do
@@ -19,7 +18,7 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :card, only: [:new, :show] do
+  resources :cards do
     collection do
       post 'show', to: 'card#show'
       post 'pay', to: 'card#pay'
