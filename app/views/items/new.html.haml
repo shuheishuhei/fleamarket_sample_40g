@@ -1,11 +1,11 @@
 .exhibition
   %header
     .logo1
-      = link_to "root_path" do
-        = image_tag("logo.png", size: '420x220', class: "logo2")
-  .formContent
+      = link_to image_tag("logo.png", size: '420x220', class: "logo2"), root_path
+
+  %form
+  = form_with model: @item,local: true do |f|
     .contentFlame
-    = form_with model: @item,local: true do |f|
       .image
         %h3.imageWordTop
           出品画像

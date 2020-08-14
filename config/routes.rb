@@ -11,7 +11,7 @@ Rails.application.routes.draw do
   root 'items#index'
   resources :users
   resources :cards, only: [:new, :show]
-  resources :items, only: [:index, :new, :show] do
+  resources :items, only: [:index, :new, :create, :show] do
     collection do
       get 'purchase_comfirmation' #商品購入確認
       get  'get_category_children', defaults: { format: 'json' }
