@@ -4,7 +4,8 @@ class CreateItems < ActiveRecord::Migration[6.0]
       t.string :name, null: false
       t.text :introduction, null: false
       t.integer :price, null: false
-      i.text :image, null: false
+      t.text :image, null: false
+      
       # t.references :category, null: false, foreign_key: true
       # t.references :sizing, foreign_key: true
       # t.references :item_conditions, foreign_key: true
@@ -16,8 +17,9 @@ class CreateItems < ActiveRecord::Migration[6.0]
       t.integer :postage, null: false
       t.integer :way, null: false
       t.integer :status, null: false
-      t.integer :buyer, null: false
-      t.integer :seller, null: false
+      # t.references :buyer, null: false
+      # t.references :seller, null: false
+      
       # t.references :buyer, null: false, foreign_key: true
       # t.references :seller, null: false, foreign_key: true
       t.timestamps
