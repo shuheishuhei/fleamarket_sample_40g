@@ -17,12 +17,7 @@ Rails.application.routes.draw do
       get 'purchase_comfirmation'
     end
   end
+  resources :cards
 
-  resources :cards do
-    collection do
-      post 'show', to: 'card#show'
-      post 'pay', to: 'card#pay'
-      post 'delete', to: 'card#delete'
-    end
-  end
+  
 end
