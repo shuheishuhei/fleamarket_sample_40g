@@ -39,6 +39,9 @@ $(document).on("turbolinks:load", ()=> {
       $("#previews").append(buildImg(targetIndex, blobUrl));
 
       $("#image-box").append(buildFileField(fileIndex[0]));
+        if($(".js-file_group").length > 5){  
+          return false;
+        }
       
       // label for属性をinputタグのid属性に変更する記述が必要
       let num = $(`.js-file_group`).last().data("index")
@@ -46,9 +49,7 @@ $(document).on("turbolinks:load", ()=> {
       fileIndex.shift();
       fileIndex.push(fileIndex[fileIndex.length - 1] + 1)
     }
-    if (num == 5) { 
-      $('.label-content').hide();
-    }
+    
   });
 
 
