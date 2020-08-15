@@ -17,7 +17,8 @@ Rails.application.routes.draw do
       get 'purchase_comfirmation'
     end
   end
-  resources :cards
+  resources :cards, only: [:new, :create, :show, :destroy] do
+  end
 
   
 end
