@@ -7,8 +7,7 @@ class CardsController < ApplicationController
 
   def create
     # credentials.yml.encに記載したAPI秘密鍵を呼び出す
-    Payjp.api_key = Rails.application.credentials.dig(:payjp, :sk_test_1e420a5429c5622cf700fdfd)
-
+    Payjp.api_key = Rails.application.credentials.payjp[:PAYJP_SECRET_KEY]
     # フラッシュメッセージ
     if params["payjp_token"].blank?
       redirect_to action: "new", alert: "クレジットカードを登録できませんでした。"
