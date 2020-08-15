@@ -65,17 +65,16 @@ group :production do
   gem 'unicorn'
 end
 
-
-
 gem 'active_hash'
-
 gem 'devise'
-
+gem 'haml-rails'
 gem 'carrierwave'
 gem 'mini_magick'
 gem 'ancestry'
 gem 'jquery-rails'
 
-gem 'haml-rails'
 
 gem 'fog-aws'
+
+gem 'font-awesome-sass'
+

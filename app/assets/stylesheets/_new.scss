@@ -11,7 +11,6 @@ html {
 body {
   height: 100%;
   width: 100%;
-
 }
 
 h1,
@@ -30,6 +29,11 @@ header {
   background-color: rgb(228, 226, 225);
   height: 130px;
   width:100%;
+
+// .exhibition {
+//   text-align: center;
+//   border-bottom: solid 1px lightgray;
+
 }
 
 .logo1 {
@@ -47,16 +51,15 @@ header {
   margin: 2px;
 }
 
-.content {
-  background-color: rgb(228, 226, 225);
-  display: flex;
-  justify-content: center;
+.formContent {
   .contentFlame {
     width: 700px;
     height: 2000px;
-    background-color: white;
+    margin: auto;
+    margin: auto;
   }
 }
+
 
 .image {
   margin: 40px 40px;
@@ -86,7 +89,7 @@ header {
 
 .show {
   margin: 40px 40px;
-  .categoryChoice {
+  .categoryWrapper__box--select {
     width: 615px;
     height: 45px;
     margin-bottom: 40px;

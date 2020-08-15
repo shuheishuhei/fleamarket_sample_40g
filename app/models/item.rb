@@ -17,6 +17,7 @@ class Item < ApplicationRecord
   validates :status, presence: true
 
   extend ActiveHash::Associations::ActiveRecordExtensions
+  belongs_to :category
   belongs_to_active_hash :prefecture
   # belongs_to_active_hash :category
   belongs_to_active_hash :condition
