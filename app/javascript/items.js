@@ -38,7 +38,7 @@ $(document).on("turbolinks:load", ()=> {
     } else {
       $("#previews").append(buildImg(targetIndex, blobUrl));
 
-      $("#image-box").append(buildFileField(fileIndex[0]));
+      $("#image-box").append(buildFileField(fileIndex[0]));  
         if($(".js-file_group").length > 5){  
           return false;
         }
