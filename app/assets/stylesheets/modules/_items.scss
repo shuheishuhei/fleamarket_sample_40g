@@ -1,6 +1,7 @@
 * {
   box-sizing: border-box;
   font-family: "Source Sans Pro", Helvetica, Arial, "游ゴシック体", "YuGothic", "メイリオ", "Meiryo", sans-serif;
+  
 }
 
 .top {
@@ -80,8 +81,12 @@
     }
     &__nav__right {
       display: flex;
-      &__login {
+      &__login,&__mypage {
         padding-right: 30px;
+      }
+      a {
+        text-decoration: none;
+        color: black;
       }
     }
   }
@@ -197,6 +202,7 @@
     padding-bottom: 15px;
     font-size: 25px;
   }
+  
   &__content {
     display: flex;
     &__list {
@@ -335,3 +341,5 @@
 .sellBtn:hover {
   opacity: 0.75;
 }
+
+

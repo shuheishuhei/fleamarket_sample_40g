@@ -38,6 +38,9 @@ group :development, :test do
   gem 'capistrano-rails'
   gem 'capistrano3-unicorn'
   gem 'capistrano-rails-console'
+  gem 'factory_bot_rails'
+  gem 'rails-controller-testing'
+  gem 'database_cleaner'
 end
 
 group :development do
@@ -64,7 +67,7 @@ group :production do
   gem 'unicorn'
 end
 
-
+gem 'active_hash'
 gem 'devise'
 gem 'carrierwave'
 gem 'mini_magick'
@@ -72,3 +75,5 @@ gem 'ancestry'
 gem 'haml-rails'
 gem 'active_hash'
 gem 'fog-aws' 
+gem 'font-awesome-sass'
+
