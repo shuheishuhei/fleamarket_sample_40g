@@ -1,10 +1,9 @@
 .exhibition
   %header1
     .logo1
-      = link_to "root_path" do
-        = image_tag("material/logo/logo.png", size: "420x220", class: "logo2")
-
-.content
+      = link_to image_tag("logo.png", size: '420x220', class: "logo2"), root_path
+      
+.formContent
   .contentFlame
     = form_for @item do |f|
       .image
@@ -38,13 +37,14 @@
                         .js-file_group{"data-index" => "#{@item.item_images.count}"}
                           = file_field_tag :image, name: "item[item_images_attributes][#{@item.item_images.count}][image]", class: "js-file"
                           %span.js-remove 削除
+
       .name
         %h3.nameTitle
           商品名
           %span.requireBox
             必須
         .nameForm
-          = f.text_field :name, class: "productName", placeholder: "商品名 (必須 40文字まで)"
+          %input.productName{placeholder: "商品名 (必須 40文字まで)"}
       .explanation
         %h3.explanationTitle
           商品の説明
@@ -56,26 +56,13 @@
         .showTitle
           %h3 商品の詳細
         .showCategory
-          %h3.showCategoryTitle
-            カテゴリー
+          .showCategoryDetail
+            =f.label 'カテゴリー', class: 'showCategoryTitle'
             %span.requireBox
               必須
-          .showCategoryForm
-            %select.categoryChoice
-              %option{value: "0"} 選択してください
-              %option{value: "1"} レディース
-              %option{value: "2"} メンズ
-              %option{value: "3"} ベビー・キッズ
-              %option{value: "4"} インテリア・住まい・小物
-              %option{value: "5"} 本・音楽・ゲーム
-              %option{value: "6"} おもちゃ・ホビー・グッズ
-              %option{value: "7"} コスメ・香水・美容
-              %option{value: "8"} 家電・スマホ・カメラ
-              %option{value: "9"} スポーツ・レジャー
-              %option{value: "10"} ハンドメイド
-              %option{value: "11"} チケット
-              %option{value: "12"} 自動車・オートバイ
-              %option{value: "13"} その他
+            .categoryWrapper
+              .categoryWrapper__box
+                = f.select :category, @category_parent_array, {}, {class: 'categoryWrapper__box--select', id: 'parent_category'}
         .showBrand
           %h3.showBrandTitle
             ブランド
@@ -139,8 +126,8 @@
             %span.requireBox
               必須
           .priceSellingSymbol
-            ¥
-            = f.text_field :price, placeholder: "金額を入力してください", class: "moneyForm"
+            ￥
+            %input{placeholder: "金額を入力してください", class: "moneyForm"}   
         .priceFee
           .priceFeeTitle
             .priceFeeTitleLeft
@@ -165,5 +152,4 @@
 .footer
   .logo1
     =link_to "root_path" do
-      = image_tag("material/logo/logo.png", size: '420x220',class: "footerLogo")
-  .footer
+      = image_tag("logo.png", size: '420x220',class: "footerLogo")
