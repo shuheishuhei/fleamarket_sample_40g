@@ -80,7 +80,8 @@
           %td 1~2日で発送
 
       .itemDetail__box--btn
-        =submit_tag("購入手続きへ", class: 'purchaseBtn')
+        = form_with 
+        = link_to '購入する', buy_item_path
     
       .itemDetail__box__comment
         =form_with local: true do |f|

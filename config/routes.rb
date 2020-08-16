@@ -10,14 +10,19 @@ Rails.application.routes.draw do
     get 'users/:id', to: 'users#show'
   end
   root 'items#index'
-  resources :users
+  resources :users 
   resources :items, only: [:index, :new, :show] do
-
+    member do
+      get  "buy"
+      post "pay"
+    end
+    
     collection do
       get 'purchase_comfirmation'
     end
   end
   resources :cards, only: [:new, :create, :show, :destroy] do
+    
   end
 
   

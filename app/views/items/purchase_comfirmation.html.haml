@@ -29,7 +29,8 @@
         .buyItem__box__address__change
           =link_to '変更', "#"
       .buyItem__box--btn
-        =submit_tag("購入する", class: 'buyBtn')
+        = link_to '購入する', item_buy_path
+          
 
 %footer
   %list
