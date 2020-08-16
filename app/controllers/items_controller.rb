@@ -19,11 +19,19 @@ class ItemsController < ApplicationController
   end
 
   def update
-    @item.update(item_params)
+    if @item.update(item_params)
+      redirect_to item_path, notice: "削除しました"
+    else
+      render :new
+    end
   end
 
   def destroy
-    @item.destroy
+    if @item.destroy
+      redirect_to item_path, notice: "削除しました"
+    else
+      render :new
+    end
   end
 end
 
