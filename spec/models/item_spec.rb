@@ -5,7 +5,7 @@ describe Item do
     
     it "商品画像、商品名、商品説明、カテゴリー、商品の状態、配送料の負担、配送方法、発送物の地域、発送までの日数、価格が入力されていれば出品可能" do
       item = build(:item)
-      ecpect(item).to be_valid
+      expect(item).to be_valid
     end
 
     it "商品ネームが空では登録できない" do
@@ -81,7 +81,7 @@ describe Item do
     end
 
     it "配送方法が空では出品できない" do
-      item = build(:item, way: ""
+      item = build(:item, way: "")
       item.valid?
     expect(item.errors[:way]).to include("can't be blank")
     end
