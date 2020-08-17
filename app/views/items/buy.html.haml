@@ -2,19 +2,19 @@
   .main_contents
     .main_details
       // 商品情報ページに
-      = render "items/show", product: @item, images: @images
+      //= render "#", product: @item, images: @images
     .purchase_registration
       .purchase_registration_main
         .payment
           支払い金額   
         .amount
           = "#{@item.price}" + "円"
-      # クレジットカードを登録済みの場合の表示
+      // クレジットカードを登録済みの場合の表示
       - if @user.card.present?
         .purchase_function
           .credit_card_info_title
             クレジットカード情報
-            # クレジットカード情報を表示させます。
+            // クレジットカード情報を表示
             .credit_card_info
               .credit_card_info__brand
                 = image_tag "cards/#{@card_src}", class: "credit_card_info__brand__img", alt: @card_brand
