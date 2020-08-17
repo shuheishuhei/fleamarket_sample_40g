@@ -5,14 +5,15 @@ class ItemsController < ApplicationController
 
   def new
     @item = Item.new
-    @category_parent_array = ["---"]
+  
+    @category_parent_array = []
     Category.where(ancestry: nil).each do |parent|
-      @category_parent_array << parent.name
+      @category_parent_array << parent
     end
   end
 
   def get_category_children
-    @category_children = Category.find_by(name: "#{params[:parent_name]}", ancestry: nil).children
+    @category_children = Category.find_by(id: "#{params[:parent_id]}", ancestry: nil).children
   end
   
   def get_category_grandchildren
@@ -20,7 +21,9 @@ class ItemsController < ApplicationController
   end
 
   def create
+    # binding.pry
     @item = Item.new(item_params)
+    # @item.category = nil
     if @item.save
       redirect_to root_path, notice: '出品完了しました'
     else
@@ -39,7 +42,11 @@ class ItemsController < ApplicationController
 
   private
   def item_params
-    params.require(:item).permit(:image, :name, :introduction, :price, :prefecture, :condition, :postage, :way, :day, :status, :category_id, :brand_id)
+    params.require(:item).permit(:image, :name, :introduction, :price, :prefecture_id, :condition_id, :postage_id, :way_id, :day_id, :category_id, :brand)
   end
+
+  # def category_id
+  #   @category = Category.where(name: params[:item][:category_id])
+  # end
 end
 

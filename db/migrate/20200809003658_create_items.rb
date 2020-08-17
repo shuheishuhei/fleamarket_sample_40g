@@ -5,18 +5,21 @@ class CreateItems < ActiveRecord::Migration[6.0]
       t.text :introduction, null: false
       t.integer :price, null: false
       t.text :image, null: false
-      
+      t.string :brand
       # t.references :category, null: false, foreign_key: true
       # t.references :sizing, foreign_key: true
       # t.references :item_conditions, foreign_key: true
       # t.references :postage_pay, null: false, foreign_key: true
       # t.references :preparation_day, null: false, foreign_key: true
-      t.integer :condition, null: false
-      t.integer :prefecture, null: false
-      t.integer :day, null: false
-      t.integer :postage, null: false
-      t.integer :way, null: false
-      t.integer :status, null: false
+      t.integer :condition_id, null: false
+      t.integer :prefecture_id, null: false
+      t.integer :day_id, null: false
+      t.integer :postage_id, null: false
+      t.integer :way_id, null: false
+     
+      # t.integer :status_id, null: false
+      
+      
       # t.references :buyer, null: false
       # t.references :seller, null: false
       

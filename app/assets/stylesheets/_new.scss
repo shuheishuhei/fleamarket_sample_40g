@@ -25,16 +25,15 @@ body {
   padding: 0;
 }
 
-header {
+.header1 {
   background-color: rgb(228, 226, 225);
   height: 130px;
   width:100%;
-
+}
 // .exhibition {
 //   text-align: center;
 //   border-bottom: solid 1px lightgray;
-
-}
+// }
 
 .logo1 {
   display: flex;
@@ -57,6 +56,7 @@ header {
     height: 2000px;
     margin: auto;
     margin: auto;
+    background-color: white;
   }
 }
 
@@ -93,12 +93,12 @@ header {
     width: 615px;
     height: 45px;
     margin-bottom: 40px;
-    // .categoryChoiceList {
-    //   width: 615px;
-    //   height: 45px;
-    // }
+    .categoryChoiceList {
+      width: 615px;
+      height: 45px;
+    }
   }
-  input.brandChoice {
+  .brandChoice {
     width: 615px;
     height: 45px;
     margin-bottom: 40px;
@@ -212,7 +212,7 @@ header {
   background-color: #272727;
   height: 130px;
   width: 100%;
-  .logo4 {
+  .footerLogo {
     margin: 30px 0 40px 0;
   }
 }
