@@ -5,7 +5,7 @@ class Item < ApplicationRecord
   validates :name, length: {maximum: 40}, presence: true 
   validates :introduction, length: {maximum: 1000}, presence: true
   validates :price, presence: true, numericality: {greater_than_or_equal_to: 300, less_than: 10000000, only_integer: true}
-  validates :image, presence: true
+  validates :item_images, presence: true
   validates :condition_id, presence: true
   validates :prefecture_id, presence: true
   validates :day_id, presence: true

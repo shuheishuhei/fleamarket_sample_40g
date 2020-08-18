@@ -67,7 +67,7 @@ end
     params.require(:item).permit(:name, :introduction, :price, :prefecture_id, :condition_id, :postage_id, :way_id, :day_id, :category_id, :brand, :status_id,item_images_attributes: [:id, :item_id, :image, :_destroy])
   end
 
-end
+
 
 # before actionのコメントアウトを外す時に使用する
 # def set_item
