@@ -70,6 +70,7 @@ gem 'devise'
 gem 'carrierwave'
 gem 'mini_magick'
 gem 'ancestry'
+
 gem 'jquery-rails'
 gem 'haml-rails'
 gem 'fog-aws' 

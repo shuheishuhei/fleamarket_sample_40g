@@ -38,146 +38,118 @@
                           = file_field_tag :image, name: "item[item_images_attributes][#{@item.item_images.count}][image]", class: "js-file"
                           %span.js-remove 削除
 
+      
       .name
         %h3.nameTitle
           商品名
           %span.requireBox
             必須
         .nameForm
-          %input.productName{placeholder: "商品名 (必須 40文字まで)"}
+          = f.text_field :name, class: "productName", placeholder: "商品名 (必須 40文字まで)"
       .explanation
         %h3.explanationTitle
           商品の説明
           %span.requireBox
             必須
+
         .explanationForm
-          %textarea{class: "explanationForm",placeholder: "商品の説明 (必須 1,000文字以内) (色、素材、重さ、定価、注意点など) 例) 2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。合わせやすいのでおすすめです。"}
-      
+          = f.text_area :introduction,class: "explanationForm",placeholder: "商品の説明 (必須 1,000文字以内) (色、素材、重さ、定価、注意点など) 例) 2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。合わせやすいのでおすすめです。"
+          
       .show
         .showTitle
           %h3 商品の詳細
         .showCategory
           .showCategoryDetail
             =f.label 'カテゴリー', class: 'showCategoryTitle'
-
             %span.requireBox
               必須
-          .imageWordUnder
-            %p 最大10枚までアップロードできます
-          .imageArea
-            = f.file_field :image, id: "sell-img"
+            .categoryWrapper
+              .categoryWrapper__box
+                = f.collection_select(:category_id, @category_parent_array, :id, :name, {prompt: "---"}, {class: 'categoryWrapper__box--select', id: 'parent_category'})
 
-        .name
-          %h3.nameTitle
-            商品名
+          .showBrand
+            %h3.showBrandTitle
+              ブランド
+              %span.requireBox
+                任意
+            .showBrandForm
+              = f.text_field :brand, class: "brandChoice", placeholder:"例) プラダ"
+          .showCondition
+            %h3.showConditionTitle
+              商品の状態
+              %span.requireBox
+                必須
+            .showConditionForm
+              .conditionChoice
+                =f.collection_select(:condition_id, Condition.all, :id, :name, {include_blank: "選択してください"}, {class: "conditionChoiceList"})
+
+      .delivery
+        .deriveryTitle
+          %h3 配送について
+        .deliveryPostage
+          %h3.deriveryPostageTitle
+            配送料の負担
             %span.requireBox
               必須
-          .nameForm
-            = f.text_field :name, class: "productName", placeholder: "商品名 (必須 40文字まで)"
-        .explanation
-          %h3.explanationTitle
-            商品の説明
+          .deriveryPostageForm
+            .postageChoice
+              = f.collection_select(:postage_id, Postage.all, :id, :name, {include_blank: '選択してください'}, {class: "postageChoiceList"})
+        
+        .deriveryWay
+          %h3.deliveryWayTitle
+            配送方法
             %span.requireBox
               必須
+          .deriveryWayForm
+            .wayChoice
+              = f.collection_select(:way_id, Way.all, :id, :name, {include_blank:'選択してください'}, {class: "wayChoiceList"})
 
-          .explanationForm
-            = f.text_area :introduction,class: "explanationForm",placeholder: "商品の説明 (必須 1,000文字以内) (色、素材、重さ、定価、注意点など) 例) 2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。合わせやすいのでおすすめです。"
-           
-        .show
-          .showTitle
-            %h3 商品の詳細
-          .showCategory
-            .showCategoryDetail
-              =f.label 'カテゴリー', class: 'showCategoryTitle'
-              %span.requireBox
-                必須
-              .categoryWrapper
-                .categoryWrapper__box
-                  = f.collection_select(:category_id, @category_parent_array, :id, :name, {prompt: "---"}, {class: 'categoryWrapper__box--select', id: 'parent_category'})
-
-            .showBrand
-              %h3.showBrandTitle
-                ブランド
-                %span.requireBox
-                  任意
-              .showBrandForm
-                = f.text_field :brand, class: "brandChoice", placeholder:"例) プラダ"
-            .showCondition
-              %h3.showConditionTitle
-                商品の状態
-                %span.requireBox
-                  必須
-              .showConditionForm
-                .conditionChoice
-                  =f.collection_select(:condition_id, Condition.all, :id, :name, {include_blank: "選択してください"}, {class: "conditionChoiceList"})
-
-        .delivery
-          .deriveryTitle
-            %h3 配送について
-          .deliveryPostage
-            %h3.deriveryPostageTitle
-              配送料の負担
-              %span.requireBox
-                必須
-            .deriveryPostageForm
-              .postageChoice
-                = f.collection_select(:postage_id, Postage.all, :id, :name, {include_blank: '選択してください'}, {class: "postageChoiceList"})
-          
-          .deriveryWay
-            %h3.deliveryWayTitle
-              配送方法
-              %span.requireBox
-                必須
-            .deriveryWayForm
-              .wayChoice
-                = f.collection_select(:way_id, Way.all, :id, :name, {include_blank:'選択してください'}, {class: "wayChoiceList"})
-
-          .deriveryArea
-            %h3.deriveryAreaTitle
-              発送元の地域
-              %span.requireBox
-                必須
-            .deriveryAreaForm
-              .areaChoice
-                = f.collection_select(:prefecture_id, Prefecture.all, :id, :name, {include_blank: "選択してください"}, {class: "areaChoiceList"}) 
-          .deriveryDay
-            %h3.deriveryDayTitle
-              発送までの日数
-              %span.requireBox
-                必須
-            .deriveryDayForm              
-              .dayChoice
-                = f.collection_select(:day_id, Day.all, :id, :name, {include_blank: "選択してください"}, {class: 'dayChoiceList'})
-                
-        .price
-          .priceTitle
-            価格 (￥300~9,999,999)
-          .priceSellingprice
-            %h3.priceSellingpriceTitle
-              販売価格
-              %span.requireBox
-                必須
-            .priceSellingSymbol 
-              ￥
-              = f.number_field :price, placeholder: "金額を入力してください", class: "moneyForm"   
-          .priceFee
-            .priceFeeTitle
-              .priceFeeTitleLeft
-                %h3 販売手数料 (10%)
-              .priceFeeTitleRight
-                %h3 ー
-            .priceProfit
-              .priceProfitTitleLeft
-                %h3 販売利益
-              .priceProfitTitleRight
-                %h3 ー
-          .status
-            %h3.statusName
-              出品中を選択してください
-              %span.requireBox
-                必須
-              .statusForm
-                = f.collection_select(:status_id, Status.all, :id, :name, {include_blank: "選択してください"}, {class: 'statusCheck'})
+        .deriveryArea
+          %h3.deriveryAreaTitle
+            発送元の地域
+            %span.requireBox
+              必須
+          .deriveryAreaForm
+            .areaChoice
+              = f.collection_select(:prefecture_id, Prefecture.all, :id, :name, {include_blank: "選択してください"}, {class: "areaChoiceList"}) 
+        .deriveryDay
+          %h3.deriveryDayTitle
+            発送までの日数
+            %span.requireBox
+              必須
+          .deriveryDayForm              
+            .dayChoice
+              = f.collection_select(:day_id, Day.all, :id, :name, {include_blank: "選択してください"}, {class: 'dayChoiceList'})
+              
+      .price
+        .priceTitle
+          価格 (￥300~9,999,999)
+        .priceSellingprice
+          %h3.priceSellingpriceTitle
+            販売価格
+            %span.requireBox
+              必須
+          .priceSellingSymbol 
+            ￥
+            = f.number_field :price, placeholder: "金額を入力してください", class: "moneyForm"   
+        .priceFee
+          .priceFeeTitle
+            .priceFeeTitleLeft
+              %h3 販売手数料 (10%)
+            .priceFeeTitleRight
+              %h3 ー
+          .priceProfit
+            .priceProfitTitleLeft
+              %h3 販売利益
+            .priceProfitTitleRight
+              %h3 ー
+        .status
+          %h3.statusName
+            出品中を選択してください
+            %span.requireBox
+              必須
+            .statusForm
+              = f.collection_select(:status_id, Status.all, :id, :name, {include_blank: "選択してください"}, {class: 'statusCheck'})
         
         .button
           = f.submit "出品する", class: "buttonBlue"
