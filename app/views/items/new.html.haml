@@ -14,8 +14,6 @@
           .imageWordUnder
             %p 最大10枚までアップロードできます
           .imageArea
-            -# %f.input{type: "file", class: "fileBox", placeholder: "ドラッグアンドドロップ<br>またはクリックしてファイルをアップロード"}
-            -# = f.fields_for :images do |i|
             = f.file_field :image, id: "sell-img"
 
 

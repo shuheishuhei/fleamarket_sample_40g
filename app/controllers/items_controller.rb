@@ -21,9 +21,7 @@ class ItemsController < ApplicationController
   end
 
   def create
-    # binding.pry
     @item = Item.new(item_params)
-    # @item.category = nil
     if @item.save
       redirect_to root_path, notice: '出品完了しました'
     else
