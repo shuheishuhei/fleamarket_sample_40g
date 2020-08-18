@@ -43,7 +43,7 @@
     .itemDetail
       .itemDetail__box
         .itemDetail__box__title
-          【新品・未使用】iPhone 6 Gold 16GB
+          =@item.name
         .itemDetail__box__image
           %ul.mainimage
             = image_tag("material/pict/pict-reason-02.jpg", width: 400,height: 400, class: "item__mainimage")
@@ -52,28 +52,24 @@
             %li.images
               = image_tag("material/pict/pict-reason-02.jpg", width: 100,height: 100, class: "item__images")
         .itemDetail__box__price
-          %h1.itemprice ¥6,900
-          %span.taxPostage (税込)送料込み
+          %h1.itemprice 
+            ¥
+            = @item.price
+          %span
+          = @item.postage[:name]
         .itemDetail__box__introduction
           【商品説明】
-          %br
-          本体と箱の出品です。
-          docomoにて購入しました。
-          %br
-          ■機種名:iPhene 6
-          %br
-          ■カラー:Gold
-          %br
-          ■容量:16GB
+          = @item.introduction
         %table
           %tr
             %th 出品者
-            %td 太郎
+            %td 
+              -# = @item.seller.nickname
           %tr
             %th カテゴリー
             %td
               =link_to "#" do
-                =@item.category.parent.parent.name
+                = @item.category.parent.parent.name
                 %br
                 =link_to "#" do
                   = @item.category.parent.name
@@ -82,26 +78,31 @@
                   = @item.category.name
           %tr
             %th ブランド
-            %td Apple
-          %tr
-            %th 商品のサイズ
-            %td
+            %td 
+              =@item.brand
           %tr
             %th 商品の状態
-            %td 新品/未使用
+            %td 
+              = @item.condition[:name]
           %tr 
             %th 配送料の負担
-            %td 送料込み(出品者負担)
+            %td 
+              = @item.postage[:name]
           %tr
             %th 発送元の地域
-            %td 北海道
+            %td 
+              = @item.prefecture[:name]
           %tr
             %th 発送日の目安
-            %td 1~2日で発送
+            %td 
+              = @item.day[:name]
 
         .itemDetail__box--btn
-          =submit_tag("購入手続きへ", class: 'purchaseBtn')
-        
+          
+          = submit_tag("購入手続きへ", class: 'purchaseBtn')
+          = submit_tag("商品の編集", class: 'purchaseBtn')
+          = submit_tag("この商品を削除する", class: 'purchaseBtn')
+
         -# コメントフォームは実装完了までコメントアウト
         -# .itemDetail__box__comment
         -#   =form_with local: true do |f|
