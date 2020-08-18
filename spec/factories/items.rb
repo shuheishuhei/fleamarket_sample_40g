@@ -5,11 +5,12 @@ FactoryBot.define do
     introduction {"テスト用のアイテムです"}
     price        {500}
     image        {"logo.png"}
-    condition    {2}
-    prefecture   {2}
-    day          {2}
-    postage      {2}
-    way          {2}
-    status       {2}
+    condition_id    {2}
+    prefecture_id   {2}
+    day_id          {2}
+    postage_id      {2}
+    way_id          {2}
+    category_id     {11}
+    status_id       {2}
   end
 end

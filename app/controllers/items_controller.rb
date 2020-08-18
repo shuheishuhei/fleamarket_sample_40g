@@ -42,11 +42,8 @@ class ItemsController < ApplicationController
 
   private
   def item_params
-    params.require(:item).permit(:image, :name, :introduction, :price, :prefecture_id, :condition_id, :postage_id, :way_id, :day_id, :category_id, :brand)
+    params.require(:item).permit(:image, :name, :introduction, :price, :prefecture_id, :condition_id, :postage_id, :way_id, :day_id, :category_id, :brand, :status_id)
   end
 
-  # def category_id
-  #   @category = Category.where(name: params[:item][:category_id])
-  # end
 end
 

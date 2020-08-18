@@ -17,7 +17,7 @@ class CreateItems < ActiveRecord::Migration[6.0]
       t.integer :postage_id, null: false
       t.integer :way_id, null: false
      
-      # t.integer :status_id, null: false
+      t.integer :status_id, null: false
       
       
       # t.references :buyer, null: false

@@ -48,6 +48,7 @@ ActiveRecord::Schema.define(version: 2020_08_14_081629) do
     t.integer "day_id", null: false
     t.integer "postage_id", null: false
     t.integer "way_id", null: false
+    t.integer "status_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.bigint "category_id", null: false

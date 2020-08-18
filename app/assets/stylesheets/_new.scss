@@ -171,7 +171,18 @@ body {
     .priceProfit {
       display: flex;
       justify-content: space-between;
+      .priceProfitTitleRight {
+        margin-bottom: 30px;
+      }
     }
+  }
+}
+
+.status {
+  
+  .statusCheck {
+    width: 615px;
+    height: 45px;
   }
 }
 

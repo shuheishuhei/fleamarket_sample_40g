@@ -55,7 +55,7 @@
                 %span.requireBox
                   任意
               .showBrandForm
-                = f.text_field :brand_id, class: "brandChoice", placeholder:"例) プラダ"
+                = f.text_field :brand, class: "brandChoice", placeholder:"例) プラダ"
             .showCondition
               %h3.showConditionTitle
                 商品の状態
@@ -127,10 +127,16 @@
                 %h3 販売利益
               .priceProfitTitleRight
                 %h3 ー
+          .status
+            %h3.statusName
+              出品中を選択してください
+              %span.requireBox
+                必須
+              .statusForm
+                = f.collection_select(:status_id, Status.all, :id, :name, {include_blank: "選択してください"}, {class: 'statusCheck'})
+        
         .button
           = f.submit "出品する", class: "buttonRed"
-          -# %button{type: "submit", class: "buttonRed"}
-          -#   出品する
 
           %button{type: "submit", class: "buttonGrey"}
             下書きに保存
@@ -139,6 +145,8 @@
               戻る
         .importantPoint
           %p 禁止されている行為及出品物を必ずご確認ください。偽ブランド品や盗品物などの販売は犯罪であり、法律により処罰される可能性があります。また、出品をもちまして加盟店規約に同意したことになります。
+
+          
 .footer1
   .logo1
     =link_to "root_path" do
