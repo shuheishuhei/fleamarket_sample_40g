@@ -10,7 +10,7 @@ ul.headerCategory {
   }
   a {
     text-decoration: none;
-    color: black;
+    color: $mainBlueColor;
   }
 }
 
@@ -46,12 +46,13 @@ ul.headerCategory {
         }
       }
       &__image {
-        ul.mainimage {
+        ul.mainimage__down {
           li.images {
             display: inline;
           }
         }
       }
+    
       &__introduction {
         text-align: left;
         margin: 20px;
