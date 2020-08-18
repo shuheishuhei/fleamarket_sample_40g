@@ -1,14 +1,69 @@
 .exhibition
   .header1
     .logo1
+
       = link_to image_tag("logo.png", size: '150x50', class: "logo2"), root_path
 
-  .formContent
-    = form_with model: @item,local: true do |f|
-      .contentFlame
-        .image
-          %h3.imageWordTop
-            出品画像
+  
+
+    
+      
+.formContent
+  .contentFlame
+    = form_for @item do |f|
+      .image
+        .image__block
+          .image__block__form
+            %h3.imageWordTop
+              出品画像
+              %span.requireBox
+                必須
+            %p 最大5枚までアップロードできます
+            .image__block__area
+              %label.image__block__area__label{for: "item_images_attributes_0_image"}
+                -# .fileBox クリックして画像をアップロード
+                .image__prev
+                  #image-box
+                    #previews
+                      - if @item.persisted?
+                        - @item.item_images.each do |image,i|
+                          - if image.persisted?
+                            = @item.item_images.each_with_index do |image, i|
+                              = image_tag item_image.image.url, data: { index: i }
+                    = f.fields_for :item_images do |image|
+                      .js-file_group{"data-index" => "#{image.index}"}
+                        = image.file_field :image, class: "js-file",id: "item_images_attributes_#{image.index}_image"
+                        %br
+                        %span.js-remove 削除
+                    - @item.item_images.each do |image|
+                      - if @item.persisted?
+                        = image.check_box :_destroy, data:{ index: image.index }, class: "hidden-destroy"
+                      - if @item.persisted?
+                        .js-file_group{"data-index" => "#{@item.item_images.count}"}
+                          = file_field_tag :image, name: "item[item_images_attributes][#{@item.item_images.count}][image]", class: "js-file"
+                          %span.js-remove 削除
+
+      .name
+        %h3.nameTitle
+          商品名
+          %span.requireBox
+            必須
+        .nameForm
+          %input.productName{placeholder: "商品名 (必須 40文字まで)"}
+      .explanation
+        %h3.explanationTitle
+          商品の説明
+          %span.requireBox
+            必須
+        .explanationForm
+          %textarea{class: "explanationForm",placeholder: "商品の説明 (必須 1,000文字以内) (色、素材、重さ、定価、注意点など) 例) 2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。合わせやすいのでおすすめです。"}
+      .show
+        .showTitle
+          %h3 商品の詳細
+        .showCategory
+          .showCategoryDetail
+            =f.label 'カテゴリー', class: 'showCategoryTitle'
+
             %span.requireBox
               必須
           .imageWordUnder
@@ -30,6 +85,7 @@
             商品の説明
             %span.requireBox
               必須
+
           .explanationForm
             = f.text_area :introduction,class: "explanationForm",placeholder: "商品の説明 (必須 1,000文字以内) (色、素材、重さ、定価、注意点など) 例) 2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。合わせやすいのでおすすめです。"
         
@@ -134,7 +190,7 @@
                 = f.collection_select(:status_id, Status.all, :id, :name, {include_blank: "選択してください"}, {class: 'statusCheck'})
         
         .button
-          = f.submit "出品する", class: "buttonRed"
+          = f.submit "出品する", class: "buttonBlue"
 
           %button{type: "submit", class: "buttonGrey"}
             下書きに保存
@@ -149,3 +205,4 @@
   .logo1
     =link_to "root_path" do
       = image_tag("logo-white.png", size: '150x50',class: "footerLogo")
+
