@@ -10,4 +10,9 @@
   本人情報
 .contentBox
   = link_to "ログアウト", destroy_user_session_path, method: :delete, class: 'Button'
+
+.contentBox
+  = link_to "商品ページ", item_path(:id), class: 'Button'
+
+
   

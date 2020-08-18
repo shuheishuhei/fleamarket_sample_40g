@@ -3,7 +3,7 @@
     .main_details
       .main_details__message
         購入が完了しました。
-    = render "purchases/shared/purchase_product_info.html.haml", product: @product, images: @images
+    = render "items/itemDetail", item: @item, images: @images
     %ul.purchased__links
       %li.purchased__links__TopPage
         = link_to "トップページに戻る", root_path, class: "purchased__links__TopPage__btn"

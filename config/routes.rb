@@ -15,11 +15,12 @@ Rails.application.routes.draw do
     member do
       get  "buy"
       post "pay"
+      get 'purchase_comfirmation'
     end
     
     
     collection do
-      get 'purchase_comfirmation'
+      
     end
   end
   resources :cards, only: [:new, :create, :show, :destroy] do

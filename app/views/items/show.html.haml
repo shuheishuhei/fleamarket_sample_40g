@@ -80,8 +80,8 @@
           %td 1~2日で発送
 
       .itemDetail__box--btn
-        = form_with 
-        = link_to '購入する', buy_item_path
+        = link_to '購入する', purchase_comfirmation_item_path(@item.id)
+        //                   '/items/1/buy'
     
       .itemDetail__box__comment
         =form_with local: true do |f|
