@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   end
   
   root 'items#index'
+
   resources :users
   resources :cards, only: [:new, :show]
   resources :items, only: [:index, :new, :create, :show] do
@@ -20,5 +21,6 @@ Rails.application.routes.draw do
     end
     resources :item_images, only: [:index, :new, :create, :destroy, :show, :update]
   end
-  
+
 end
+

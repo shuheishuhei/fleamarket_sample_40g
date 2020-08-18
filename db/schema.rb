@@ -11,6 +11,7 @@
 # It's strongly recommended that you check this file into your version control system.
 
 
+
 ActiveRecord::Schema.define(version: 2020_08_11_051002) do
 
   create_table "item_images", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -32,6 +33,7 @@ ActiveRecord::Schema.define(version: 2020_08_11_051002) do
   add_foreign_key "item_images", "items"
 
 ActiveRecord::Schema.define(version: 2020_08_13_071201) do
+
 
   create_table "addresses", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "destination_first_name", null: false
@@ -62,6 +64,14 @@ ActiveRecord::Schema.define(version: 2020_08_13_071201) do
     t.string "name", null: false
     t.text "introduction", null: false
     t.integer "price", null: false
+    t.text "image", null: false
+    t.string "brand"
+    t.integer "condition_id", null: false
+    t.integer "prefecture_id", null: false
+    t.integer "day_id", null: false
+    t.integer "postage_id", null: false
+    t.integer "way_id", null: false
+    t.integer "status_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.bigint "category_id", null: false

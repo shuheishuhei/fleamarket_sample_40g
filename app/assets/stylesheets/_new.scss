@@ -24,14 +24,19 @@ body {
   margin: 0;
   padding: 0;
 }
-.exhibition {
-  text-align: center;
-  border-bottom: solid 1px lightgray;
+
+.header1 {
+  background-color: rgb(228, 226, 225);
+  height: 130px;
+  width:100%;
 }
 
 .logo1 {
   display: flex;
   justify-content: center;
+  .logo2 {
+    margin: 40px 0 60px 0;
+  }
 }
 
 .requireBox {
@@ -47,6 +52,7 @@ body {
     height: 2000px;
     margin: auto;
     margin: auto;
+    background-color: white;
   }
 }
 
@@ -83,38 +89,56 @@ body {
     width: 615px;
     height: 45px;
     margin-bottom: 40px;
+    .categoryChoiceList {
+      width: 615px;
+      height: 45px;
+    }
   }
-  input.brandChoice {
+  .brandChoice {
     width: 615px;
     height: 45px;
     margin-bottom: 40px;
   }
-  select.statusChoice {
-    width: 615px;
-    height: 45px;
+  .conditionChoice {
     margin-bottom: 40px;
+    .conditionChoiceList {
+      width: 615px;
+      height: 45px;
+    }
   }
 }
 
 .delivery {
   margin: 40px 40px;
-  select.berdenChoice {
-    width: 615px;
-    height: 45px;
+  .postageChoice {
     margin-bottom: 40px;
+    .postageChoiceList {
+      width: 615px;
+      height: 45px;
+    }
   }
+  .deriveryWay {
+    display: none;
+    .wayChoice {
+      margin-bottom: 40px;
+      .wayChoiceList {
+        width: 615px;
+        height: 45px;
+      }
+    }
+  }  
   .areaChoice {
-    width: 615px;
-    height: 45px;
     margin-bottom: 40px;
     .areaChoiceList {
       width: 615px;
       height: 45px;
     }
   }
-  select.daysChoice {
-    width: 615px;
-    height: 45px;
+  .dayChoice {
+    .dayChoiceList {
+      width: 615px;
+      height: 45px;
+    }
   }
 }
 
@@ -143,7 +167,18 @@ body {
     .priceProfit {
       display: flex;
       justify-content: space-between;
+      .priceProfitTitleRight {
+        margin-bottom: 30px;
+      }
     }
+  }
+}
+
+.status {
+  
+  .statusCheck {
+    width: 615px;
+    height: 45px;
   }
 }
 
@@ -151,11 +186,11 @@ body {
   display: flex;
   align-items: center;
   flex-direction: column; 
-  button.buttonRed {
+  .buttonRed {
     width: 300px;
     height: 45px;
     margin-bottom: 30px;
-    background-color: red;
+    background-color: #3ccace;
     color: white;
     display: inline-block;
     cursor: pointer;
@@ -176,4 +211,15 @@ body {
 }
 
 .importantPoint {
+  display: flex;
+  justify-content: center;
+}
+
+.footer1 {
+  background-color: #272727;
+  height: 130px;
+  width: 100%;
+  .footerLogo {
+    margin: 30px 0 40px 0;
+  }
 }
