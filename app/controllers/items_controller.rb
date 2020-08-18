@@ -1,4 +1,5 @@
 class ItemsController < ApplicationController
+  # 使用する際はprivateのコメントアウトも外す
   # before_action :set_item, except: [:index, :new, :create]
 
   def index
@@ -7,14 +8,8 @@ class ItemsController < ApplicationController
 
   def new
     @item = Item.new
-
-  
-    
-
     @item.item_images.build
-
     @category_parent_array = []
-
     Category.where(ancestry: nil).each do |parent|
       @category_parent_array << parent
     end
@@ -67,7 +62,6 @@ class ItemsController < ApplicationController
   
 end
 
-
   private
   def item_params
     params.require(:item).permit(:name, :introduction, :price, :prefecture_id, :condition_id, :postage_id, :way_id, :day_id, :category_id, :brand, :status_id,item_images_attributes: [:id, :item_id, :image, :_destroy])
@@ -75,7 +69,7 @@ end
 
 end
 
-
+# before actionのコメントアウトを外す時に使用する
 # def set_item
 #   @item = Item.find(params[:id])
 # end

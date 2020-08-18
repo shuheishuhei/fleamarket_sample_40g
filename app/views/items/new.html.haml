@@ -1,13 +1,8 @@
 .exhibition
   .header1
     .logo1
-
       = link_to image_tag("logo.png", size: '150x50', class: "logo2"), root_path
-
   
-
-    
-      
 .formContent
   .contentFlame
     = form_for @item do |f|
@@ -57,6 +52,7 @@
             必須
         .explanationForm
           %textarea{class: "explanationForm",placeholder: "商品の説明 (必須 1,000文字以内) (色、素材、重さ、定価、注意点など) 例) 2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。合わせやすいのでおすすめです。"}
+      
       .show
         .showTitle
           %h3 商品の詳細
@@ -70,8 +66,6 @@
             %p 最大10枚までアップロードできます
           .imageArea
             = f.file_field :image, id: "sell-img"
-
-
 
         .name
           %h3.nameTitle
@@ -88,9 +82,7 @@
 
           .explanationForm
             = f.text_area :introduction,class: "explanationForm",placeholder: "商品の説明 (必須 1,000文字以内) (色、素材、重さ、定価、注意点など) 例) 2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。合わせやすいのでおすすめです。"
-        
-
-              
+           
         .show
           .showTitle
             %h3 商品の詳細
@@ -139,8 +131,6 @@
             .deriveryWayForm
               .wayChoice
                 = f.collection_select(:way_id, Way.all, :id, :name, {include_blank:'選択してください'}, {class: "wayChoiceList"})
-
-              
 
           .deriveryArea
             %h3.deriveryAreaTitle
@@ -199,8 +189,7 @@
               戻る
         .importantPoint
           %p 禁止されている行為及出品物を必ずご確認ください。偽ブランド品や盗品物などの販売は犯罪であり、法律により処罰される可能性があります。また、出品をもちまして加盟店規約に同意したことになります。
-
-          
+  
 .footer1
   .logo1
     =link_to "root_path" do
