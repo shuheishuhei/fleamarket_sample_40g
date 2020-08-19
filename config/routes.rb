@@ -13,7 +13,7 @@ Rails.application.routes.draw do
 
   resources :users
   resources :cards, only: [:new, :show]
-  resources :items, only: [:index, :new, :create, :show] do
+  resources :items do
     collection do
       get 'purchase_comfirmation' #商品購入確認
       get  'get_category_children', defaults: { format: 'json' }
