@@ -101,7 +101,8 @@
 
         .itemDetail__box--btn
           - if user_signed_in? && (current_user.id == @item.user_id)
-            = submit_tag("商品の編集", class: 'purchaseBtn')
+            = form_for(@item, url: edit_item_path, method: :get) do |f|
+              = f.submit "商品の編集", class: 'purchaseBtn'
             = submit_tag("この商品を削除する", class: 'purchaseBtn')
           - if user_signed_in? && (current_user.id != @item.user_id)
             = form_for(@item, url: purchase_comfirmation_items_path, method: :get) do |f|
