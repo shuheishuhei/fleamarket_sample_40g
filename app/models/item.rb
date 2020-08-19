@@ -1,5 +1,5 @@
 class Item < ApplicationRecord
-
+  belongs_to :user
   belongs_to :category, optional: true
 
   validates :name, length: {maximum: 40}, presence: true 
@@ -21,7 +21,7 @@ class Item < ApplicationRecord
 
   belongs_to_active_hash :prefecture
 
-  has_many :images
+
 
   belongs_to_active_hash :condition
   belongs_to_active_hash :postage

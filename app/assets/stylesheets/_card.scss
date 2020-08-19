@@ -51,12 +51,12 @@
   margin: 5px;
 }
 
-.securitycode__title{
+.securitycode{
+  &__securitycode__title{
   margin: 5px;
 }
-.card-question{
-  margin: 15px;
 }
+
 .add{
   margin: 15px;
 }
@@ -65,20 +65,19 @@
 //登録完了画面
 .create{
   text-align: center;
-}
-.create__frame
-.create__frame__message{
+
+  &__frame__message{
   font-weight: bold;
   font-size: 20px;
   margin-top: 100px;
 }
-.create__frame__btns{
+  &__frame__btns{
   font-size: 20px;
   display: flex;
   align-items: center;
   justify-content: center;
   margin: 40px;
-
+}
 }
 .my_page_link{
   margin: 15px;
@@ -89,24 +88,16 @@
 .show{
   text-align: center;
 }
-.show__frame{
+  &__frame{
   text-align: center;
 
 }
-.show__frame__title{
+  &__frame__title{
   font-weight: bold;
   font-size: 20px;
   margin-top: 100px;
 }
-.credit_card__list
-.credit_card__list__title
-.credit_card__list__frame
-.credit_card_info
-.credit_card_info__brand
-.credit_card_info__numbers
-.number
-.expiration_date__title
-.expiration_date__info
+
 .destroy__function{
   font-size: 20px;
   display: flex;
@@ -114,7 +105,7 @@
   justify-content: center;
   margin: 40px;
 }
-.destroy__function__link
+  &__function__link
 .payment-details{
   font-size: 20px;
   display: flex;
@@ -126,22 +117,23 @@
 //削除完了画面
 .destoroy{
   text-align: center;
-}
-.destoroy__frame{
+
+  &__frame{
   text-align: center;
 }
-.destoroy__frame__message{
+  &__frame__message{
   font-weight: bold;
   font-size: 20px;
   margin-top: 100px;
 }
-.destoroy__frame__btns{
+  &__frame__btns{
   font-size: 20px;
   display: flex;
   align-items: center;
   justify-content: center;
   margin: 40px;
 
+}
 }
 
 
@@ -169,33 +161,34 @@
   margin: 100px;
   text-align: center;
 
-}
-.main_details{
+
+  &_details{
   height: 100px;
   font-weight: bold;
   font-size: 25px;
 
-  
 
 }
-.main_details__message{
+  &_details__message{
   margin: 50px;
 
+}
 }
 .purchased__links{
   display: flex;
   align-items: center;
   justify-content: center;
 
-}
-.purchased__links__TopPage{
+
+  &__links__TopPage{
   margin: 15px;
   font-size: 20px;
 
 
 }
-.purchased__links__index{
+  &__links__index{
 
   font-size: 20px;
 }
 
+}
