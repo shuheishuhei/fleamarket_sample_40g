@@ -1,4 +1,6 @@
 class ItemsController < ApplicationController
+
+  before_action :set_items, only: [:show, :buy, :purchase_comfirmation, :pay]
   
   def index
   end
@@ -7,20 +9,17 @@ class ItemsController < ApplicationController
   end
 
   def show
-    @item = Item.find(params[:id])
 
   end
 
   def buy
-    # 購入する商品を引っ張る
-    @item = Item.find(params[:id])
     # 商品ごとに複数枚写真を登録できるから全て
     # @images = @item.images.all
 
     if user_signed_in?
-      @user = current_user
+      
 
-      if @user.card.present?
+      if current_user.card.present?
         #.digではなくて.payjpにしとく。
         Payjp.api_key = Rails.application.credentials.payjp[:PAYJP_SECRET_KEY]
         # ログインユーザーのクレジットカード情報を引っ張る
@@ -63,14 +62,14 @@ class ItemsController < ApplicationController
 
   #商品購入確認（仮）
   def purchase_comfirmation
-    @item = Item.find(params[:id])
+    
   end
 
 
 
 
   def pay
-    @item = Item.find(params[:id])
+    
     #とりあえずステイ
     # @images = @item.images.all
 
