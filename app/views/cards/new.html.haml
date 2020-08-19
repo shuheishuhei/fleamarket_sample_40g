@@ -1,9 +1,10 @@
 .card_add 
+  = link_to image_tag 'logo.png', alt: '失敗', height: '100px', width: '150px', class: 'pic1'
   .title クレジットカード情報入力
   = form_tag(cards_path, method: :post, id: "charge-form", class: "details", name: "inputForm") do
     .number-details
       .card-number カード番号
-      %span.must_check 必須
+      %span.requireBox 必須
     .number
       = text_field_tag 'payment_card_no', "", class: 'cardnumber', id: "payment_card_no", placeholder: '半角数字のみ', type: "text", maxlength: "16"
     -#.image
@@ -17,7 +18,7 @@
     .expirationdate
       .expirationdate__details
         .date 有効期限
-        %span.must_check 必須
+        %span.requireBox 必須
       .expirationdate__choice
         .month
           %select#payment_card_month.card-default{name: "payment_card_month", type: "text"}
@@ -52,10 +53,10 @@
     .securitycode
       .securitycode__details
         .securitycode-details__title セキュリティコード
-        %span.must_check 必須
+        %span.requireBox 必須
       .securitycode__cardsecurity
         = text_field_tag  "payment_card_cvc", "", type: 'text', class: 'securitycode__cardsecurity__form', id: "payment_card_cvc", maxlength: "3", placeholder: 'カード裏面3桁の番号'
-      .card-question カード裏面の番号とは？
+      -# .card-question カード裏面の番号とは？
     .add 
       
       = submit_tag "登録する", class: "add__btn", id: "payment_card_submit-button"

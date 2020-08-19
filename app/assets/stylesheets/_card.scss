@@ -31,36 +31,123 @@
 }
 
 // クレジットカード登録画面
-// .card_add 
-//   .title 
-//     .number-details
-//       .card-number
-//       %span.must_check
-//     .number
-      
-//     .image
+.card_add{
+  height: 100px;
+  width: 100vw;
+  margin-top: 30px;
+  text-align: center; 
+  font-size: 20px;
+}
+.title{
+  margin: 50px;
+  font-weight: bold;
 
-//     .expirationdate
-//       .expirationdate__details
-//         .date
-//         %span.must_check
-//       .expirationdate__choice
-//         .month
-//           .month-details
-//         .year
-//           .year-details
+}
+.number{
+  margin: 5px;
+  
+}
+.date{
+  margin: 5px;
+}
 
-//     .securitycode
-//       .securitycode__details
-//         .securitycode-details__title
-//         %span.must_check
-//       .securitycode__cardsecurity
+.securitycode__title{
+  margin: 5px;
+}
+.card-question{
+  margin: 15px;
+}
+.add{
+  margin: 15px;
+}
+
+
+//登録完了画面
+.create{
+  text-align: center;
+}
+.create__frame
+.create__frame__message{
+  font-weight: bold;
+  font-size: 20px;
+  margin-top: 100px;
+}
+.create__frame__btns{
+  font-size: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 40px;
+
+}
+.my_page_link{
+  margin: 15px;
+}
+.credit_cards_index_link
+
+//カード一覧画面
+.show{
+  text-align: center;
+}
+.show__frame{
+  text-align: center;
+
+}
+.show__frame__title{
+  font-weight: bold;
+  font-size: 20px;
+  margin-top: 100px;
+}
+.credit_card__list
+.credit_card__list__title
+.credit_card__list__frame
+.credit_card_info
+.credit_card_info__brand
+.credit_card_info__numbers
+.number
+.expiration_date__title
+.expiration_date__info
+.destroy__function{
+  font-size: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 40px;
+}
+.destroy__function__link
+.payment-details{
+  font-size: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 40px;
+}
+
+//削除完了画面
+.destoroy{
+  text-align: center;
+}
+.destoroy__frame{
+  text-align: center;
+}
+.destoroy__frame__message{
+  font-weight: bold;
+  font-size: 20px;
+  margin-top: 100px;
+}
+.destoroy__frame__btns{
+  font-size: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 40px;
+
+}
+
+
+
         
-//       .card-question
-//     .add 
-
 // 購入カード確認画面
-
 .buy{
   font-size: 20px;
   
