@@ -65,7 +65,7 @@
               必須
             .categoryWrapper
               .categoryWrapper__box
-                = f.collection_select(:category_id, @category_parent_array, :id, :name, {prompt: "---"}, {class: 'categoryWrapper__box--select', id: 'parent_category'})
+                = f.collection_select(:category_id, @category_parent_array, :id, :name, {prompt: "選択してください"}, {class: 'categoryWrapper__box--select', id: 'parent_category'})
 
           .showBrand
             %h3.showBrandTitle

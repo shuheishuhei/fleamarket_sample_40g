@@ -10,12 +10,12 @@ ul.headerCategory {
   }
   a {
     text-decoration: none;
-    color: black;
+    color: $mainBlueColor;
   }
 }
 
 .main-show {
-  height: 1600px;
+  height: 1400px;
   overflow: scroll;
   display: flex;
   justify-content: center;
@@ -29,7 +29,7 @@ ul.headerCategory {
     bottom: 40px;
     &__box {
       border: solid 1px lightgray;
-      padding: 30px 100px;
+      padding: 40px 100px;
       text-align: center;
       &__title {
         font-size: 20px;
@@ -46,12 +46,13 @@ ul.headerCategory {
         }
       }
       &__image {
-        ul.mainimage {
-          li.images {
+        .mainimage__down {
+          .images {
             display: inline;
           }
         }
       }
+    
       &__introduction {
         text-align: left;
         margin: 20px;
@@ -72,7 +73,7 @@ ul.headerCategory {
             text-align: left;
             a {
               text-decoration: none;
-              color: #3CCACE;
+              color: $mainBlueColor;
             }
           }
         }
@@ -90,7 +91,7 @@ ul.headerCategory {
         .commentBtn {
           width: 400px;
           margin-top: 20px;
-          background-color: #3CCACE;
+          background-color: $mainBlueColor;
           border: none;
           outline: none;
           padding: 10px 0;
@@ -100,15 +101,27 @@ ul.headerCategory {
       }
       &--btn {
         height: 80px;
-        margin-top: 30px;
+        margin-top: 20px;
         .purchaseBtn {
           width: 400px;
-          background-color: rgba(255, 0, 0, 0.884);
+          background-color: $mainBlueColor;
           color: white;
           border: none;
           outline: none;
           padding: 10px 0;
+          margin-bottom: 10px;
           border-radius: 20px;
+        }
+        .purchaseBtn__buy {
+          width: 400px;
+          background-color: $mainBlueColor;
+          color: white;
+          border: none;
+          outline: none;
+          padding: 10px 0;
+          margin-top: 10px;
+          border-radius: 20px;
+          text-decoration: none;
         }
       }
     }
