@@ -15,9 +15,9 @@ class ApplicationController < ActionController::Base
     Rails.env.production?
   end
 
-  
-
-  
+  def set_ancestry
+    @parent = Category.where(ancestry: nil)
+  end
 
   protected
 
