@@ -48,16 +48,11 @@
         .itemDetail__box__title
           =@item.name
         .itemDetail__box__image
-          %ul.mainimage__up
-            - @item.item_images.each do |image|
-              %li.images
-                = image_tag image.image_url, class: 'item__mainimage', size: '400x400'
-          %ul.mainimage__down
-            - @item.item_images.each do |image|
-              %li.images
-                = image_tag image.image_url, class: 'item__mainimage', size: '100x100'
-              %li.images
-                = image_tag image.image_url, class: 'item__mainimage', size: '100x100'
+          .mainimage__up
+            = image_tag @item.item_images[0].image_url, class: 'item__mainimage', size: '413x413'
+          .mainimage__down
+            - @item.item_images[1..4].each do |image|
+              = image_tag image.image_url, class: 'item__mainimage', size: '100x100'
         .itemDetail__box__price
           %h1.itemprice 
             ¥
@@ -71,7 +66,7 @@
           %tr
             %th 出品者
             %td
-              -# = @item.user.nickname
+              = @item.user.nickname
           %tr
             %th カテゴリー
             %td
@@ -105,12 +100,13 @@
               = @item.day[:name]
 
         .itemDetail__box--btn
-          - if user_signed_in? && current_user.id == @item.user_id
+          - if user_signed_in? && (current_user.id == @item.user_id)
             = submit_tag("商品の編集", class: 'purchaseBtn')
             = submit_tag("この商品を削除する", class: 'purchaseBtn')
-          - else
-            = form_with(@item, url: purchase_comfirmation_items_path, method: get) do |f|
+          - if user_signed_in? && (current_user.id != @item.user_id)
+            = form_for(@item, url: purchase_comfirmation_items_path, method: :get) do |f|
               = f.submit "購入手続きへ", class: 'purchaseBtn__buy' 
+          
           
 
         -# コメントフォームは実装完了までコメントアウト
