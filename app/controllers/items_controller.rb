@@ -4,7 +4,6 @@ class ItemsController < ApplicationController
 
   def index
     @items = Item.includes(:item_images).limit(5).order('created_at DESC')
-    # @items = Item.where(status_id: params[:status_id])
   end
 
   def new
