@@ -29,3 +29,86 @@
 .creditcardFooter{
 
 }
+
+// クレジットカード登録画面
+// .card_add 
+//   .title 
+//     .number-details
+//       .card-number
+//       %span.must_check
+//     .number
+      
+//     .image
+
+//     .expirationdate
+//       .expirationdate__details
+//         .date
+//         %span.must_check
+//       .expirationdate__choice
+//         .month
+//           .month-details
+//         .year
+//           .year-details
+
+//     .securitycode
+//       .securitycode__details
+//         .securitycode-details__title
+//         %span.must_check
+//       .securitycode__cardsecurity
+        
+//       .card-question
+//     .add 
+
+// 購入カード確認画面
+
+.buy{
+  font-size: 20px;
+  
+}
+.credit_card_info_title{
+  margin: 10px;
+}
+
+//購入完了画面
+.pay{
+  width: 100vw;
+  height: 100vh;
+  
+
+}
+.main_contents{
+  
+  height: 200px;
+  margin: 100px;
+  text-align: center;
+
+}
+.main_details{
+  height: 100px;
+  font-weight: bold;
+  font-size: 25px;
+
+  
+
+}
+.main_details__message{
+  margin: 50px;
+
+}
+.purchased__links{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+}
+.purchased__links__TopPage{
+  margin: 15px;
+  font-size: 20px;
+
+
+}
+.purchased__links__index{
+
+  font-size: 20px;
+}
+
