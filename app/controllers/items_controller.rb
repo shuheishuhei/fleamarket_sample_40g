@@ -3,7 +3,8 @@ class ItemsController < ApplicationController
   # before_action :set_item, except: [:index, :new, :create]
 
   def index
-    @items = Item.includes(:images).order('created_at DESC')
+    @items = Item.includes(:item_images).limit(5).order('created_at DESC')
+    # @items = Item.where(status_id: params[:status_id])
   end
 
   def new
@@ -59,18 +60,14 @@ class ItemsController < ApplicationController
   #商品購入確認（仮）
   def purchase_comfirmation
   end
-  
-end
 
   private
   def item_params
     params.require(:item).permit(:name, :introduction, :price, :prefecture_id, :condition_id, :postage_id, :way_id, :day_id, :category_id, :brand, :status_id,item_images_attributes: [:id, :item_id, :image, :_destroy])
   end
 
-
-
 # before actionのコメントアウトを外す時に使用する
 # def set_item
 #   @item = Item.find(params[:id])
 # end
-
+end
