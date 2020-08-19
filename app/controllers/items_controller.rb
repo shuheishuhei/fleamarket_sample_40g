@@ -1,8 +1,6 @@
 class ItemsController < ApplicationController
-  before_action :set_items, only: [:show, :buy, :purchase_comfirmation, :pay]
-
-  # 使用する際はprivateのコメントアウトも外す
-  # before_action :set_item, except: [:index, :new, :create]
+  
+   before_action :set_item, except: [:index, :new, :create]
 
   def index
     @items = Item.includes(:images).order('created_at DESC')
@@ -163,7 +161,7 @@ end
 
 
 # before actionのコメントアウトを外す時に使用する
-# def set_item
-#   @item = Item.find(params[:id])
-# end
+def set_item
+  @item = Item.find(params[:id])
+end
 

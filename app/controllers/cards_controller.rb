@@ -1,7 +1,7 @@
 class CardsController < ApplicationController
   require "payjp" 
 
-  before_action :set_cards, only: [:show, :destroy]
+  before_action :set_card, only: [:show, :destroy]
 
   def new
     @card = Card.where(user_id: current_user.id)
@@ -89,7 +89,7 @@ class CardsController < ApplicationController
     end
   end
 
-  def set_cards
+  def set_card
     # ログイン中のユーザーのクレジットカード登録の有無を判断
     @card = Card.find_by(user_id: current_user.id)
     
