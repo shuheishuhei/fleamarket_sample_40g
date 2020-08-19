@@ -16,7 +16,7 @@
         .header__bottom__nav__right
           - if user_signed_in?
             .header__bottom__nav__right__mypage
-              =link_to "マイページ", "#"
+              =link_to "マイページ", user_path
             .header__bottom__nav__right__logout
               =link_to "ログアウト", destroy_user_session_path, method: :delete
           - else
@@ -70,7 +70,7 @@
         %table
           %tr
             %th 出品者
-            %td 
+            %td
               -# = @item.user.nickname
           %tr
             %th カテゴリー
@@ -105,10 +105,13 @@
               = @item.day[:name]
 
         .itemDetail__box--btn
+          - if user_signed_in? && current_user.id == @item.user_id
+            = submit_tag("商品の編集", class: 'purchaseBtn')
+            = submit_tag("この商品を削除する", class: 'purchaseBtn')
+          - else
+            = form_with(@item, url: purchase_comfirmation_items_path, method: get) do |f|
+              = f.submit "購入手続きへ", class: 'purchaseBtn__buy' 
           
-          = submit_tag("購入手続きへ", class: 'purchaseBtn')
-          = submit_tag("商品の編集", class: 'purchaseBtn')
-          = submit_tag("この商品を削除する", class: 'purchaseBtn')
 
         -# コメントフォームは実装完了までコメントアウト
         -# .itemDetail__box__comment
