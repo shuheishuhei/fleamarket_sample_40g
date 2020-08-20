@@ -1,0 +1,36 @@
+.buy
+  .main_contents
+    = link_to image_tag 'logo.png', alt: '失敗', height: '100px', width: '150px', class: 'pic1'
+    .main_details
+      // 商品情報ページに
+      //= render "/items/itemDetail", item: @item, images: @images
+    .purchase_registration
+      .purchase_registration_main
+        .payment
+          支払い金額   
+        .amount
+          = "#{@item.price}" + "円"
+      // クレジットカードを登録済みの場合の表示
+      - if @user.card.present?
+        .purchase_function
+          .credit_card_info_title
+            クレジットカード情報
+            // クレジットカード情報を表示
+            .credit_card_info
+              .credit_card_info__brand
+                -# = image_tag "cards/#{@card_src}", class: "credit_card_info__brand__img", alt: @card_brand
+              .credit_card_info__numbers
+                .number
+                  = "**** **** **** " + @customer_card.last4
+                .expiration_date
+                  .expiration_date__title
+                    有効期限
+                  .expiration_date__info
+                    = @exp_month + " / " + @exp_year
+          .purchase_function__btn
+            = link_to "登録クレジットカードで購入する", pay_item_path(item_id: @item.id), method: :post, class: "btn"
+      - else 
+        .purchase_none_btn
+          // Checkoutのフォームを開く記述
+          = form_tag(action: :pay, method: :post) do
+            %script.payjp-button{src: "https://checkout.pay.jp", type: "text/javascript" ,"data-text": "購入する" ,"data-key": "pk_test_4352092f8deb95210dde9e0e",}

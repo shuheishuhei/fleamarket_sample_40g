@@ -73,9 +73,7 @@ gem 'ancestry'
 
 gem 'jquery-rails'
 
-
-
-
+gem 'payjp'
 
 gem 'haml-rails'
 
