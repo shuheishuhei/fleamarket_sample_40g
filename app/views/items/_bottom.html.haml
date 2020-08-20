@@ -1,13 +1,27 @@
 .bottom
   .productList
-    %h2.itemsTitle 全商品一覧
+    .itemsTitle
+      =link_to "全商品一覧", "#"
     .product__area
       %a.itemsNew 新規投稿一覧
       .product__area__all
         .product__area__all__list
-          .product__all__image            
-          .product__all____name            
-          .product__all____price
+          - @items.each do |item|
+            = link_to item_path(item.id) do
+              .eachProduct
+                .eachProduct__image
+                  = image_tag item.item_images[0].image_url, class: 'productImageTop'
+                  - if item.status_id == 2
+                    .items-box_photo__sold
+                      .items-box_photo__sold__inner
+                        SOLD
+                .eachProduct__detail
+                  .eachProduct__detail__name
+                    = item.name
+                  .eachProduct__detail__price
+                    = number_to_currency(item.price, unit: "¥", format: "%u%n", precision: 0)
+                  .eachProduct__detail__tax
+                    (税込)
   .bottomDl
     .bottomDl__content
       .bottomDl__content__title
