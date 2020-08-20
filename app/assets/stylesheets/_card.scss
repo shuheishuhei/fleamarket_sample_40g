@@ -29,3 +29,165 @@
 .creditcardFooter{
 
 }
+
+// クレジットカード登録画面
+.card_add{
+  height: 100px;
+  width: 100vw;
+  margin-top: 30px;
+  text-align: center; 
+  font-size: 20px;
+}
+.title{
+  margin: 50px;
+  font-weight: bold;
+
+}
+.number{
+  margin: 5px;
+  
+}
+.date{
+  margin: 5px;
+}
+
+.securitycode{
+  &__securitycode__title{
+  margin: 5px;
+}
+}
+
+.add{
+  margin: 15px;
+}
+
+
+//登録完了画面
+.create{
+  text-align: center;
+
+  &__frame__message{
+  font-weight: bold;
+  font-size: 20px;
+  margin-top: 100px;
+}
+  &__frame__btns{
+  font-size: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 40px;
+}
+}
+.my_page_link{
+  margin: 15px;
+}
+.credit_cards_index_link
+
+//カード一覧画面
+.show{
+  text-align: center;
+  &__frame{
+    text-align: center;
+  }
+  &__frame__title{
+    font-weight: bold;
+    font-size: 20px;
+    margin-top: 100px;
+  }
+}
+
+.destroy__function{
+  font-size: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 40px;
+}
+  &__function__link
+.payment-details{
+  font-size: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 40px;
+}
+
+//削除完了画面
+.destoroy{
+  text-align: center;
+
+  &__frame{
+  text-align: center;
+}
+  &__frame__message{
+  font-weight: bold;
+  font-size: 20px;
+  margin-top: 100px;
+}
+  &__frame__btns{
+  font-size: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 40px;
+
+}
+}
+
+
+
+        
+// 購入カード確認画面
+.buy{
+  font-size: 20px;
+  
+}
+.credit_card_info_title{
+  margin: 10px;
+}
+
+//購入完了画面
+.pay{
+  width: 100vw;
+  height: 100vh;
+  
+
+}
+.main_contents{
+  
+  height: 200px;
+  margin: 100px;
+  text-align: center;
+
+
+  &_details{
+  height: 100px;
+  font-weight: bold;
+  font-size: 25px;
+
+
+}
+  &_details__message{
+  margin: 50px;
+
+}
+}
+.purchased__links{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+
+  &__links__TopPage{
+  margin: 15px;
+  font-size: 20px;
+
+
+}
+  &__links__index{
+
+  font-size: 20px;
+}
+
+}

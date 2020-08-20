@@ -1,4 +1,31 @@
 .wrapper
+.top
+  .header
+    .header__top
+      = link_to image_tag("material/logo/logo.png", class: "header__top__logo"), root_path
+      .header__top__search
+        %input{ class: "header__top__search__form", placeholder: "キーワードから探す"}
+        %button.header__top__search__btn 
+          = image_tag ("material/icon/icon-search 1.png"), class: "header__top__search__btn__icon" 
+    .header__bottom
+      .header__bottom__nav__left
+        .header__bottom__nav__left__category
+          カテゴリー
+        .header__bottom__nav__left__brand
+          ブランド
+      .header__bottom__nav__right
+        - if user_signed_in?
+          .header__bottom__nav__right__mypage
+            =link_to "マイページ", "/users/#{current_user.id}"
+          .header__bottom__nav__right__logout
+            =link_to "ログアウト", destroy_user_session_path, method: :delete
+        - else
+          .header__bottom__nav__right__login
+            =link_to "ログイン", new_user_session_path
+          .header__bottom__nav__right__registration
+            =link_to "新規会員登録", new_user_registration_path
+.header__category
+  FURIMA > 家電・スマホ・カメラ > スマートフォン/携帯電話 > スマートフォン携帯
   .top
     .header
       .header__top
@@ -25,6 +52,7 @@
             .header__bottom__nav__right__registration
               =link_to "新規会員登録", new_user_registration_path
 
+
   .header__category
     %ul.headerCategory
       %li.headerCategory__list
@@ -42,6 +70,14 @@
         =link_to "#" do
           = @item.category.name
 
+      .itemDetail__box--btn
+        = link_to '購入する', purchase_comfirmation_item_path(@item.id)
+       
+    
+      .itemDetail__box__comment
+        =form_with local: true do |f|
+          = f.text_area :comment, class: 'commentText'
+          相手のことを考え、丁寧なコメントを心掛けましょう。
   .main-show
     .itemDetail
       .itemDetail__box
@@ -101,6 +137,9 @@
               = @item.day[:name]
 
         .itemDetail__box--btn
+
+        
+
           - if user_signed_in? && (current_user.id == @item.user_id)
             = submit_tag("商品の編集", class: 'purchaseBtn')
             = submit_tag("この商品を削除する", class: 'purchaseBtn')
