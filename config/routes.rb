@@ -12,7 +12,8 @@ Rails.application.routes.draw do
   
   root 'items#index'
   resources :users 
-  resources :cards, only: [:new, :create, :show, :destroy] 
+  resources :cards, only: [:new, :create, :show, :destroy]
+  
   resources :items do
     member do
       get  "buy"

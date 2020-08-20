@@ -101,17 +101,13 @@
             %td 
               = @item.day[:name]
 
-        .itemDetail__box--btn
+        .itemDetail__box--btn          
+          - if user_signed_in? && (current_user.id == @item.user_id)            
+            = link_to "商品の編集", edit_item_path,  class: 'purchaseBtn__edit'            
+            = link_to "この商品を削除する", item_path(@item.id), class: 'purchaseBtn', method: :delete
+          - if user_signed_in? && (current_user.id != @item.user_id)            
+            = link_to "購入手続きへ", purchase_comfirmation_items_path, class: 'purchaseBtn__buy'
 
-        
-
-          - if user_signed_in? && (current_user.id == @item.user_id)
-            = submit_tag("商品の編集", class: 'purchaseBtn')
-            = submit_tag("この商品を削除する", class: 'purchaseBtn')
-          - if user_signed_in? && (current_user.id != @item.user_id)
-            = form_for(@item, url: purchase_comfirmation_items_path, method: :get) do |f|
-              = f.submit "購入手続きへ", class: 'purchaseBtn__buy' 
-          
           
 
         -# コメントフォームは実装完了までコメントアウト
