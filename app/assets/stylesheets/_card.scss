@@ -104,7 +104,7 @@
   justify-content: center;
   margin: 40px;
 }
-  &__function__link
+  // &__function__link
 .payment-details{
   font-size: 20px;
   display: flex;
@@ -114,25 +114,24 @@
 }
 
 //削除完了画面
-.destoroy{
+.destroy{
   text-align: center;
 
   &__frame{
   text-align: center;
-}
+  }
   &__frame__message{
   font-weight: bold;
   font-size: 20px;
   margin-top: 100px;
-}
+  }
   &__frame__btns{
   font-size: 20px;
   display: flex;
   align-items: center;
   justify-content: center;
   margin: 40px;
-
-}
+  }
 }
 
 
@@ -167,11 +166,11 @@
   font-size: 25px;
 
 
-}
+  }
   &_details__message{
   margin: 50px;
 
-}
+  }
 }
 .purchased__links{
   display: flex;
@@ -184,10 +183,10 @@
   font-size: 20px;
 
 
-}
+  }
   &__links__index{
 
   font-size: 20px;
-}
+  }
 
 }
