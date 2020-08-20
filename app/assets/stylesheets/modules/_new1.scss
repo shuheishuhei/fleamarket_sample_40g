@@ -1,9 +1,42 @@
-.exhibition {
+* {
+  box-sizing: border-box;
+}
+
+html {
+  height: 100%;
+  width: 100%;
+}
+
+
+body {
+  height: 100%;
+  width: 100%;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+body {
+  margin: 0;
+  padding: 0;
+}
+
+.header1 {
+  background-color: rgb(228, 226, 225);
+  height: 130px;
+  width:100%;
 }
 
 .logo1 {
   display: flex;
   justify-content: center;
+  .logo2 {
+    margin: 40px 0 60px 0;
+  }
 }
 
 .requireBox {
@@ -14,18 +47,24 @@
 }
 
 .formContent {
-  background-color: rgb(228, 226, 225);
-  display: flex;
-  justify-content: center;
   .contentFlame {
     width: 700px;
-    height: 2000px;
+    height: 2100px;
+    margin: auto;
     background-color: white;
+    overflow: scroll;
   }
 }
 
+
 .image {
   margin: 40px 40px;
+  input.fileBox {
+    width: 615px;
+    height: 150px;
+    background-color: white;
+    border: solid 1px black;
+  }
 }
 
 .name {
@@ -45,41 +84,61 @@
 }
 
 .show {
-  select.categoryWrapper__box--select {
+  margin: 40px 40px;
+  .categoryWrapper__box--select {
     width: 615px;
     height: 45px;
+    margin-bottom: 40px;
+    .categoryChoiceList {
+      width: 615px;
+      height: 45px;
+    }
   }
-  input.brandChoice {
+  .brandChoice {
     width: 615px;
     height: 45px;
     margin-bottom: 40px;
   }
-  select.statusChoice {
-    width: 615px;
-    height: 45px;
+  .conditionChoice {
     margin-bottom: 40px;
+    .conditionChoiceList {
+      width: 615px;
+      height: 45px;
+    }
   }
 }
 
 .delivery {
   margin: 40px 40px;
-  select.berdenChoice {
-    width: 615px;
-    height: 45px;
+  .postageChoice {
     margin-bottom: 40px;
+    .postageChoiceList {
+      width: 615px;
+      height: 45px;
+    }
   }
+  .deriveryWay {
+    display: none;
+    .wayChoice {
+      margin-bottom: 40px;
+      .wayChoiceList {
+        width: 615px;
+        height: 45px;
+      }
+    }
+  }  
   .areaChoice {
-    width: 615px;
-    height: 45px;
     margin-bottom: 40px;
     .areaChoiceList {
       width: 615px;
       height: 45px;
     }
   }
-  select.daysChoice {
-    width: 615px;
-    height: 45px;
+  .dayChoice {
+    .dayChoiceList {
+      width: 615px;
+      height: 45px;
+    }
   }
 }
 
@@ -108,7 +167,19 @@
     .priceProfit {
       display: flex;
       justify-content: space-between;
+      .priceProfitTitleRight {
+        margin-bottom: 30px;
+      }
     }
+  }
+}
+
+.status {
+  
+  .statusCheck {
+    width: 615px;
+    height: 45px;
+    margin-bottom: 30px;
   }
 }
 
@@ -116,11 +187,11 @@
   display: flex;
   align-items: center;
   flex-direction: column; 
-  button.buttonBlue {
+  .buttonBlue {
     width: 300px;
     height: 45px;
     margin-bottom: 30px;
-    background-color: $mainBlueColor;
+    background-color: #3ccace;
     color: white;
     display: inline-block;
     cursor: pointer;
@@ -145,8 +216,16 @@
   justify-content: center;
 }
 
+.footer1 {
+  background-color: #272727;
+  height: 130px;
+  width: 100%;
+  .footerLogo {
+    margin: 30px 0 40px 0;
+  }
+}
 
-//投稿クリックエリアのCSS
+// 投稿クリックエリアのCSS
 .image__block__area {
   margin-bottom: 10px;
   width: 620px;
