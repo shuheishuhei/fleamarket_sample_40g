@@ -1,6 +1,5 @@
 class ItemsController < ApplicationController
-  # 使用する際はprivateのコメントアウトも外す
-  # before_action :set_item, except: [:index, :new, :create]
+  before_action :set_item, only: [:show, :edit, :update ]
 
   def index
     @items = Item.includes(:images).order('created_at DESC')
@@ -34,13 +33,31 @@ class ItemsController < ApplicationController
   end
 
   def edit
+    grandchild_category = @item.category
+    child_category = grandchild_category.parent
+
+
+    @category_parent_array = []
+    Category.where(ancestry: nil).each do |parent|
+      @category_parent_array << parent.name
+    end
+
+    @category_children_array = []
+    Category.where(ancestry: child_category.ancestry).each do |children|
+      @category_children_array << children
+    end
+
+    @category_grandchildren_array = []
+    Category.where(ancestry: grandchild_category.ancestry).each do |grandchildren|
+      @category_grandchildren_array << grandchildren
+    end
   end
 
   def update
     if @item.update(item_params)
-      redirect_to item_path, notice: "削除しました"
+      redirect_to item_path, notice: "編集しました"
     else
-      render :new
+      render :edit
     end
   end
 
@@ -48,12 +65,11 @@ class ItemsController < ApplicationController
     if @item.destroy
       redirect_to item_path, notice: "削除しました"
     else
-      render :new
+      render :edit
     end
   end
   
   def show
-    @item = Item.find(params[:id])
   end
 
   #商品購入確認（仮）
@@ -70,7 +86,7 @@ end
 
 
 # before actionのコメントアウトを外す時に使用する
-# def set_item
-#   @item = Item.find(params[:id])
-# end
+def set_item
+  @item = Item.find(params[:id])
+end
 

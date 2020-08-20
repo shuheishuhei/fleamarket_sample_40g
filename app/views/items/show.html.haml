@@ -101,23 +101,19 @@
 
         .itemDetail__box--btn
           - if user_signed_in? && (current_user.id == @item.user_id)
-            = form_for(@item, url: edit_item_path, method: :get) do |f|
-              = f.submit "商品の編集", class: 'purchaseBtn'
-            = submit_tag("この商品を削除する", class: 'purchaseBtn')
+            = link_to "商品の編集", edit_item_path,  class: 'purchaseBtn__edit'
+            = "この商品を削除する", class: 'purchaseBtn')
           - if user_signed_in? && (current_user.id != @item.user_id)
-            = form_for(@item, url: purchase_comfirmation_items_path, method: :get) do |f|
-              = f.submit "購入手続きへ", class: 'purchaseBtn__buy' 
-          
+            = link_to "購入手続きへ", purchase_comfirmation_items_path, class: 'purchaseBtn__buy' 
           
 
-        -# コメントフォームは実装完了までコメントアウト
         -# .itemDetail__box__comment
         -#   =form_with local: true do |f|
         -#     = f.text_area :comment, class: 'commentText'
         -#     相手のことを考え、丁寧なコメントを心掛けましょう。
         -#     %br
         -#     不快な言葉遣いなどは利用制限や退会処分となることがあります。
-        -#     = f.submit "コメントする（未実装）", class: 'commentBtn'
+        -#     = f.submit "コメントする(未実装)”, class: 'commentBtn'
 
 
 

@@ -15,7 +15,7 @@ ul.headerCategory {
 }
 
 .main-show {
-  height: 1400px;
+  height: 1500px;
   overflow: scroll;
   display: flex;
   justify-content: center;
@@ -31,6 +31,7 @@ ul.headerCategory {
       border: solid 1px lightgray;
       padding: 40px 100px;
       text-align: center;
+      margin-bottom: 40px;
       &__title {
         font-size: 20px;
         font-weight: bold;
@@ -92,6 +93,7 @@ ul.headerCategory {
           width: 400px;
           margin-top: 20px;
           background-color: $mainBlueColor;
+          color: white;
           border: none;
           outline: none;
           padding: 10px 0;
@@ -102,7 +104,12 @@ ul.headerCategory {
       &--btn {
         height: 80px;
         margin-top: 20px;
-        .purchaseBtn {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        .purchaseBtn__edit {
+          cursor: pointer;
+          display: block;
           width: 400px;
           background-color: $mainBlueColor;
           color: white;
@@ -111,8 +118,24 @@ ul.headerCategory {
           padding: 10px 0;
           margin-bottom: 10px;
           border-radius: 20px;
+          text-decoration: none;
+        }
+        .purchaseBtn {
+          display: block;
+          cursor: pointer;
+          width: 400px;
+          background-color: lightgray;
+          color: white;
+          border: none;
+          outline: none;
+          padding: 10px 0;
+          margin-bottom: 10px;
+          border-radius: 20px;
+          text-decoration: none;
         }
         .purchaseBtn__buy {
+          display: block;
+          cursor: pointer;
           width: 400px;
           background-color: $mainBlueColor;
           color: white;
@@ -121,6 +144,7 @@ ul.headerCategory {
           padding: 10px 0;
           margin-top: 10px;
           border-radius: 20px;
+          text-decoration: none;
           text-decoration: none;
         }
       }
