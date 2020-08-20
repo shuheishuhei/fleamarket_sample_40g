@@ -54,7 +54,7 @@
 .securitycode{
   &__securitycode__title{
   margin: 5px;
-}
+  }
 }
 
 .add{
@@ -82,20 +82,19 @@
 .my_page_link{
   margin: 15px;
 }
-.credit_cards_index_link
 
 //カード一覧画面
 .show{
   text-align: center;
-}
-  &__frame{
-  text-align: center;
-
-}
+    
   &__frame__title{
   font-weight: bold;
   font-size: 20px;
   margin-top: 100px;
+  }
+  &__list__title{
+    margin: 40px;
+  }
 }
 
 .destroy__function{
@@ -105,7 +104,7 @@
   justify-content: center;
   margin: 40px;
 }
-  &__function__link
+  
 .payment-details{
   font-size: 20px;
   display: flex;
@@ -120,12 +119,12 @@
 
   &__frame{
   text-align: center;
-}
+  }
   &__frame__message{
   font-weight: bold;
   font-size: 20px;
   margin-top: 100px;
-}
+  }
   &__frame__btns{
   font-size: 20px;
   display: flex;
@@ -133,7 +132,7 @@
   justify-content: center;
   margin: 40px;
 
-}
+  }
 }
 
 

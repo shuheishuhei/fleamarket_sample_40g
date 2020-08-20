@@ -7,7 +7,7 @@ class ItemsController < ApplicationController
   end
 
   def new
-    @item = Item.new　
+    @item = Item.new
     @item.item_images.build
     @category_parent_array = []
     Category.where(ancestry: nil).each do |parent|
@@ -158,7 +158,9 @@ class ItemsController < ApplicationController
 
 
 
-def set_item
-  @item = Item.find(params[:id])
+  def set_item
+    @item = Item.find(params[:id])
+  end
 end
+
 
