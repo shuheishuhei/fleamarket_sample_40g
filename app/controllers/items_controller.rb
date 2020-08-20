@@ -53,17 +53,12 @@ class ItemsController < ApplicationController
   end
   
   def show
-
-
   end
 
   def buy
     # 商品ごとに複数枚写真を登録できるから全て
     # @images = @item.images.all
-
     if user_signed_in?
-      
-
       if current_user.card.present?
         #.digではなくて.payjpにしとく。
         Payjp.api_key = Rails.application.credentials.payjp[:PAYJP_SECRET_KEY]
@@ -89,9 +84,7 @@ class ItemsController < ApplicationController
           @card_src = "diners.gif"
         when "Discover"
           @card_src = "discover.gif"
-        end
-        
-        
+        end       
         @exp_month = @customer_card.exp_month.to_s
         @exp_year = @customer_card.exp_year.to_s.slice(2,3)
       else
@@ -100,25 +93,16 @@ class ItemsController < ApplicationController
       # ログインしていなければ、商品の購入ができずに、ログイン画面に移動
       redirect_to user_session_path, alert: "ログインしてください"
     end
-
-
   end
   
 
   #商品購入確認（仮）
   def purchase_comfirmation
-    
   end
 
-
-
-
-  def pay
-    
+  def pay    
     #とりあえずステイ
     # @images = @item.images.all
-
-    
     if @item.deal == 1
       redirect_to item_path(@item.id), alert: "売り切れています。"
     else
@@ -146,7 +130,6 @@ class ItemsController < ApplicationController
           currency: 'jpy'
           )
         end
-      
       end
     end
   end
