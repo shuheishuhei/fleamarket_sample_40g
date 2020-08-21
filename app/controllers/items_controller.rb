@@ -1,6 +1,6 @@
 class ItemsController < ApplicationController
   
-  before_action :set_item, except: [:index, :new, :create]
+  # before_action :set_item, except: [:index, :new, :create]
 
   def index
     @items = Item.includes(:item_images).limit(5).order('created_at DESC')
@@ -34,9 +34,11 @@ class ItemsController < ApplicationController
   end
 
   def edit
+    @item = Item.find(params[:id])
   end
 
   def update
+    @item = Item.find(params[:id])
     if @item.update(item_params)
       redirect_to item_path, notice: "削除しました"
     else
@@ -45,14 +47,19 @@ class ItemsController < ApplicationController
   end
 
   def destroy
+    @item = Item.find(params[:id])
     if @item.destroy
-      redirect_to item_path, notice: "削除しました"
+      redirect_to root_path, notice: "削除しました"
     else
       render :new
     end
   end
   
   def show
+
+
+
+    @item = Item.find(params[:id])
 
   end
 
@@ -156,9 +163,10 @@ class ItemsController < ApplicationController
 
 
 
-  def set_item
-    @item = Item.find(params[:id])
-  end
-end
 
+  # def set_item
+  #   @item = Item.find(params[:id])
+  # end
+
+end
 

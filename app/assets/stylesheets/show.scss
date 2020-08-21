@@ -13,9 +13,9 @@ ul.headerCategory {
     color: $mainBlueColor;
   }
 }
-
+  
 .main-show {
-  height: 1400px;
+  height: 1500px;
   overflow: scroll;
   display: flex;
   justify-content: center;
@@ -31,99 +31,124 @@ ul.headerCategory {
       border: solid 1px lightgray;
       padding: 40px 100px;
       text-align: center;
+      margin-bottom: 40px;
       &__title {
         font-size: 20px;
         font-weight: bold;
         padding-bottom: 20px;
-      }
-      &__price {
-        padding-bottom: 20px;
-        .itemprice {
-          font-size: 40px;
-        }
-        .taxPostage {
-          font-size: 13px;
-        }
-      }
-      &__image {
-        .mainimage__down {
-          .images {
-            display: inline;
+     }
+     &__price {
+       padding-bottom: 20px;
+       .itemprice {
+         font-size: 40px;
+       }
+       .taxPostage {
+         font-size: 13px;
+       }
+     }
+     &__image {
+       .mainimage__down {
+         .images {
+           display: inline;
+         }
+       }
+     }
+  
+     &__introduction {
+       text-align: left;
+       margin: 20px;
+     }
+     table {
+       border: solid 1px lightgray;
+       tr {
+         border-bottom: solid 1px lightgray;
+         th {
+           width:150px;
+           padding: 15px;
+           text-align: center;
+           background-color: rgba(233, 227, 227, 0.87);
+         }
+         td {
+           width: 400px;
+           padding: 15px;
+           text-align: left;
+           a {
+            text-decoration: none;
+            color: $mainBlueColor;
           }
         }
       }
-    
-      &__introduction {
-        text-align: left;
-        margin: 20px;
+    }
+    &__comment {
+      margin-top: 50px;
+      font-size: 13px;
+      color: rgba(158, 155, 155, 0.726);
+     
+      .commentText {
+        height: 100px;
+        width: 500px;
+        border-radius: 5px;
       }
-      table {
-        border: solid 1px lightgray;
-        tr {
-          border-bottom: solid 1px lightgray;
-          th {
-            width:150px;
-            padding: 15px;
-            text-align: center;
-            background-color: rgba(233, 227, 227, 0.87);
-          }
-          td {
-            width: 400px;
-            padding: 15px;
-            text-align: left;
-            a {
-              text-decoration: none;
-              color: $mainBlueColor;
-            }
-          }
-        }
-      }
-      &__comment {
-        margin-top: 50px;
-        font-size: 13px;
-        color: rgba(158, 155, 155, 0.726);
-        
-        .commentText {
-          height: 100px;
-          width: 500px;
-          border-radius: 5px;
-        }
-        .commentBtn {
-          width: 400px;
-          margin-top: 20px;
-          background-color: $mainBlueColor;
-          border: none;
-          outline: none;
-          padding: 10px 0;
-          border-radius: 20px;
-          font-size: 18px;
-        }
-      }
-      &--btn {
-        height: 80px;
+      .commentBtn {
+        width: 400px;
         margin-top: 20px;
-        .purchaseBtn {
-          width: 400px;
-          background-color: $mainBlueColor;
-          color: white;
-          border: none;
-          outline: none;
-          padding: 10px 0;
-          margin-bottom: 10px;
-          border-radius: 20px;
-        }
-        .purchaseBtn__buy {
-          width: 400px;
-          background-color: $mainBlueColor;
-          color: white;
-          border: none;
-          outline: none;
-          padding: 10px 0;
-          margin-top: 10px;
-          border-radius: 20px;
-          text-decoration: none;
+        background-color: $mainBlueColor;
+        color: white;
+        border: none;
+        outline: none;
+        padding: 10px 0;
+        border-radius: 20px;
+        font-size: 18px;
+      }
+    }
+    &--btn {
+      height: 80px;
+      margin-top: 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      .purchaseBtn__edit {
+        cursor: pointer;
+        display: block;
+        width: 400px;
+        background-color: $mainBlueColor;
+        color: white;
+        border: none;
+        outline: none;
+        padding: 10px 0;
+        margin-bottom: 10px;
+        border-radius: 20px;
+        text-decoration: none;
+       }
+      .purchaseBtn {
+        display: block;
+        cursor: pointer;
+        width: 400px;
+        background-color: lightgray;
+        color: white;
+        border: none;
+        outline: none;
+        padding: 10px 0;
+        margin-bottom: 10px;
+        border-radius: 20px;
+        text-decoration: none;
+       }
+      .purchaseBtn__buy {
+        display: block;
+        cursor: pointer;
+        width: 400px;
+        background-color: $mainBlueColor;
+        color: white;
+        border: none;
+        outline: none;
+        padding: 10px 0;
+        margin-top: 10px;
+        border-radius: 20px;
+        text-decoration: none;
+        text-decoration: none;
         }
       }
     }
   }
 }
+ 

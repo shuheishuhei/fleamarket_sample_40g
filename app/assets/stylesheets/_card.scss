@@ -38,7 +38,7 @@
   text-align: center; 
   font-size: 20px;
 }
-.title{
+.title2{
   margin: 50px;
   font-weight: bold;
 
@@ -91,6 +91,7 @@
 //カード一覧画面
 .show{
   text-align: center;
+
   height: 100vh;
   width: 100vw;
   
@@ -101,6 +102,7 @@
   font-weight: bold;
   font-size: 20px;
   
+
   }
 }
 
@@ -111,7 +113,7 @@
   justify-content: center;
   margin: 40px;
 }
-  
+
 .payment-details{
   font-size: 20px;
   display: flex;
@@ -128,15 +130,19 @@
 
 .destroy__frame{
   text-align: center;
+
   height: calc(100vh - 120px);
   width: 100vw;
   
   &__message{
+
   font-weight: bold;
   font-size: 20px;
   margin-top: 100px;
   }
+
   &__btns{
+
   font-size: 20px;
   display: flex;
   align-items: center;
@@ -184,10 +190,12 @@
   font-weight: bold;
   font-size: 25px;
 
+
   &__message{
   height: 100px;
   margin: 50px;
   }
+
   }
 }
 .purchased__links{
@@ -200,6 +208,7 @@
   &__TopPage{
     margin: 15px;
   font-size: 20px;
+
   }
   &__index{
   margin: 15px;
@@ -216,4 +225,5 @@
   margin-top: 10px;
   border-radius: 20px;
   text-decoration: none;
+
 }

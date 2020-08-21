@@ -228,13 +228,6 @@
   }
 }
 
-.itemsTitle{
-  a {
-    text-decoration: none;
-    color: black;
-  }
-}
-
 .productList {
   text-align: center;
   height: 500px;
@@ -243,6 +236,10 @@
   overflow: scroll;
   .itemsTitle {
     font-size: 28px;
+    a {
+      text-decoration: none;
+      color: black;
+    }
   }
   .product__area {
     .itemsNew {
