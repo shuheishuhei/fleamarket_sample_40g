@@ -1,11 +1,11 @@
-//オプションを作成
+// カテゴリーセレクトボックスのオプションを作成
 $(function(){
   function appendOption(category){
     var html = `<option value="${category.id}" data-category="${category.id}">${category.name}</option>`;
     return html;
   }
   
-// 子カテゴリー用のhtmlの作成。子カテゴリーのidはいらないので name=""としています。
+  // 子カテゴリーの表示作成
   function appendChildrenBox(insertHTML) {
     var childSelectHtml = '';
     childSelectHtml = 
@@ -20,7 +20,7 @@ $(function(){
     $('.showCategoryEditDetail').append(childSelectHtml);
   }
 
-// 孫カテゴリー用のhtmlを作成。
+  // 孫カテゴリーの表示作成
   function appendGrandChildrenBox(insertHTML) {
     var grandchildSelectHtml = '';
     grandchildSelectHtml = 
@@ -35,28 +35,24 @@ $(function(){
     $('.showCategoryEditDetail').append(grandchildSelectHtml);
   }
 
-// 親カテゴリー変更時のイベント
+// 親カテゴリー変更後のイベント
   $('#parent_category_edit').on('change', function() {
-// 親カテゴリーのデータを取得して変数にいれる
     var parentCategoryEdit = document.getElementById('parent_category_edit').value;
     if (parentCategoryEdit != '---'){
-// ajaxの処理
       $.ajax({
         url: 'get_category_children',
         type: 'GET',
         data: { parent_id: parentCategoryEdit },
         dataType: 'json'
       })
-      // 成功した時の処理
       .done(function(children){
-// 元々あった子カテゴリーと孫カテゴリーを消す。
+      // 親が変更された時、子以下を削除
         $('#child_category_edit').remove();
         $('#grandchild_category_edit').remove();
         var insertHTML = '';
         children.forEach(function(child){
           insertHTML += appendOption(child);
         });
-// オプション付きのinsertHTMLをappendChildにいれる。
         appendChildrenBox(insertHTML);
       })
       .fail(function(){
@@ -68,7 +64,7 @@ $(function(){
     }
   });
 
-  //子カテゴリーとやっていることは基本的に同じです 
+  //子カテゴリー選択後のイベント
   $('.showCategoryEditDetail').on('change', '#child_category_edit', function(){
     var childIdEdit = document.getElementById('child_category_edit').value;
     if (childIdEdit !== "---") {

@@ -1,5 +1,5 @@
+// カテゴリーセレクトボックスのオプションを作成
 $(function(){
-  // カテゴリーセレクトボックスのオプションを作成
   function appendOption(category){
     var html = `<option value="${category.id}" data-category="${category.id}">${category.name}</option>`;
     return html;
@@ -10,7 +10,7 @@ $(function(){
     childSelectHtml = 
         `<div class='categoryWrapper' id= 'children_wrapper'>
           <div class='categoryWrapper__box'>
-            <select class='categoryWrapper__box--select' id="child_category" name="">
+            <select class='categoryWrapper__box--select' id="child_category" name="item[category_id]">
               <option value="---" data-category="---">---</option>
               ${insertHTML}
             </select>
@@ -34,8 +34,8 @@ $(function(){
   }
   // 親カテゴリー選択後のイベント
   $('#parent_category').on('change', function(){
-    var parentCategory = document.getElementById('parent_category').value; //選択された親カテゴリーの名前を取得
-    if (parentCategory != "---"){ //親カテゴリーが初期値でないことを確認
+    var parentCategory = document.getElementById('parent_category').value;
+    if (parentCategory != "---"){
       $.ajax({
         url: 'get_category_children',
         type: 'GET',
@@ -43,7 +43,8 @@ $(function(){
         dataType: 'json'
       })
       .done(function(children){
-        $('#children_wrapper').remove(); //親が変更された時、子以下を削除する
+        //親が変更された時、子以下を削除
+        $('#children_wrapper').remove();
         $('#grandchildren_wrapper').remove();
         var insertHTML = '';
         children.forEach(function(child){
@@ -55,13 +56,13 @@ $(function(){
         alert('カテゴリー取得に失敗しました');
       })
     }else{
-      $('#children_wrapper').remove(); //親カテゴリーが初期値になった時、子以下を削除する
+      $('#children_wrapper').remove();
       $('#grandchildren_wrapper').remove();
     }
   });
   // 子カテゴリー選択後のイベント
   $('.showCategoryDetail').on('change', '#child_category', function(){
-    var childId = $('#child_category option:selected').data('category'); 
+    var childId = $('#child_category option:selected').data('category');
     if (childId != "---"){
       $.ajax({
         url: 'get_category_grandchildren',
@@ -71,7 +72,7 @@ $(function(){
       })
       .done(function(grandchildren){
         if (grandchildren.length != 0) {
-          $('#grandchildren_wrapper').remove(); 
+          $('#grandchildren_wrapper').remove();
           var insertHTML = '';
           grandchildren.forEach(function(grandchild){
             insertHTML += appendOption(grandchild);

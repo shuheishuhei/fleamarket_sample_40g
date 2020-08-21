@@ -1,5 +1,6 @@
 class ItemsController < ApplicationController
-  # before_action :set_item, except: [:index, ]
+  #出品カテゴリーでエラー発生するためコメントアウト
+  # before_action :set_item, except: [:index, :new, :create, :edit, :update, :destroy]
 
   def index
     @items = Item.includes(:item_images).limit(5).order('created_at DESC')
@@ -99,8 +100,7 @@ class ItemsController < ApplicationController
     end
   end
   
-
-  #商品購入確認（仮）
+  #商品購入確認
   def purchase_comfirmation
   end
 
@@ -143,10 +143,7 @@ class ItemsController < ApplicationController
     params.require(:item).permit(:name, :introduction, :price, :prefecture_id, :condition_id, :postage_id, :way_id, :day_id, :category_id, :brand, :status_id,item_images_attributes: [:id, :item_id, :image, :_destroy]).merge(user_id: current_user.id)
   end
   
-  def set_item
-    @item = Item.find(params[:id])
-  end
-
+  #出品カテゴリーでエラー発生するためコメントアウト
   # def set_item
   #   @item = Item.find(params[:id])
   # end
