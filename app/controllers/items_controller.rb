@@ -54,16 +54,14 @@ class ItemsController < ApplicationController
   
   def show
 
-
   end
 
   def buy
-    # 商品ごとに複数枚写真を登録できるから全て
+    # 商品ごとに複数枚写真を登録できるから全て。とりあえずステイ
     # @images = @item.images.all
 
     if user_signed_in?
       
-
       if current_user.card.present?
         #.digではなくて.payjpにしとく。
         Payjp.api_key = Rails.application.credentials.payjp[:PAYJP_SECRET_KEY]
@@ -119,7 +117,7 @@ class ItemsController < ApplicationController
     # @images = @item.images.all
 
     
-    if @item.deal == 1
+    if @item.status_id == 1
       redirect_to item_path(@item.id), alert: "売り切れています。"
     else
       # 同時に2人が購入し、二重で購入処理がされることを防ぐための記述

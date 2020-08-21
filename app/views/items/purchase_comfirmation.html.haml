@@ -29,7 +29,7 @@
         .buyItem__box__address__change
           =link_to '変更', "#"
       .buyItem__box--btn
-        = link_to '購入する', buy_item_path(@item.id)
+        = link_to '購入する', buy_item_path(@item.id), class: "buyBtn"
           
 
 %footer

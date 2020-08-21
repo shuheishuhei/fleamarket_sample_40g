@@ -60,3 +60,12 @@
     .add 
       
       = submit_tag "登録する", class: "add__btn", id: "payment_card_submit-button"
+
+  %footer
+    %list
+      %a.item プライバシーポリシー
+      %a.item FURIMA利用規約
+      %a.item 特定商取引に関する表記
+      %br
+    = link_to image_tag ("material/logo/logo-white.png"), class: "footer__logo"
+    %p.copyright ©︎FURIMA
