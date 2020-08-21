@@ -2,7 +2,7 @@
   .myPage__header
     .myPage__headerTop
       .myPage__headerLogo
-        = link_to image_tag 'logo.png', alt: '失敗', height: '60px', width: '100px', class: 'pic1'
+        = link_to image_tag('logo.png',  class: 'pic1'), root_path
       .myPage__headerSearchbox
         %input{ class: "headerSearchbox", placeholder: "何かお探しですか？"}
           
@@ -41,7 +41,7 @@
           .myPage__picinBox
             = image_tag 'toshiki-no-pic.jpg', alt: '失敗', height: '100%', width: '100%', class: 'pic3'
         .myPage__nameBox
-          toshiki
+          = current_user.nickname
           .myPage__name
             .myPage__in
               イイね数 8  
@@ -55,3 +55,11 @@
               筋トレグッズを中心に出品しています
           .myPage__contentnews
             = render 'news'
+  %footer
+    %list
+      %a.item プライバシーポリシー
+      %a.item FURIMA利用規約
+      %a.item 特定商取引に関する表記
+      %br
+      = link_to image_tag ("material/logo/logo-white.png"), class: "footer__logo"
+    %p.copyright ©︎FURIMA 

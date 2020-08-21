@@ -1,5 +1,6 @@
 class ItemsController < ApplicationController
-  # before_action :set_item, except: [:index, :new, :create]
+  #出品カテゴリーでエラー発生するためコメントアウト
+  # before_action :set_item, except: [:index, :new, :create, :edit, :update, :destroy]
 
   def index
     @items = Item.includes(:item_images).limit(5).order('created_at DESC')
@@ -8,6 +9,7 @@ class ItemsController < ApplicationController
   def new
     @item = Item.new
     @item.item_images.build
+
     @category_parent_array = []
     Category.where(ancestry: nil).each do |parent|
       @category_parent_array << parent
@@ -39,27 +41,31 @@ class ItemsController < ApplicationController
   def update
     @item = Item.find(params[:id])
     if @item.update(item_params)
-      redirect_to item_path, notice: "削除しました"
+      redirect_to item_path, notice: "変更しました"
     else
-      render :new
+      render :edit
     end
   end
 
   def destroy
     @item = Item.find(params[:id])
     if @item.destroy
-      redirect_to item_path, notice: "削除しました"
+      redirect_to root_path, notice: "削除しました"
     else
-      render :new
+      render :edit
     end
   end
   
   def show
+
+
+
     @item = Item.find(params[:id])
+
   end
 
   def buy
-    # 商品ごとに複数枚写真を登録できるから全て
+    # 商品ごとに複数枚写真を登録できるから全て。とりあえずステイ
     # @images = @item.images.all
     if user_signed_in?
       if current_user.card.present?
@@ -98,15 +104,14 @@ class ItemsController < ApplicationController
     end
   end
   
-
-  #商品購入確認（仮）
+  #商品購入確認
   def purchase_comfirmation
   end
 
   def pay    
     #とりあえずステイ
-    # @images = @item.images.all
-    if @item.deal == 1
+    # @images = @item.images.all 
+    if @item.status_id == 1
       redirect_to item_path(@item.id), alert: "売り切れています。"
     else
       # 同時に2人が購入し、二重で購入処理がされることを防ぐための記述
@@ -141,13 +146,8 @@ class ItemsController < ApplicationController
   def item_params
     params.require(:item).permit(:name, :introduction, :price, :prefecture_id, :condition_id, :postage_id, :way_id, :day_id, :category_id, :brand, :status_id,item_images_attributes: [:id, :item_id, :image, :_destroy]).merge(user_id: current_user.id)
   end
-  
-  def set_item
-    @item = Item.find(params[:id])
-  end
-
+  #出品カテゴリーでエラー発生するためコメントアウト
   # def set_item
   #   @item = Item.find(params[:id])
   # end
-
 end

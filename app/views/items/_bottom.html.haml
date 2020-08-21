@@ -55,7 +55,7 @@
     %p.copyright ©︎FURIMA
 
 - if user_signed_in? && current_user.id  
-  = link_to new_item_path, method: :get, class: "sellBtn" do
+  = link_to new_item_path,data: {"turbolinks" => false}, method: :get, class: "sellBtn" do
 
     %p.sellBtn__text 出品する
     = image_tag ("material/icon/icon_camera.png"), class: "sellBtn__icon" 
