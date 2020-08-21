@@ -50,18 +50,22 @@ class ItemsController < ApplicationController
   def destroy
     @item = Item.find(params[:id])
     if @item.destroy
-      redirect_to item_path, notice: "削除しました"
+      redirect_to root_path, notice: "削除しました"
     else
       render :edit
     end
   end
   
   def show
+
+
+
     @item = Item.find(params[:id])
+
   end
 
   def buy
-    # 商品ごとに複数枚写真を登録できるから全て
+    # 商品ごとに複数枚写真を登録できるから全て。とりあえずステイ
     # @images = @item.images.all
     if user_signed_in?
       if current_user.card.present?
@@ -106,8 +110,8 @@ class ItemsController < ApplicationController
 
   def pay    
     #とりあえずステイ
-    # @images = @item.images.all
-    if @item.deal == 1
+    # @images = @item.images.all 
+    if @item.status_id == 1
       redirect_to item_path(@item.id), alert: "売り切れています。"
     else
       # 同時に2人が購入し、二重で購入処理がされることを防ぐための記述
@@ -142,7 +146,6 @@ class ItemsController < ApplicationController
   def item_params
     params.require(:item).permit(:name, :introduction, :price, :prefecture_id, :condition_id, :postage_id, :way_id, :day_id, :category_id, :brand, :status_id,item_images_attributes: [:id, :item_id, :image, :_destroy]).merge(user_id: current_user.id)
   end
-  
   #出品カテゴリーでエラー発生するためコメントアウト
   # def set_item
   #   @item = Item.find(params[:id])

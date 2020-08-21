@@ -100,7 +100,7 @@
             %th 発送日の目安
             %td 
               = @item.day[:name]
-
+              
         .itemDetail__box--btn
           - if user_signed_in? && (current_user.id == @item.user_id)            
             = link_to "商品の編集", edit_item_path,data: {"turbolinks" => false}, class: 'purchaseBtn__edit'
@@ -108,7 +108,7 @@
           - if user_signed_in? && (current_user.id != @item.user_id)            
             = link_to "購入手続きへ", purchase_comfirmation_items_path, class: 'purchaseBtn__buy'
 
-          
+
 
         -# コメントフォームは実装完了までコメントアウト
         -# .itemDetail__box__comment

@@ -32,7 +32,7 @@
 
 // クレジットカード登録画面
 .card_add{
-  height: 100px;
+  height: 100vh;
   width: 100vw;
   margin-top: 30px;
   text-align: center; 
@@ -54,46 +54,55 @@
 .securitycode{
   &__securitycode__title{
   margin: 5px;
-}
+  }
 }
 
 .add{
-  margin: 15px;
+  margin: 50px;
 }
 
 
 //登録完了画面
 .create{
   text-align: center;
-
-  &__frame__message{
+  height: 100vh;
+}
+ 
+.create__frame{
+  height: calc(100vh - 320px);
+  
+  &__message{
   font-weight: bold;
   font-size: 20px;
   margin-top: 100px;
-}
-  &__frame__btns{
+  }
+  &__btns{
   font-size: 20px;
   display: flex;
   align-items: center;
   justify-content: center;
-  margin: 40px;
-}
+  }  
 }
 .my_page_link{
-  margin: 15px;
+  margin: 20px;
 }
-.credit_cards_index_link
+
 
 //カード一覧画面
-.show{
+.show1{
   text-align: center;
+
+  height: 100vh;
+  width: 100vw;
+  
   &__frame{
-    text-align: center;
+    height: calc(100vh - 220px);
   }
   &__frame__title{
-    font-weight: bold;
-    font-size: 20px;
-    margin-top: 100px;
+  font-weight: bold;
+  font-size: 20px;
+  
+
   }
 }
 
@@ -104,7 +113,7 @@
   justify-content: center;
   margin: 40px;
 }
-  // &__function__link
+
 .payment-details{
   font-size: 20px;
   display: flex;
@@ -116,16 +125,24 @@
 //削除完了画面
 .destroy{
   text-align: center;
+  height: 100vh;
+}
 
-  &__frame{
+.destroy__frame{
   text-align: center;
-  }
-  &__frame__message{
+
+  height: calc(100vh - 120px);
+  width: 100vw;
+  
+  &__message{
+
   font-weight: bold;
   font-size: 20px;
   margin-top: 100px;
   }
-  &__frame__btns{
+
+  &__btns{
+
   font-size: 20px;
   display: flex;
   align-items: center;
@@ -136,12 +153,25 @@
 
 
 
-        
 // 購入カード確認画面
 .buy{
   font-size: 20px;
-  
+  height: 100vh; 
 }
+.main_buycontents{
+  height: calc(100vh - 120px);
+  text-align: center;
+
+  &__details{
+  height: 100px;
+  font-weight: bold;
+  font-size: 25px;
+  }
+  &__details__message{
+  margin: 50px
+  }
+}
+
 .credit_card_info_title{
   margin: 10px;
 }
@@ -150,43 +180,50 @@
 .pay{
   width: 100vw;
   height: 100vh;
-  
-
 }
-.main_contents{
-  
-  height: 200px;
-  margin: 100px;
+.main_paycontents{
+  height: calc(100vh - 120px);
   text-align: center;
 
-
-  &_details{
+.main_details{
   height: 100px;
   font-weight: bold;
   font-size: 25px;
 
 
-  }
-  &_details__message{
+  &__message{
+  height: 100px;
   margin: 50px;
+  }
 
   }
 }
 .purchased__links{
+  margin: 10px;
+  height: 100px;
   display: flex;
   align-items: center;
   justify-content: center;
 
+  &__TopPage{
+    margin: 15px;
+  font-size: 20px;
 
-  &__links__TopPage{
+  }
+  &__index{
   margin: 15px;
   font-size: 20px;
-
-
   }
-  &__links__index{
-
-  font-size: 20px;
-  }
+}
+.purchaseBtn__buy {
+  width: 400px;
+  background-color: $mainBlueColor;
+  color: white;
+  border: none;
+  outline: none;
+  padding: 10px 0;
+  margin-top: 10px;
+  border-radius: 20px;
+  text-decoration: none;
 
 }
