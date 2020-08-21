@@ -1,5 +1,5 @@
 .pay
-  .main_contents
+  .main_paycontents
     = link_to image_tag 'logo.png', alt: '失敗', height: '100px', width: '150px', class: 'pic1'
     .main_details
       .main_details__message
@@ -7,6 +7,15 @@
     = render "items/itemDetail", item: @item, images: @images
     %ul.purchased__links
       %li.purchased__links__TopPage
-        = link_to "トップページに戻る", root_path, class: "purchased__links__TopPage__btn"
+        = link_to "トップページに戻る", root_path, class: "purchaseBtn__buy"
       %li.purchased__links__index
-        = link_to "購入商品一覧", "#", class: "purchased__links__index__btn"
+        = link_to "購入商品一覧", "#", class: "purchaseBtn__buy"
+
+  %footer
+    %list
+      %a.item プライバシーポリシー
+      %a.item FURIMA利用規約
+      %a.item 特定商取引に関する表記
+      %br
+    = link_to image_tag ("material/logo/logo-white.png"), class: "footer__logo"
+    %p.copyright ©︎FURIMA 

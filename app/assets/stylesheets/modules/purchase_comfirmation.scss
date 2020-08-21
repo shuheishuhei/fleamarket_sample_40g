@@ -72,13 +72,18 @@ main {
         }
       }
       &--btn {
+        text-align: center;
         .buyBtn {
           width: 400px;
-          background-color: #3CCACE;
+          background-color: $mainBlueColor;
+          color: white;
           border: none;
           outline: none;
           padding: 10px 0;
-          border-radius: 10px;
+          margin-top: 10px;
+          border-radius: 20px;
+          text-decoration: none;
+          
         }
       }
     }
