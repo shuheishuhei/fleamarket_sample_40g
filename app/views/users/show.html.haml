@@ -2,7 +2,7 @@
   .myPage__header
     .myPage__headerTop
       .myPage__headerLogo
-        = link_to image_tag 'logo.png', alt: '失敗', height: '60px', width: '100px', class: 'pic1'
+        = link_to image_tag('logo.png',  class: 'pic1'), root_path
       .myPage__headerSearchbox
         %input{ class: "headerSearchbox", placeholder: "何かお探しですか？"}
           
