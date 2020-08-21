@@ -9,9 +9,11 @@
     .myPage__headerMiddle
       .myPage__headerSearchL
         .myPage__headerSearchbox
-          カテゴリーから探す
+          =icon('fas','list', class: "category-icon")
+          カテゴリー
         .myPage__headerSearchbox
-          ブランドから探す
+          =icon('fas','shopping-bag', class: "brand-icon")
+          ブランド
       .myPage__headerSearchR
         .myPage__headerSearchbox
           イイね！一覧
@@ -24,11 +26,9 @@
     .myPage__headerBottom
       .myPage__headerCategoryL   
         .myPage__headerCategory
-          go to furima
-        .myPage__headerCategory
-          = link_to image_tag 'syounari-icon.png', alt: '失敗', height: '20px', width: '30px'
-        .myPage__headerCategory
-          マイページ 
+          =link_to "FURIMA", "#"
+          =icon('fas','chevron-right')
+          =link_to "マイページ", "#" 
 
   .myPage__main
     .myPage__leftBox
@@ -37,7 +37,7 @@
     .myPage__rightBox
       .myPage__infoBox    
         .myPage__picBox
-          = link_to image_tag 'background.png', alt: '失敗', height: '250px', width: '800px', class: 'pic2'
+          = link_to image_tag 'background.png', class: 'pic2'
           .myPage__picinBox
             = image_tag 'toshiki-no-pic.jpg', alt: '失敗', height: '100%', width: '100%', class: 'pic3'
         .myPage__nameBox
@@ -48,18 +48,19 @@
             .myPage__in
               出品数 6
           //= current_user.name イイね数
-        .myPage__contentsBox
-          .myPage__contentinfos
+        .myPage__contentinfo
+          .myPage__contentinfo__profile
             プロフィール
-            .myPage__contentinfo
-              筋トレグッズを中心に出品しています
-          .myPage__contentnews
-            = render 'news'
-  %footer
-    %list
-      %a.item プライバシーポリシー
-      %a.item FURIMA利用規約
-      %a.item 特定商取引に関する表記
-      %br
-      = link_to image_tag ("material/logo/logo-white.png"), class: "footer__logo"
-    %p.copyright ©︎FURIMA 
+          .myPage__contentinfo__list
+            筋トレグッズを中心に出品しています
+        .myPage__contentnews
+          = render 'news'
+
+%footer
+  %list
+    %a.item2 プライバシーポリシー
+    %a.item2 FURIMA利用規約
+    %a.item2 特定商取引に関する表記
+    %br
+  = link_to image_tag ("material/logo/logo-white.png"), class: "footer__logo"
+  %p.copyright ©︎FURIMA

@@ -14,21 +14,21 @@
   justify-content: center;
 }
 
-
 .myPage{
-  height: 100vh;
-  width: 100vw;
-
+  height: 720px;
+  background-color: #EEEEEE;
   &__header{
-    height: 200px;
     width: 100%;
+    background-color: white;
   }
   &__headerTop{
+    margin-top: 10px;
     @include flexBox-around
   }
   
   &__headerMiddle{
-    height: 70px;
+    height: 50px;
+    border-bottom: solid 1px lightgray;
     @include flexBox-around
   }
   li{
@@ -41,25 +41,30 @@
     @include flexBox-around;
   }
   &__headerSearchbox{
-    margin: 15px;
+    margin: 10px;
   }
   &__headerBottom{
-    height: 60px;
+    height: 50px;
   }
   &__headerCategoryL{
     display: flex;
-    margin-left: 200px;
+    justify-content: start;
+    margin-left: 170px;
   }
   &__headerCategory{
-    margin: 10px;
+    margin: 15px;
+    a {
+      text-decoration: none;
+      color:$mainBlueColor;
+    }
   }
   &__main{
-    width: 100vw;
-    background-color: #EEEEEE;
     @include flexBox-center;
   }
   &__leftBox{
-    width: 300px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
   }
   &__rightBox{
     @include flexBox-center;
@@ -87,34 +92,55 @@
     position: absolute;
     left: 320px;  
   }
-  &__in{
+  &__in {
     margin: 5px;
   }
-  &__contentsBox{
-    margin-top: 50px;
-    height: 200px;
-    width: 800px; 
-  }
-  &__contentinfos{
-    margin: 10px;
-    background-color: #ffffff;
+  .myPage__contentinfo {
+    margin: 50px 0 0 22px;
+    width: 750px;
+    background-color: white;
+    border-radius: 5px;
+    &__profile {
+      background-color: $mainBlueColor;
+      border-radius: 5px;
+    }
   }
   //お知らせ
-  .newscontents{
+  .newscontents {
+    margin-top: 20px;
     overflow: scroll;
     background-color: #ffffff;
     height: 200px;
-    &__newscontent{
-      height: 40px;
-      margin: 60px;
-    }
+    border-radius: 5px;
+  }
+  .newscontent__info {
+    background-color: $mainBlueColor;
+    color: white;
+  }
+  .newscontent {
+    margin-top: 5px;
   }
 }
 
 .pic1 {
   height: 50px;
   width: 150px;
-  margin-top: 10px;
+}
+
+.pic2 {
+  height: 220px;
+  width: 770px;
+  margin-top: 25px;
+  border-radius: 5px;
+}
+
+.headerSearchbox {
+  padding: 5px 10px;
+  width: 400px;
+}
+
+.category-icon, .brand-icon {
+  color: $mainBlueColor;
 }
 
 //サイドメニューバー
@@ -126,4 +152,20 @@
   justify-content: center;
   background-color: #ffffff;
   margin: 30px;
+  border-radius: 5px;
+}
+
+.contentBox2 {
+  height: 60px;
+  width: 250px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #ffffff;
+  margin: 30px;
+  border-radius: 5px;
+  a {
+    text-decoration: none;
+    color: $mainBlueColor;
+  }
 }
