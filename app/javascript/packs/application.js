@@ -12,6 +12,7 @@ require('../payjp')
 require('../way')
 require('../items')
 require('../category')
+require('../category_edit')
 
 
 

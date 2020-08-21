@@ -1,5 +1,5 @@
 class ItemsController < ApplicationController
-  # before_action :set_item, except: [:index, :new, :create]
+  # before_action :set_item, except: [:index, ]
 
   def index
     @items = Item.includes(:item_images).limit(5).order('created_at DESC')
@@ -8,6 +8,7 @@ class ItemsController < ApplicationController
   def new
     @item = Item.new
     @item.item_images.build
+
     @category_parent_array = []
     Category.where(ancestry: nil).each do |parent|
       @category_parent_array << parent
@@ -39,9 +40,9 @@ class ItemsController < ApplicationController
   def update
     @item = Item.find(params[:id])
     if @item.update(item_params)
-      redirect_to item_path, notice: "削除しました"
+      redirect_to item_path, notice: "変更しました"
     else
-      render :new
+      render :edit
     end
   end
 
@@ -50,7 +51,7 @@ class ItemsController < ApplicationController
     if @item.destroy
       redirect_to item_path, notice: "削除しました"
     else
-      render :new
+      render :edit
     end
   end
   
@@ -149,5 +150,4 @@ class ItemsController < ApplicationController
   # def set_item
   #   @item = Item.find(params[:id])
   # end
-
 end

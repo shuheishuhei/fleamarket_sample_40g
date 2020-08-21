@@ -101,9 +101,9 @@
             %td 
               = @item.day[:name]
 
-        .itemDetail__box--btn          
+        .itemDetail__box--btn
           - if user_signed_in? && (current_user.id == @item.user_id)            
-            = link_to "商品の編集", edit_item_path,  class: 'purchaseBtn__edit'            
+            = link_to "商品の編集", edit_item_path,data: {"turbolinks" => false}, class: 'purchaseBtn__edit'
             = link_to "この商品を削除する", item_path(@item.id), class: 'purchaseBtn', method: :delete
           - if user_signed_in? && (current_user.id != @item.user_id)            
             = link_to "購入手続きへ", purchase_comfirmation_items_path, class: 'purchaseBtn__buy'
@@ -153,7 +153,7 @@
     = link_to image_tag ("material/logo/logo-white.png"), class: "footer__logo"
     %p.copyright ©︎FURIMA
   
-- if user_signed_in? && current_user.id  
-  = link_to new_item_path, class: "sellBtn" do
+- if user_signed_in? && current_user.id 
+  = link_to new_item_path,data: {"turbolinks" => false}, class: "sellBtn" do
     %p.sellBtn__text 出品する
     = image_tag ("material/icon/icon_camera.png"), class: "sellBtn__icon"
