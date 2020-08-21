@@ -6,37 +6,38 @@
 .formContent
   .contentFlame
     = form_for @item do |f|
-      .image
-        .image__block
-          .image__block__form
-            %h3.imageWordTop
-              出品画像
-              %span.requireBox
-                必須
-            %p 最大5枚までアップロードできます
-            .image__block__area
-              %label.image__block__area__label{for: "item_images_attributes_0_image"}
-                -# .fileBox クリックして画像をアップロード
-                .image__prev
-                  #image-box
-                    #previews
-                      - if @item.persisted?
-                        - @item.item_images.each do |image,i|
-                          - if image.persisted?
-                            = @item.item_images.each_with_index do |image, i|
-                              = image_tag item_image.image.url, data: { index: i }
-                    = f.fields_for :item_images do |image|
-                      .js-file_group{"data-index" => "#{image.index}"}
-                        = image.file_field :image, class: "js-file",id: "item_images_attributes_#{image.index}_image"
-                        %br
-                        %span.js-remove 削除
-                    - @item.item_images.each do |image|
-                      - if @item.persisted?
-                        = image.check_box :_destroy, data:{ index: image.index }, class: "hidden-destroy"
-                      - if @item.persisted?
-                        .js-file_group{"data-index" => "#{@item.item_images.count}"}
-                          = file_field_tag :image, name: "item[item_images_attributes][#{@item.item_images.count}][image]", class: "js-file"
-                          %span.js-remove 削除
+    //他メンバーが画像箇所実装中のためコメントアウト
+      -# .image
+      -#   .image__block
+      -#     .image__block__form
+      -#       %h3.imageWordTop
+      -#         出品画像
+      -#         %span.requireBox
+      -#           必須
+      -#       %p 最大5枚までアップロードできます
+      -#       .image__block__area
+      -#         %label.image__block__area__label{for: "item_images_attributes_0_image"}
+      -#           -# .fileBox クリックして画像をアップロード
+      -#           .image__prev
+      -#             #image-box
+      -#               #previews
+      -#                 - if @item.persisted?
+      -#                   - @item.item_images.each do |image,i|
+      -#                     - if image.persisted?
+      -#                       = @item.item_images.each_with_index do |image, i|
+      -#                         = image_tag item_image.image.url, data: { index: i }
+      -#               = f.fields_for :item_images do |image|
+      -#                 .js-file_group{"data-index" => "#{image.index}"}
+      -#                   = image.file_field :image, class: "js-file",id: "item_images_attributes_#{image.index}_image"
+      -#                   %br
+      -#                   %span.js-remove 削除
+      -#               - @item.item_images.each do |image|
+      -#                 - if @item.persisted?
+      -#                   = image.check_box :_destroy, data:{ index: image.index }, class: "hidden-destroy"
+      -#                 - if @item.persisted?
+      -#                   .js-file_group{"data-index" => "#{@item.item_images.count}"}
+      -#                     = file_field_tag :image, name: "item[item_images_attributes][#{@item.item_images.count}][image]", class: "js-file"
+      -#                     %span.js-remove 削除
 
       
       .name
@@ -58,15 +59,18 @@
       .show
         .showTitle
           %h3 商品の詳細
-        .showCategory
-          .showCategoryDetail
+        .showCategoryEdit
+          .showCategoryEditDetail
             =f.label 'カテゴリー', class: 'showCategoryTitle'
             %span.requireBox
               必須
-            .categoryWrapper
-              .categoryWrapper__box
-                = f.collection_select(:category_id, @category_parent_array, :id, :name, {prompt: "選択してください"}, {class: 'categoryWrapper__box--select', id: 'parent_category'})
-
+            .categoryWrapperEdit
+              .categoryWrapperEdit__box
+                = f.collection_select :category_id, Category.roots, :id, :name,{prompt: '---', selected: @item.category.parent.parent_id}, {class: 'categoryWrapperEdit__box--select',  id: 'parent_category_edit'}
+              .categoryWrapperEdit__box
+                = f.collection_select :category_id, @item.category.parent.parent.children, :id, :name ,{prompt: "選択してください", selected: @item.category.parent_id}, {class: 'categoryWrapperEdit__box--select',  id: 'child_category_edit', name: "" }
+              .categoryWrapperEdit__box
+                = f.collection_select :category_id,@item.category.parent.children, :id, :name ,{prompt: "選択してください", selected: @item.category.id}, {class: 'categoryWrapperEdit__box--select',  id: 'grandchild_category_edit', name: "item[category_id]" }
           .showBrand
             %h3.showBrandTitle
               ブランド
@@ -152,10 +156,7 @@
               = f.collection_select(:status_id, Status.all, :id, :name, {include_blank: "選択してください"}, {class: 'statusCheck'})
         
         .button
-          = f.submit "出品する", class: "buttonBlue"
-
-          %button{type: "submit", class: "buttonGrey"}
-            下書きに保存
+          = f.submit "編集する", class: "buttonBlue"
           .backToTopPage
             = link_to  "戻る", root_path
         .importantPoint

@@ -88,11 +88,17 @@ body {
   .categoryWrapper__box--select {
     width: 615px;
     height: 45px;
-    margin-bottom: 40px;
     .categoryChoiceList {
       width: 615px;
       height: 45px;
     }
+  }
+  .categoryWrapperEdit__box--select {
+    width: 615px;
+    height: 45px;
+  }
+  .showBrandTitle {
+    margin-top: 40px;
   }
   .brandChoice {
     width: 615px;
