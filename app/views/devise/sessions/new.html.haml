@@ -26,6 +26,7 @@
             = f.password_field :password, autocomplete: "off"
       .actions
         = f.submit "ログイン", class: 'Button UserButton'
-    .AccountPage__title
-    %h5.NoAcount アカウントをお持ちでない方は
+  .AccountPage__title
+    .NoAcount アカウントをお持ちでない方は
+    
   = render "devise/shared/links"

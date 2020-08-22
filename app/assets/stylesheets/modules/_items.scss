@@ -81,12 +81,13 @@
     }
     &__nav__right {
       display: flex;
-      &__login,&__mypage {
+      &__login,&__mypage,&__like,&__info {
         padding-right: 30px;
       }
+
       a {
         text-decoration: none;
-        color: black;
+        color:rgba(0, 0, 0, 0.637);
       }
     }
   }
@@ -272,11 +273,17 @@
   padding-bottom: 10px;
   border: solid 1px lightgray;
   box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.25);
+  &__image{
+    position: relative;
+    &--sold {
+      position: absolute;
+      top: 40px;
+    }
+  }
+
   &__detail {
     text-align: left;
     margin: 0 10px;
-    &__image{
-    }
     &__name {
       font-size: 20px;
     }
@@ -286,20 +293,9 @@
   }
 }
 
-.items-box_photo__sold{
-  width: 0;
-  height: 0;
-  border-bottom: 42px solid transparent;
-  border-left: 75px solid #ea352d ;
-  z-index:100;
-  position: relative;
-  top: -166px;
-  &__inner{
-    font-size: 16px;
-    margin: -38px 0 0px -95px;
-    color: #fff;
-    font-weight: 600;
-  }
+.sold-img {
+  height: 140px;
+  width: 200px;
 }
 
 

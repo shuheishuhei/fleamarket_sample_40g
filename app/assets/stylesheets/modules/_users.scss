@@ -15,7 +15,7 @@
 }
 
 .myPage{
-  height: 720px;
+  height: 670px;
   background-color: #EEEEEE;
   &__header{
     width: 100%;
@@ -42,22 +42,28 @@
   }
   &__headerSearchbox{
     margin: 10px;
-  }
-  &__headerBottom{
-    height: 50px;
-  }
-  &__headerCategoryL{
-    display: flex;
-    justify-content: start;
-    margin-left: 170px;
-  }
-  &__headerCategory{
-    margin: 15px;
     a {
       text-decoration: none;
-      color:$mainBlueColor;
+      color: black;
     }
   }
+
+  .header1 {
+    background-color: white;
+    height: 100px;
+    padding: 10px 60px;
+    margin: 5px 0;
+    font-size: 16px;
+  }
+
+  .header2 {
+    height: 100px;
+    padding: 10px 60px;
+    margin: 5px 0;
+    font-size: 16px;
+  }
+
+
   &__main{
     @include flexBox-center;
   }
@@ -132,6 +138,15 @@
   width: 770px;
   margin-top: 25px;
   border-radius: 5px;
+}
+
+.header2 {
+  height: 100px;
+  padding: 10px 60px;
+  margin: 5px 0;
+  font-size: 16px;
+  border-bottom: solid 1px lightgray;
+  box-shadow: 0 3px 6px -5px rgba(0, 0, 0, 0.5);
 }
 
 .headerSearchbox {

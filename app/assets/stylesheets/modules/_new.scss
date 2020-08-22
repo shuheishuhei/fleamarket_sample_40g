@@ -192,15 +192,17 @@ body {
 .button {
   display: flex;
   align-items: center;
-  flex-direction: column; 
+  flex-direction: column;
   .buttonBlue {
     width: 300px;
     height: 45px;
-    margin-bottom: 30px;
-    background-color: #3ccace;
+    margin-bottom: 20px;
+    background-color: $mainBlueColor;
     color: white;
     display: inline-block;
     cursor: pointer;
+    border: none;
+    border-radius: 5px;
   }
   button.buttonGrey {
     width: 300px;
@@ -214,6 +216,10 @@ body {
     display: inline-block;
     cursor: pointer;
     margin-bottom: 30px;
+    a {
+      text-decoration: none;
+      color: $mainBlueColor;
+    }
   }
 }
 

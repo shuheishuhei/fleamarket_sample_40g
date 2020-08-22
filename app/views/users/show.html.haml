@@ -1,34 +1,27 @@
 .myPage
-  .myPage__header
-    .myPage__headerTop
-      .myPage__headerLogo
-        = link_to image_tag('logo.png',  class: 'pic1'), root_path
-      .myPage__headerSearchbox
-        %input{ class: "headerSearchbox", placeholder: "何かお探しですか？"}
-          
-    .myPage__headerMiddle
-      .myPage__headerSearchL
-        .myPage__headerSearchbox
+
+  .header1
+    .header__top
+      = link_to image_tag("material/logo/logo.png", class: "header__top__logo"), root_path
+      .header__top__search
+        %input{ class: "header__top__search__form", placeholder: "キーワードから探す"}
+        %button.header__top__search__btn 
+          = image_tag ("material/icon/icon-search 1.png"), class: "header__top__search__btn__icon" 
+    .header__bottom
+      .header__bottom__nav__left
+        .header__bottom__nav__left__category
           =icon('fas','list', class: "category-icon")
           カテゴリー
-        .myPage__headerSearchbox
+        .header__bottom__nav__left__brand
           =icon('fas','shopping-bag', class: "brand-icon")
           ブランド
-      .myPage__headerSearchR
-        .myPage__headerSearchbox
+      .header__bottom__nav__right
+        .header__bottom__nav__right__like
           イイね！一覧
-        .myPage__headerSearchbox
+        .header__bottom__nav__right__info
           お知らせ
-        .myPage__headerSearchbox
-          to doリスト
-        .myPage__headerSearchbox
-          マイページ
-    .myPage__headerBottom
-      .myPage__headerCategoryL   
-        .myPage__headerCategory
-          =link_to "FURIMA", "#"
-          =icon('fas','chevron-right')
-          =link_to "マイページ", "#" 
+        .header__bottom__nav__right__mypage
+          =link_to "マイページ", "/users/#{current_user.id}"
 
   .myPage__main
     .myPage__leftBox

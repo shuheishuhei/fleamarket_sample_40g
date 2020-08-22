@@ -1,5 +1,29 @@
-%header
-  = link_to image_tag("logo.png", size: '150x50'), root_path
+.header2
+  .header__top
+    = link_to image_tag("material/logo/logo.png", class: "header__top__logo"), root_path
+    .header__top__search
+      %input{ class: "header__top__search__form", placeholder: "キーワードから探す"}
+      %button.header__top__search__btn 
+        = image_tag ("material/icon/icon-search 1.png"), class: "header__top__search__btn__icon" 
+  .header__bottom
+    .header__bottom__nav__left
+      .header__bottom__nav__left__category
+        =icon('fas','list', class: "category-icon")
+        カテゴリー
+      .header__bottom__nav__left__brand
+        =icon('fas','shopping-bag', class: "brand-icon")
+        ブランド
+    .header__bottom__nav__right
+      - if user_signed_in?
+        .header__bottom__nav__right__mypage
+          =link_to "マイページ", "/users/#{current_user.id}"
+        .header__bottom__nav__right__logout
+          =link_to "ログアウト", destroy_user_session_path, method: :delete
+      - else
+        .header__bottom__nav__right__login
+          =link_to "ログイン", new_user_session_path
+        .header__bottom__nav__right__registration
+          =link_to "新規会員登録", new_user_registration_path
   
 %main
   .buyItem
@@ -8,29 +32,36 @@
         購入内容の確認
       .buyItem__box__info
         .buyItem__box__info__image
-          = image_tag("material/pict/pict-reason-02.jpg", width: 70,height: 70,class: "item__image")
+          = image_tag @item.item_images[0].image_url, width: 70,height: 70,class: "item__image"
         .buyItem__box__info__detail
           %p.itemTitle
-            【新品・未使用】iPhone 6 Gold 16GB docomo
+            =@item.name
           %ul.itemPrice
-            %li.postage 送料込み(税込)
-            %li.itemPrice ¥6,900
+            %li.postage
+              = @item.postage[:name]
+            %li.itemPrice
+              = number_to_currency(@item.price, unit: "¥", format: "%u%n", precision: 0)
       .buyItem__box__price
         .buyItem__box__price__text
           支払い金額
         .buyItem__box__price__cell
-          ¥6,900
+          = number_to_currency(@item.price, unit: "¥", format: "%u%n", precision: 0)
+          (税込)
       .buyItem__box__address
         .buyItem__box__address__destination
           %b.destination 配送先
-          %p.post-code 〒111-1111
-          %p.address 大阪府大阪市××区××1丁目1番地10
-          %p.fullname 山田 太郎
+          %p.post-code
+          〒
+          = @address.post_code
+          %p.address
+          = @address.prefecture + @address.city + @address.house_number + @address.building_name
+          
+          %p.fullname
+          = @address.destination_family_name + @address.destination_first_name
         .buyItem__box__address__change
           =link_to '変更', "#"
       .buyItem__box--btn
-        = link_to '購入する', buy_item_path(@item.id), class: "buyBtn"
-          
+        = link_to '購入する', buy_item_path(@item.id),data: {"turbolinks" => false}, class: "buyBtn"
 
 %footer
   %list

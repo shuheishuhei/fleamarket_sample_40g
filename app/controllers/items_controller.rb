@@ -57,14 +57,11 @@ class ItemsController < ApplicationController
   end
   
   def show
-
-
-
     @item = Item.find(params[:id])
-
   end
 
   def buy
+    @item = Item.find(params[:id])
     # 商品ごとに複数枚写真を登録できるから全て。とりあえずステイ
     # @images = @item.images.all
     if user_signed_in?
@@ -106,9 +103,13 @@ class ItemsController < ApplicationController
   
   #商品購入確認
   def purchase_comfirmation
+    @item = Item.find(params[:id])
+    @address = Address.where(user_id: current_user.id).first
+    # @address = current_user.address
   end
 
   def pay    
+    @item = Item.find(params[:id])
     #とりあえずステイ
     # @images = @item.images.all 
     if @item.status_id == 1
@@ -146,6 +147,7 @@ class ItemsController < ApplicationController
   def item_params
     params.require(:item).permit(:name, :introduction, :price, :prefecture_id, :condition_id, :postage_id, :way_id, :day_id, :category_id, :brand, :status_id,item_images_attributes: [:id, :item_id, :image, :_destroy]).merge(user_id: current_user.id)
   end
+
   #出品カテゴリーでエラー発生するためコメントアウト
   # def set_item
   #   @item = Item.find(params[:id])
