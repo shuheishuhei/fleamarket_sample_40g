@@ -41,7 +41,6 @@
         %span.requireBox
           必須
       .FormField__input--normal
-        -# = f.collection_select(:prefecture_id, Prefecture.all, :id, :name, {include_blank: "選択してください"}, {class: "prefectureChoiceList"}) 
         = f.select :prefecture, Address.prefectures.keys,{},class: 'prefecture-select'
       .FormField__label--normal
         = f.label :市町村
