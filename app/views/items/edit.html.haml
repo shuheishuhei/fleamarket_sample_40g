@@ -14,24 +14,25 @@
               %span.requireBox
                 必須
             %p 最大5枚までアップロードできます
-            
+          .image__block__box  
             .image__block__area
               %label.image__block__area__label{for: "item_images_attributes_#{@item.item_images.length - 1}_image"}
-                .image__prev
-                  #image-box
-                    #previews
-                      - if @item.persisted?
-                        - @item.item_images.each_with_index do |image, i|
-                          - if image.persisted?
-                            .image__post__area{data:{index: i}}
-                              = image_tag image.image.url, width: "124", height: "125","data-index": "#{i}"
-                              .js-remove
-                                削除
-                    = f.fields_for :item_images do |image|
-                      .js-file_group{"data-index" => "#{image.index}"}
-                        = image.file_field :image, class: "js-file",id: "item_images_attributes_#{image.index}_image"                        
-                        - if image.object.persisted?
-                          = image.check_box :_destroy, data:{ index: image.index }, class: "hidden-destroy"
+                .fileBox クリックして画像をアップロード
+            .image__prev
+              #image-box
+                #previews
+                  - if @item.persisted?
+                    - @item.item_images.each_with_index do |image, i|
+                      - if image.persisted?
+                        .image__post__area{data:{index: i}}
+                          = image_tag image.image.url, width: "124", height: "124","data-index": "#{i}"
+                          .js-remove
+                            削除
+                = f.fields_for :item_images do |image|
+                  .js-file_group{"data-index" => "#{image.index}"}
+                    = image.file_field :image, class: "js-file",id: "item_images_attributes_#{image.index}_image"                        
+                    - if image.object.persisted?
+                      = image.check_box :_destroy, data:{ index: image.index }, class: "hidden-destroy"
       .name
         %h3.nameTitle
           商品名

@@ -38,17 +38,12 @@ $(document).on("turbolinks:load", ()=> {
       $("#previews").append(buildImg(targetIndex, blobUrl));
 
       $("#image-box").append(buildFileField(fileIndex[0]));  
-        if($(".js-file_group").length > 5){  
-          return false;
-        }
         
-        if($(".js-file_group").length > 5){  
-          $(".js-file_group").hide();
-        }
-        // ５枚以上投稿しようとしたらグレー範囲がなくなる記述がしたい
-        if($(".js-file_group").length > 5){  
+        // ５枚以上投稿しようとしたら投稿範囲がなくなる
+        if ($(".image__post__area").length >= 5){  
           $(".image__block__area").hide();
         }
+        
       
       let num = $(`.js-file_group`).last().data("index")
       changeLabelFor(num)
@@ -61,18 +56,28 @@ $(document).on("turbolinks:load", ()=> {
 
   $("#image-box").on("click", ".js-remove", function() {
     const targetIndex = $(this).parent().data("index");
-    console.log(targetIndex)
+    // console.log(targetIndex)
     const hiddenCheck = $(`#item_item_images_attributes_${targetIndex}__destroy`)[0];
     console.log(hiddenCheck)
-    console.log($(hiddenCheck).prop("checked", true));
+    if ($(hiddenCheck).prop("checked", true));
 
     $(this).parent().remove();
     console.log(targetIndex);
     $(`#item_images_attributes_${targetIndex}_image`).remove();
     $(`img[data-index="${targetIndex}"]`).remove();
 
+    if ($(".image__post__area").length < 5){  
+      $(".image__block__area").show();
+    }
+
     if ($(".js-file").length == 0) $("#image-box").append(buildFileField(fileIndex[0]));
+
   });
 
-  
+  if ($(".image__post__area").length >= 5){  
+    $(".image__block__area").hide();
+  }
+  if ($(".image__post__area").length < 5){  
+    $(".image__block__area").show();
+  }
 });
