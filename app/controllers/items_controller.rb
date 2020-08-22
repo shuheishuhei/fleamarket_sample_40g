@@ -114,7 +114,7 @@ class ItemsController < ApplicationController
     @item = Item.find(params[:id])
     #とりあえずステイ
     # @images = @item.images.all 
-    if @item.status_id == 1
+    if @item.status_id == 2
       redirect_to item_path(@item.id), alert: "売り切れています。"
     else
       # 同時に2人が購入し、二重で購入処理がされることを防ぐための記述
