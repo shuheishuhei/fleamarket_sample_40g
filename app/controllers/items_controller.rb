@@ -2,6 +2,8 @@ class ItemsController < ApplicationController
   #出品カテゴリーでエラー発生するためコメントアウト
   # before_action :set_item, except: [:index, :new, :create, :edit, :update, :destroy]
 
+  Payjp.api_key = Rails.application.credentials.payjp[:PAYJP_PRIVATE_KEY]
+  
   def index
     @items = Item.includes(:item_images).limit(5).order('created_at DESC')
   end
