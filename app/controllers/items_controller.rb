@@ -106,6 +106,7 @@ class ItemsController < ApplicationController
   
   #商品購入確認
   def purchase_comfirmation
+    @item = Item.find(params[:id])
   end
 
   def pay    
