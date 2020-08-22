@@ -1,6 +1,6 @@
 .accountRegistration
   .accountRegistration__title
-  = image_tag 'logo.png', alt: '失敗', height: '50px', width: '100%', class: 'pic'
+    = link_to image_tag('logo.png',  class: 'pic1'), root_path
   .accountRegistration__title
     %h2 商品送付先住所情報登録
   = form_for(@address, url:addresses_path, method: :post) do |f|
@@ -41,7 +41,7 @@
         %span.requireBox
           必須
       .FormField__input--normal
-        = f.select :prefecture, Address.prefectures.keys,{}
+        = f.select :prefecture, Address.prefectures.keys,{},class: 'prefecture-select'
       .FormField__label--normal
         = f.label :市町村
         %span.requireBox
@@ -56,17 +56,13 @@
         = f.text_field :house_number
       .FormField__label--normal
         = f.label :マンション建物名
-        %span.requireBox
-          必須
       .FormField__input--normal
         = f.text_field :building_name
       .FormField__label--normal
         = f.label :電話番号
-        %span.requireBox
-          必須
       .FormField__input--normal
         = f.number_field :phone_number
-      .actions
-        = f.submit "Sign up", class: "Button"
+    .actions
+      = f.submit "Sign up", class: "Button"
 
     //= render "devise/shared/links"
