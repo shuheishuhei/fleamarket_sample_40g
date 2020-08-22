@@ -14,44 +14,24 @@
               %span.requireBox
                 必須
             %p 最大5枚までアップロードできます
-      -# .image__block__area
-      -#   %label.image__block__area__label{for: "item_images_attributes_0_image"}
-      -#     -# .fileBox クリックして画像をアップロード
-      -#     .image__prev
-      -#       #image-box
-      -#         #previews
-      -#           - if @item.persisted?
-      -#             - @item.item_images.each do |image,i|
-      -#               - if image.persisted?
-      -#                 = @item.item_images.each_with_index do |image, i|
-      -#                   = image_tag image.image.url, data: { index: i }, class: "image__post__area"
-      -#         = f.fields_for :item_images do |image|
-      -#           .js-file_group{"data-index" => "#{image.index}"}
-      -#             = image.file_field :image, class: "js-file",id: "item_images_attributes_#{image.index}_image"
-      -#             %br
-      -#             %span.js-remove 削除
-      -#         - @item.item_images.each do |image|
-      -#           - if @item.persisted?
-      -#             -# = image.check_box :_destroy, data:{ index: image.index }, class: "hidden-destroy"
-      -#           - if @item.persisted?
-      -#             .js-file_group{"data-index" => "#{@item.item_images.count}"}
-      -#               = file_field_tag :image, name: "item[item_images_attributes][#{@item.item_images.count}][image]", class: "js-file"
-      -#               %span.js-remove 削除
-      -#         %label.image__block__area__label
-      -#           .image__prev
-      -#             #image-box
-      -#               #previews
-      -#                 = f.fields_for :item_images do |i|
-      -#                   - if @item.persisted?
-      -#                     .image
-      -#                       = image_tag i.object.image.url, data: { index: i.index }, width: 125, height: 125
-      -#                       %span.js-remove{data:{index: i.index}} 
-      -#                         削除
-      -#                     .js_file_index{data:{index: i.index}}
-      -#                       = i.file_field :image, class: "js_file_field", data:{index: i.index}
-      -#                       - if i.object.persisted?
-      -#                         = i.check_box :_destroy, include_hidden: false, class: "hidden-destroy", data:{index: i.index}
-      -#                         = i.hidden_field :id, value: i.object.id
+            
+            .image__block__area
+              %label.image__block__area__label{for: "item_images_attributes_#{@item.item_images.length - 1}_image"}
+                .image__prev
+                  #image-box
+                    #previews
+                      - if @item.persisted?
+                        - @item.item_images.each_with_index do |image, i|
+                          - if image.persisted?
+                            .image__post__area{data:{index: i}}
+                              = image_tag image.image.url, width: "124", height: "125","data-index": "#{i}"
+                              .js-remove
+                                削除
+                    = f.fields_for :item_images do |image|
+                      .js-file_group{"data-index" => "#{image.index}"}
+                        = image.file_field :image, class: "js-file",id: "item_images_attributes_#{image.index}_image"                        
+                        - if image.object.persisted?
+                          = image.check_box :_destroy, data:{ index: image.index }, class: "hidden-destroy"
       .name
         %h3.nameTitle
           商品名
@@ -77,16 +57,6 @@
             %span.requireBox
               必須
             .categoryWrapper
-              -# .categoryWrapper__box
-              -#   = f.select :parent_name, @category_parent_array, {selected:@item.category.parent.parent.name}, { class: 'categoryWrapper__box--select', id: 'parent_category'}
-           
-              -# .category-wrapper-select__box
-              -#   = f.select :child_id, options_for_select(@category_children_array.map{|b| [b.name, b.id, {data:{category: b.id}}]}, {prompt: "指定なし", selected: @item.category.parent.id}),{}, {class: 'categoryWrapper__box--select', id: 'child_category'}
-            
-              -# .category-wrapper-select__box
-              -#   = f.select :category_id, options_for_select(@category_grandchildren_array.map{|b| [b.name, b.id, {data:{category: b.id}}]}, {prompt: "指定なし", selected: @item.category.id}),{}, {class: 'categoryWrapper__box--select', id: 'grandchild_category'}
-                
-                -# = f.collection_select (:category_id, @item.category.parent.parent.id, :id, :name, {prompt: "---"}, {class: 'categoryWrapper__box--select', id: 'parent_category',selected: @item.category.parent.parent.id})
 
           .showBrand
             %h3.showBrandTitle

@@ -148,10 +148,10 @@
 }
 
 
-//投稿クリックエリアのCSS
+// 投稿クリックエリアのCSS
 .image__block__area {
   margin-bottom: 10px;
-  width: 620px;
+  display: flex;
   &__label {
     height: 162px;
     border: 1px dashed #ccc;
@@ -179,9 +179,9 @@
 }
 
 
-.js-file_group {
-  display: none;
-}
+// .js-file_group {
+//   display: none;
+// }
 .js-remove{
   background-color: $mainBlueColor;
   color: white;
@@ -195,5 +195,6 @@
 }
 
 .image__post__area {
-  width: 20%;
+  width: 124px;
+  height: 155px;
 }
