@@ -2,6 +2,7 @@ class ItemsController < ApplicationController
   #出品カテゴリーでエラー発生するためコメントアウト
   # before_action :set_item, except: [:index, :new, :create, :edit, :update, :destroy]
 
+
   def index
     @items = Item.includes(:item_images).limit(5).order('created_at DESC')
   end
@@ -105,14 +106,13 @@ class ItemsController < ApplicationController
   def purchase_comfirmation
     @item = Item.find(params[:id])
     @address = Address.where(user_id: current_user.id).first
-    # @address = current_user.address
   end
 
   def pay    
     @item = Item.find(params[:id])
     #とりあえずステイ
     # @images = @item.images.all 
-    if @item.status_id == 1
+    if @item.status_id == 2
       redirect_to item_path(@item.id), alert: "売り切れています。"
     else
       # 同時に2人が購入し、二重で購入処理がされることを防ぐための記述
@@ -131,6 +131,8 @@ class ItemsController < ApplicationController
           currency: 'jpy'
           )
         else
+          Payjp.api_key = Rails.application.credentials.payjp[:PAYJP_SECRET_KEY]
+
           # ログインユーザーがクレジットカード登録されていない場合
           # APIの「Checkout」ライブラリによる決済処理をする
           Payjp::Charge.create(
