@@ -134,6 +134,8 @@ class ItemsController < ApplicationController
           currency: 'jpy'
           )
         else
+          Payjp.api_key = Rails.application.credentials.payjp[:PAYJP_SECRET_KEY]
+
           # ログインユーザーがクレジットカード登録されていない場合
           # APIの「Checkout」ライブラリによる決済処理をする
           Payjp::Charge.create(
