@@ -1,19 +1,41 @@
 .accountRegistration{
   width: 400px;
   margin: 60px auto;
-  padding: 60px;
+  padding: 20px 60px 60px 60px;
   text-align: center;
+  &__title {
+    margin: 20px 0;
+  }
 }
 
 .new_user{
-    height: 500px;
-    width: 300px;
+  width: 300px;
 }
 .field{
 }
 
 .Button {
-  margin-top: 40px;
+  text-align: center;
+  margin-top: 30px;
   color: #fff;
   background-color: #00ECFF;
+}
+
+.prefecture-select {
+  width: 280px;
+  height: 45px;
+}
+
+.FormField {
+  text-align: left;
+}
+
+.AccountPage__title {
+  margin-top: 10px;
+}
+
+.login-logo {
+  border-radius: 5px;
+  margin-top: 10px;
+  border: solid 1px lightgrey;
 }

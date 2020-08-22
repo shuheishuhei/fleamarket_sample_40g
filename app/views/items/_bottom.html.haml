@@ -1,13 +1,26 @@
 .bottom
   .productList
-    %h2.itemsTitle 全商品一覧
+    .itemsTitle
+      =link_to "全商品一覧", "#"
     .product__area
       %a.itemsNew 新規投稿一覧
       .product__area__all
         .product__area__all__list
-          .product__all__image            
-          .product__all____name            
-          .product__all____price
+          - @items.each do |item|
+            = link_to item_path(item.id) do
+              .eachProduct
+                .eachProduct__image
+                  = image_tag item.item_images[0].image_url, class: 'productImageTop'
+                  - if item.status_id == 2
+                    .eachProduct__image--sold
+                      = image_tag("soldout.png",class: "sold-img")
+                .eachProduct__detail
+                  .eachProduct__detail__name
+                    = item.name
+                  .eachProduct__detail__price
+                    = number_to_currency(item.price, unit: "¥", format: "%u%n", precision: 0)
+                  .eachProduct__detail__tax
+                    (税込)
   .bottomDl
     .bottomDl__content
       .bottomDl__content__title
@@ -40,7 +53,8 @@
     = link_to image_tag ("material/logo/logo-white.png"), class: "footer__logo"
     %p.copyright ©︎FURIMA
 
-  = link_to new_item_path, method: :get, class: "sellBtn" do
+- if user_signed_in? && current_user.id  
+  = link_to new_item_path,data: {"turbolinks" => false}, method: :get, class: "sellBtn" do
 
     %p.sellBtn__text 出品する
     = image_tag ("material/icon/icon_camera.png"), class: "sellBtn__icon" 

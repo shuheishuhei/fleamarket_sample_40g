@@ -1,8 +1,30 @@
-.exhibition
-  .header1
-    .logo1
-      = link_to image_tag("logo.png", size: '150x50', class: "logo2"), root_path
-  
+.header2
+  .header__top
+    = link_to image_tag("material/logo/logo.png", class: "header__top__logo"), root_path
+    .header__top__search
+      %input{ class: "header__top__search__form", placeholder: "キーワードから探す"}
+      %button.header__top__search__btn 
+        = image_tag ("material/icon/icon-search 1.png"), class: "header__top__search__btn__icon" 
+  .header__bottom
+    .header__bottom__nav__left
+      .header__bottom__nav__left__category
+        =icon('fas','list', class: "category-icon")
+        カテゴリー
+      .header__bottom__nav__left__brand
+        =icon('fas','shopping-bag', class: "brand-icon")
+        ブランド
+    .header__bottom__nav__right
+      - if user_signed_in?
+        .header__bottom__nav__right__mypage
+          =link_to "マイページ", "/users/#{current_user.id}"
+        .header__bottom__nav__right__logout
+          =link_to "ログアウト", destroy_user_session_path, method: :delete
+      - else
+        .header__bottom__nav__right__login
+          =link_to "ログイン", new_user_session_path
+        .header__bottom__nav__right__registration
+          =link_to "新規会員登録", new_user_registration_path
+
 .formContent
   .contentFlame
     = form_for @item do |f|
@@ -33,6 +55,7 @@
                     = image.file_field :image, class: "js-file",id: "item_images_attributes_#{image.index}_image"                        
                     - if image.object.persisted?
                       = image.check_box :_destroy, data:{ index: image.index }, class: "hidden-destroy"
+
       .name
         %h3.nameTitle
           商品名
@@ -52,12 +75,18 @@
       .show
         .showTitle
           %h3 商品の詳細
-        .showCategory
-          .showCategoryDetail
+        .showCategoryEdit
+          .showCategoryEditDetail
             =f.label 'カテゴリー', class: 'showCategoryTitle'
             %span.requireBox
               必須
-            .categoryWrapper
+            .categoryWrapperEdit
+              .categoryWrapperEdit__box
+                = f.collection_select :category_id, Category.roots, :id, :name,{prompt: '---', selected: @item.category.parent.parent_id}, {class: 'categoryWrapperEdit__box--select',  id: 'parent_category_edit'}
+              .categoryWrapperEdit__box
+                = f.collection_select :category_id, @item.category.parent.parent.children, :id, :name ,{prompt: "選択してください", selected: @item.category.parent_id}, {class: 'categoryWrapperEdit__box--select',  id: 'child_category_edit', name: "" }
+              .categoryWrapperEdit__box
+                = f.collection_select :category_id,@item.category.parent.children, :id, :name ,{prompt: "選択してください", selected: @item.category.id}, {class: 'categoryWrapperEdit__box--select',  id: 'grandchild_category_edit', name: "item[category_id]" }
 
           .showBrand
             %h3.showBrandTitle
@@ -144,17 +173,17 @@
               = f.collection_select(:status_id, Status.all, :id, :name, {include_blank: "選択してください"}, {class: 'statusCheck'})
         
         .button
-          = f.submit "変更する", class: "buttonBlue"
-
-          %button{type: "submit", class: "buttonGrey"}
-            下書きに保存
+          = f.submit "編集する", class: "buttonBlue"
           .backToTopPage
-            = link_to item_path do
-              戻る
+            = link_to "戻る",root_path
         .importantPoint
           %p 禁止されている行為及出品物を必ずご確認ください。偽ブランド品や盗品物などの販売は犯罪であり、法律により処罰される可能性があります。また、出品をもちまして加盟店規約に同意したことになります。
   
-.footer1
-  .logo1
-    =link_to "root_path" do
-      = image_tag("logo-white.png", size: '150x50',class: "footerLogo")
+%footer
+  %list
+    %a.item2 プライバシーポリシー
+    %a.item2 FURIMA利用規約
+    %a.item2 特定商取引に関する表記
+    %br
+  = link_to image_tag ("material/logo/logo-white.png"), class: "footer__logo"
+  %p.copyright ©︎FURIMA

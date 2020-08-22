@@ -25,4 +25,5 @@ class Item < ApplicationRecord
   belongs_to_active_hash :day
   belongs_to_active_hash :way
   belongs_to_active_hash :status
+
 end

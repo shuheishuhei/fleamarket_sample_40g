@@ -8,14 +8,12 @@ require("turbolinks").start()
 require("@rails/activestorage").start()
 require("channels")
 require('jquery')
-
-
+require('../payjp')
 require('../way')
-
-
 require('../items')
-
 require('../category')
+require('../category_edit')
+
 
 
 

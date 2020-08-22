@@ -10,8 +10,10 @@
       .header__bottom
         .header__bottom__nav__left
           .header__bottom__nav__left__category
+            =icon('fas','list', class: "category-icon")
             カテゴリー
           .header__bottom__nav__left__brand
+            =icon('fas','shopping-bag', class: "brand-icon")
             ブランド
         .header__bottom__nav__right
           - if user_signed_in?
@@ -24,6 +26,7 @@
               =link_to "ログイン", new_user_session_path
             .header__bottom__nav__right__registration
               =link_to "新規会員登録", new_user_registration_path
+
 
   .header__category
     %ul.headerCategory
@@ -61,6 +64,7 @@
           = @item.postage[:name]
         .itemDetail__box__introduction
           【商品説明】
+          %br
           = @item.introduction
         %table
           %tr
@@ -98,14 +102,16 @@
             %th 発送日の目安
             %td 
               = @item.day[:name]
-
+              
         .itemDetail__box--btn
-          - if user_signed_in? && (current_user.id == @item.user_id)
-            = link_to "商品の編集", edit_item_path,  class: 'purchaseBtn__edit'
+
+          - if user_signed_in? && (current_user.id == @item.user_id)            
+            = link_to "商品の編集", edit_item_path,data: {"turbolinks" => false}, class: 'purchaseBtn__edit'
             = link_to "この商品を削除する", item_path(@item.id), class: 'purchaseBtn', method: :delete
-          - if user_signed_in? && (current_user.id != @item.user_id)
-            = link_to "購入手続きへ", purchase_comfirmation_items_path, class: 'purchaseBtn__buy' 
-          
+          - if user_signed_in? && (current_user.id != @item.user_id)            
+            = link_to "購入手続きへ", purchase_comfirmation_item_path, class: 'purchaseBtn__buy'
+
+
 
         -# .itemDetail__box__comment
         -#   =form_with local: true do |f|
@@ -148,6 +154,8 @@
           %a.item お知らせ
     = link_to image_tag ("material/logo/logo-white.png"), class: "footer__logo"
     %p.copyright ©︎FURIMA
-  = link_to new_item_path, class: "sellBtn" do
+  
+- if user_signed_in? && current_user.id 
+  = link_to new_item_path,data: {"turbolinks" => false}, class: "sellBtn" do
     %p.sellBtn__text 出品する
     = image_tag ("material/icon/icon_camera.png"), class: "sellBtn__icon"
