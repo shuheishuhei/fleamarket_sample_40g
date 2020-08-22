@@ -1,16 +1,7 @@
-.creditcardHeader{
-  height: 100px;
-  width: 100vw;
-  margin-top: 30px;
-  text-align: center;  
-}
-
-.inputForm{
-  text-align: center;
-}
-.creditnumber{
-  width: 200px;
-  margin: 50px 0 50px 0;
+.cardAdd__form {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
 }
 
 .label{
@@ -26,23 +17,24 @@
   width: 150px;
 }
 
-.creditcardFooter{
-
-}
-
 // クレジットカード登録画面
-.card_add{
-  height: 100vh;
+.cardAdd{
+  height: 450px;
   width: 100vw;
   margin-top: 30px;
-  text-align: center; 
+  display: flex;
+  align-items: center;
+  flex-direction: column;
   font-size: 20px;
+  &__title2 {
+    margin: 50px;
+    text-align: center;
+  }
+  &__form {
+    margin-top: 10px;
+  }
 }
-.title2{
-  margin: 50px;
-  font-weight: bold;
 
-}
 .number{
   margin: 5px;
   
@@ -51,14 +43,17 @@
   margin: 5px;
 }
 
-.securitycode{
-  &__securitycode__title{
-  margin: 5px;
-  }
+.securitycode__cardsecurity__form {
+  margin-bottom: 30px;
 }
 
-.add{
-  margin: 50px;
+.add__btn {
+  margin-left: 60px;
+  color: #fff;
+  background-color: #00ECFF;
+  border: none;
+  padding: 10px 30px;
+  border-radius: 5px;
 }
 
 
@@ -101,7 +96,6 @@
   &__frame__title{
   font-weight: bold;
   font-size: 20px;
-  
 
   }
 }
@@ -156,12 +150,19 @@
 // 購入カード確認画面
 .buy{
   font-size: 20px;
-  height: 100vh; 
+  height: 480px;
+  display: flex;
+  justify-content: center;
+  align-items: center; 
+  position: relative;
 }
 .main_buycontents{
-  height: calc(100vh - 120px);
-  text-align: center;
-
+  height: 300px;
+  position: absolute;
+  top: 40px;
+  width: 500px;
+  border: solid 1px lightgray;
+  padding: 30px 100px;
   &__details{
   height: 100px;
   font-weight: bold;
@@ -172,8 +173,26 @@
   }
 }
 
+h5.payment {
+  text-align: center;
+}
+
+.purchase_registration_main__radio {
+  margin-top: 20px;
+}
+
+h5.payment {
+  font-size: 20px;
+  border-bottom: solid 1px lightgray;
+}
+
 .credit_card_info_title{
   margin: 10px;
+}
+
+.purchase_none_btn {
+  text-align: center;
+  margin-top: 20px;
 }
 
 //購入完了画面

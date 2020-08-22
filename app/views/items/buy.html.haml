@@ -1,15 +1,47 @@
+.header2
+  .header__top
+    = link_to image_tag("material/logo/logo.png", class: "header__top__logo"), root_path
+    .header__top__search
+      %input{ class: "header__top__search__form", placeholder: "キーワードから探す"}
+      %button.header__top__search__btn 
+        = image_tag ("material/icon/icon-search 1.png"), class: "header__top__search__btn__icon" 
+  .header__bottom
+    .header__bottom__nav__left
+      .header__bottom__nav__left__category
+        =icon('fas','list', class: "category-icon")
+        カテゴリー
+      .header__bottom__nav__left__brand
+        =icon('fas','shopping-bag', class: "brand-icon")
+        ブランド
+    .header__bottom__nav__right
+      - if user_signed_in?
+        .header__bottom__nav__right__mypage
+          =link_to "マイページ", "/users/#{current_user.id}"
+        .header__bottom__nav__right__logout
+          =link_to "ログアウト", destroy_user_session_path, method: :delete
+      - else
+        .header__bottom__nav__right__login
+          =link_to "ログイン", new_user_session_path
+        .header__bottom__nav__right__registration
+          =link_to "新規会員登録", new_user_registration_path
+
 .buy
   .main_buycontents
-    = link_to image_tag 'logo.png', alt: '失敗', height: '100px', width: '150px', class: 'pic1'
     .main_details
       // 商品情報ページに
       //= render "/items/itemDetail", item: @item, images: @images
     .purchase_registration
       .purchase_registration_main
-        .payment
-          支払い金額   
-        .amount
-          = "#{@item.price}" + "円"
+        %h5.payment
+          支払い方法選択
+        .purchase_registration_main__radio
+        %input{name: "gender", type: "radio", value: "male"}クレジットカード払い
+        .purchase_registration_main__radio
+        %input{name: "gender", type: "radio", value: "male"}コンビニ/ATM払い
+        .purchase_registration_main__radio
+        %input{name: "gender", type: "radio", value: "male"}PayPay払い
+        
+        
       // クレジットカードを登録済みの場合の表示
       - if current_user.card.present?
         .purchase_function
@@ -34,12 +66,12 @@
           // Checkoutのフォームを開く記述
           = form_tag(action: :pay, method: :post) do
             %script.payjp-button{src: "https://checkout.pay.jp", type: "text/javascript" ,"data-text": "購入する" ,"data-key": "pk_test_4352092f8deb95210dde9e0e",}
-  
-  %footer
-    %list
-      %a.item プライバシーポリシー
-      %a.item FURIMA利用規約
-      %a.item 特定商取引に関する表記
-      %br
-    = link_to image_tag ("material/logo/logo-white.png"), class: "footer__logo"
-    %p.copyright ©︎FURIMA
+
+%footer
+  %list
+    %a.item2 プライバシーポリシー
+    %a.item2 FURIMA利用規約
+    %a.item2 特定商取引に関する表記
+    %br
+  = link_to image_tag ("material/logo/logo-white.png"), class: "footer__logo"
+  %p.copyright ©︎FURIMA

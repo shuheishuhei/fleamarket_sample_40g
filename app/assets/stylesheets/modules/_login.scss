@@ -7,7 +7,6 @@
   
 }
 .AccountPage__title {
-
   h2 {
     margin: 10px;
     letter-spacing: 3px;
@@ -30,7 +29,6 @@
   font-size: 14px;
   font-weight: 200;
   margin-top: 20px;
-  border-top: 3px solid #EFEFEF;
 
 
   &__google {
@@ -41,13 +39,34 @@
     height: 20px;
     width: 60px;
   }
-  &__facebook {  
+  &__facebook {
   }
 }
 
 
+
+.AccountPage__form {
+  margin-top: 30px;
+  border-top: solid 1px rgb(117, 116, 116);
+  position: relative;
+}
+
+.AccountPage__form .or-logo {
+  color: rgb(117, 116, 116);
+  font-size: 13px;
+  background-color: white;
+  position: absolute;
+  right: 110px;
+  margin: 0 10px;
+  transform: translateY(-50%)
+}
+
+.login-text {
+  font-size: 17px;
+}
+
 .FormField {
-  margin-bottom: 10px;
+  margin-right: 10px;
   &__label--normal {
     padding: 10px 0;
     letter-spacing: 1px;
@@ -65,7 +84,7 @@
   &__input--normal {
     input {
       box-sizing: border-box;
-      width: 100%;
+      width: 280px;
       padding: 10px;
       letter-spacing: 1px;
     }
@@ -128,6 +147,20 @@
     padding: 0;
     font-size: 13px;
   }
+}
+
+.loginSubLink {
+  font-size: 13px;
+  a {
+    text-decoration: none;
+    color: gray;
+  }
+}
+
+.NoAcount {
+  margin-top: 30px;
+  font-size: 13px;
+  color: gray;
 }
 
 

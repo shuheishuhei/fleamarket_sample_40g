@@ -12,9 +12,8 @@
                 .eachProduct__image
                   = image_tag item.item_images[0].image_url, class: 'productImageTop'
                   - if item.status_id == 2
-                    .items-box_photo__sold
-                      .items-box_photo__sold__inner
-                        SOLD
+                    .eachProduct__image--sold
+                      = image_tag("soldout.png",class: "sold-img")
                 .eachProduct__detail
                   .eachProduct__detail__name
                     = item.name

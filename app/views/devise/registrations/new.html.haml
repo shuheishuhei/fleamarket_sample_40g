@@ -1,6 +1,5 @@
 .accountRegistration
-  .accountRegistration__title
-  = image_tag 'logo.png', alt: '失敗', height: '50px', width: '100%', class: 'pic'
+  = link_to image_tag('logo.png',  class: 'pic1'), root_path
   .accountRegistration__title
   %h2 ユーザー情報登録
   = form_for(@user, url: user_registration_path) do |f|

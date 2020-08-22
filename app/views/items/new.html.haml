@@ -1,318 +1,193 @@
--# .exhibition
--#   .header1
--#     .logo1
--#       = link_to image_tag("logo.png", size: '150x50', class: "logo2"), root_path
+.header2
+  .header__top
+    = link_to image_tag("material/logo/logo.png", class: "header__top__logo"), root_path
+    .header__top__search
+      %input{ class: "header__top__search__form", placeholder: "キーワードから探す"}
+      %button.header__top__search__btn 
+        = image_tag ("material/icon/icon-search 1.png"), class: "header__top__search__btn__icon" 
+  .header__bottom
+    .header__bottom__nav__left
+      .header__bottom__nav__left__category
+        =icon('fas','list', class: "category-icon")
+        カテゴリー
+      .header__bottom__nav__left__brand
+        =icon('fas','shopping-bag', class: "brand-icon")
+        ブランド
+    .header__bottom__nav__right
+      - if user_signed_in?
+        .header__bottom__nav__right__mypage
+          =link_to "マイページ", "/users/#{current_user.id}"
+        .header__bottom__nav__right__logout
+          =link_to "ログアウト", destroy_user_session_path, method: :delete
+      - else
+        .header__bottom__nav__right__login
+          =link_to "ログイン", new_user_session_path
+        .header__bottom__nav__right__registration
+          =link_to "新規会員登録", new_user_registration_path
   
--# .formContent
--#   .contentFlame
--#     = form_for @item do |f|
--#       .image
--#         .image__block
--#           .image__block__form
--#             %h3.imageWordTop
--#               出品画像
--#               %span.requireBox
--#                 必須
--#             %p 最大5枚までアップロードできます
--#             .image__block__area
--#               %label.image__block__area__label{for: "item_images_attributes_0_image"}
--#                 -# .fileBox クリックして画像をアップロード
--#                 .image__prev
--#                   #image-box
--#                     #previews
--#                       - if @item.persisted?
--#                         - @item.item_images.each do |image,i|
--#                           - if image.persisted?
--#                             = @item.item_images.each_with_index do |image, i|
--#                               = image_tag item_image.image.url, data: { index: i }
--#                     = f.fields_for :item_images do |image|
--#                       .js-file_group{"data-index" => "#{image.index}"}
--#                         = image.file_field :image, class: "js-file",id: "item_images_attributes_#{image.index}_image"
--#                         %br
--#                         %span.js-remove 削除
--#                     - @item.item_images.each do |image|
--#                       - if @item.persisted?
--#                         = image.check_box :_destroy, data:{ index: image.index }, class: "hidden-destroy"
--#                       - if @item.persisted?
--#                         .js-file_group{"data-index" => "#{@item.item_images.count}"}
--#                           = file_field_tag :image, name: "item[item_images_attributes][#{@item.item_images.count}][image]", class: "js-file"
--#                           %span.js-remove 削除
+.formContent
+  .contentFlame
+    = form_for @item do |f|
+      .image
+        .image__block
+          .image__block__form
+            %h3.imageWordTop
+              出品画像
+              %span.requireBox
+                必須
+            %p 最大5枚までアップロードできます
+            .image__block__area
+              %label.image__block__area__label{for: "item_images_attributes_0_image"}
+                -# .fileBox クリックして画像をアップロード
+                .image__prev
+                  #image-box
+                    #previews
+                      - if @item.persisted?
+                        - @item.item_images.each do |image,i|
+                          - if image.persisted?
+                            = @item.item_images.each_with_index do |image, i|
+                              = image_tag item_image.image.url, data: { index: i }
+                    = f.fields_for :item_images do |image|
+                      .js-file_group{"data-index" => "#{image.index}"}
+                        = image.file_field :image, class: "js-file",id: "item_images_attributes_#{image.index}_image"
+                        %br
+                        %span.js-remove 削除
+                    - @item.item_images.each do |image|
+                      - if @item.persisted?
+                        = image.check_box :_destroy, data:{ index: image.index }, class: "hidden-destroy"
+                      - if @item.persisted?
+                        .js-file_group{"data-index" => "#{@item.item_images.count}"}
+                          = file_field_tag :image, name: "item[item_images_attributes][#{@item.item_images.count}][image]", class: "js-file"
+                          %span.js-remove 削除
 
       
--#       .name
--#         %h3.nameTitle
--#           商品名
--#           %span.requireBox
--#             必須
--#         .nameForm
--#           = f.text_field :name, class: "productName", placeholder: "商品名 (必須 40文字まで)"
--#       .explanation
--#         %h3.explanationTitle
--#           商品の説明
--#           %span.requireBox
--#             必須
+      .name
+        %h3.nameTitle
+          商品名
+          %span.requireBox
+            必須
+        .nameForm
+          = f.text_field :name, class: "productName", placeholder: "商品名 (必須 40文字まで)"
+      .explanation
+        %h3.explanationTitle
+          商品の説明
+          %span.requireBox
+            必須
 
--#         .explanationForm
--#           = f.text_area :introduction,class: "explanationForm",placeholder: "商品の説明 (必須 1,000文字以内) (色、素材、重さ、定価、注意点など) 例) 2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。合わせやすいのでおすすめです。"
+        .explanationForm
+          = f.text_area :introduction,class: "explanationForm",placeholder: "商品の説明 (必須 1,000文字以内) (色、素材、重さ、定価、注意点など) 例) 2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。合わせやすいのでおすすめです。"
           
--#       .show
--#         .showTitle
--#           %h3 商品の詳細
--#         .showCategory
--#           .showCategoryDetail
--#             =f.label 'カテゴリー', class: 'showCategoryTitle'
--#             %span.requireBox
--#               必須
--#             .categoryWrapper
--#               .categoryWrapper__box
--#                 = f.collection_select(:category_id, @category_parent_array, :id, :name, {prompt: "選択してください"}, {class: 'categoryWrapper__box--select', id: 'parent_category'})
+      .show
+        .showTitle
+          %h3 商品の詳細
+        .showCategory
+          .showCategoryDetail
+            =f.label 'カテゴリー', class: 'showCategoryTitle'
+            %span.requireBox
+              必須
+            .categoryWrapper
+              .categoryWrapper__box
+                = f.collection_select(:category_id, @category_parent_array, :id, :name, {prompt: "選択してください"}, {class: 'categoryWrapper__box--select', id: 'parent_category'})
 
--#           .showBrand
--#             %h3.showBrandTitle
--#               ブランド
--#               %span.requireBox
--#                 任意
--#             .showBrandForm
--#               = f.text_field :brand, class: "brandChoice", placeholder:"例) プラダ"
--#           .showCondition
--#             %h3.showConditionTitle
--#               商品の状態
--#               %span.requireBox
--#                 必須
--#             .showConditionForm
--#               .conditionChoice
--#                 =f.collection_select(:condition_id, Condition.all, :id, :name, {include_blank: "選択してください"}, {class: "conditionChoiceList"})
+          .showBrand
+            %h3.showBrandTitle
+              ブランド
+              %span.requireBox
+                任意
+            .showBrandForm
+              = f.text_field :brand, class: "brandChoice", placeholder:"例) プラダ"
+          .showCondition
+            %h3.showConditionTitle
+              商品の状態
+              %span.requireBox
+                必須
+            .showConditionForm
+              .conditionChoice
+                =f.collection_select(:condition_id, Condition.all, :id, :name, {include_blank: "選択してください"}, {class: "conditionChoiceList"})
 
--#       .delivery
--#         .deriveryTitle
--#           %h3 配送について
--#         .deliveryPostage
--#           %h3.deriveryPostageTitle
--#             配送料の負担
--#             %span.requireBox
--#               必須
--#           .deriveryPostageForm
--#             .postageChoice
--#               = f.collection_select(:postage_id, Postage.all, :id, :name, {include_blank: '選択してください'}, {class: "postageChoiceList"})
+      .delivery
+        .deriveryTitle
+          %h3 配送について
+        .deliveryPostage
+          %h3.deriveryPostageTitle
+            配送料の負担
+            %span.requireBox
+              必須
+          .deriveryPostageForm
+            .postageChoice
+              = f.collection_select(:postage_id, Postage.all, :id, :name, {include_blank: '選択してください'}, {class: "postageChoiceList"})
         
--#         .deriveryWay
--#           %h3.deliveryWayTitle
--#             配送方法
--#             %span.requireBox
--#               必須
--#           .deriveryWayForm
--#             .wayChoice
--#               = f.collection_select(:way_id, Way.all, :id, :name, {include_blank:'選択してください'}, {class: "wayChoiceList"})
+        .deriveryWay
+          %h3.deliveryWayTitle
+            配送方法
+            %span.requireBox
+              必須
+          .deriveryWayForm
+            .wayChoice
+              = f.collection_select(:way_id, Way.all, :id, :name, {include_blank:'選択してください'}, {class: "wayChoiceList"})
 
--#         .deriveryArea
--#           %h3.deriveryAreaTitle
--#             発送元の地域
--#             %span.requireBox
--#               必須
--#           .deriveryAreaForm
--#             .areaChoice
--#               = f.collection_select(:prefecture_id, Prefecture.all, :id, :name, {include_blank: "選択してください"}, {class: "areaChoiceList"}) 
--#         .deriveryDay
--#           %h3.deriveryDayTitle
--#             発送までの日数
--#             %span.requireBox
--#               必須
--#           .deriveryDayForm              
--#             .dayChoice
--#               = f.collection_select(:day_id, Day.all, :id, :name, {include_blank: "選択してください"}, {class: 'dayChoiceList'})
+        .deriveryArea
+          %h3.deriveryAreaTitle
+            発送元の地域
+            %span.requireBox
+              必須
+          .deriveryAreaForm
+            .areaChoice
+              = f.collection_select(:prefecture_id, Prefecture.all, :id, :name, {include_blank: "選択してください"}, {class: "areaChoiceList"}) 
+        .deriveryDay
+          %h3.deriveryDayTitle
+            発送までの日数
+            %span.requireBox
+              必須
+          .deriveryDayForm              
+            .dayChoice
+              = f.collection_select(:day_id, Day.all, :id, :name, {include_blank: "選択してください"}, {class: 'dayChoiceList'})
               
--#       .price
--#         .priceTitle
--#           価格 (￥300~9,999,999)
--#         .priceSellingprice
--#           %h3.priceSellingpriceTitle
--#             販売価格
--#             %span.requireBox
--#               必須
--#           .priceSellingSymbol 
--#             ￥
--#             = f.number_field :price, placeholder: "金額を入力してください", class: "moneyForm"   
--#         .priceFee
--#           .priceFeeTitle
--#             .priceFeeTitleLeft
--#               %h3 販売手数料 (10%)
--#             .priceFeeTitleRight
--#               %h3 ー
--#           .priceProfit
--#             .priceProfitTitleLeft
--#               %h3 販売利益
--#             .priceProfitTitleRight
--#               %h3 ー
--#         .status
--#           %h3.statusName
--#             出品中を選択してください
--#             %span.requireBox
--#               必須
--#             .statusForm
--#               = f.collection_select(:status_id, Status.all, :id, :name, {include_blank: "選択してください"}, {class: 'statusCheck'})
+      .price
+        .priceTitle
+          価格 (￥300~9,999,999)
+        .priceSellingprice
+          %h3.priceSellingpriceTitle
+            販売価格
+            %span.requireBox
+              必須
+          .priceSellingSymbol 
+            ￥
+            = f.number_field :price, placeholder: "金額を入力してください", class: "moneyForm"   
+        .priceFee
+          .priceFeeTitle
+            .priceFeeTitleLeft
+              %h3 販売手数料 (10%)
+            .priceFeeTitleRight
+              %h3 ー
+          .priceProfit
+            .priceProfitTitleLeft
+              %h3 販売利益
+            .priceProfitTitleRight
+              %h3 ー
+        .status
+          %h3.statusName
+            出品中を選択してください
+            %span.requireBox
+              必須
+            .statusForm
+              = f.collection_select(:status_id, Status.all, :id, :name, {include_blank: "選択してください"}, {class: 'statusCheck'})
         
--#         .button
--#           = f.submit "出品する", class: "buttonBlue"
+        .button
+          = f.submit "出品する", class: "buttonBlue"
 
--#           %button{type: "submit", class: "buttonGrey"}
--#             下書きに保存
--#           .backToTopPage
--#             = link_to  "戻る", root_path
--#         .importantPoint
--#           %p 禁止されている行為及出品物を必ずご確認ください。偽ブランド品や盗品物などの販売は犯罪であり、法律により処罰される可能性があります。また、出品をもちまして加盟店規約に同意したことになります。
-  
--# .footer1
--#   .logo1
--#     =link_to "root_path" do
--#       = image_tag("logo-white.png", size: '150x50',class: "footerLogo")
+          %button{type: "submit", class: "buttonGrey"}
+            下書きに保存
+          .backToTopPage
+            = link_to  "戻る", root_path
+        .importantPoint
+          %p 禁止されている行為及出品物を必ずご確認ください。偽ブランド品や盗品物などの販売は犯罪であり、法律により処罰される可能性があります。また、出品をもちまして加盟店規約に同意したことになります。
 
-exhibition
- .header1
-   .logo1
-     = link_to image_tag("logo.png", size: '150x50', class: "logo2"), root_path
- .formContent
- .contentFlame
-   = form_for @item do |f|
-     .image
-       .image__block
-         .image__block__form
-           %h3.imageWordTop
-             出品画像
-             %span.requireBox
-               必須
-           %p 最大5枚までアップロードできます
-         .testtest
-           .image__block__area
-             %label.image__block__area__label{for: "item_images_attributes_0_image"}
-           .image__prev
-             #image-box
-               #previews
-                 = f.fields_for :item_images do |image|
-                   .js-file_group{"data-index" => "#{image.index}"}
-                     = image.file_field :image, class: "js-file",id: "item_images_attributes_#{image.index}_image"
-     .name
-       %h3.nameTitle
-         商品名
-         %span.requireBox
-           必須
-       .nameForm
-         = f.text_field :name, class: "productName", placeholder: "商品名 (必須 40文字まで)"
-     .explanation
-       %h3.explanationTitle
-        商品の説明
-         %span.requireBox
-           必須
- 
-       .explanationForm
-         = f.text_area :introduction,class: "explanationForm",placeholder: "商品の説明 (必須 1,000文字以内) (色、素材、重さ、定価、注意点など) 例) 2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。合わせやすいのでおすすめです。"
-        
-     .show
-       .showTitle
-         %h3 商品の詳細
-       .showCategory
-         .showCategoryDetail
-           =f.label 'カテゴリー', class: 'showCategoryTitle'
-           %span.requireBox
-             必須
-           .categoryWrapper
-             .categoryWrapper__box
-               = f.collection_select(:category_id, @category_parent_array, :id, :name, {prompt: "---"}, {class: 'categoryWrapper__box--select', id: 'parent_category'})
- 
-         .showBrand
-           %h3.showBrandTitle
-             ブランド
-             %span.requireBox
-               任意
-           .showBrandForm
-             = f.text_field :brand, class: "brandChoice", placeholder:"例) プラダ"
-         .showCondition
-           %h3.showConditionTitle
-             商品の状態
-             %span.requireBox
-               必須
-          .showConditionForm
-             .conditionChoice
-               =f.collection_select(:condition_id, Condition.all, :id, :name, {include_blank: "選択してください"}, {class: "conditionChoiceList"})
- 
-     .delivery
-       .deriveryTitle
-         %h3 配送について
-       .deliveryPostage
-         %h3.deriveryPostageTitle
-           配送料の負担
-           %span.requireBox
-             必須
-         .deriveryPostageForm
-           .postageChoice
-             = f.collection_select(:postage_id, Postage.all, :id, :name, {include_blank: '選択してください'}, {class: "postageChoiceList"})
-      
-       .deriveryWay
-         %h3.deliveryWayTitle
-           配送方法
-           %span.requireBox
-             必須
-         .deriveryWayForm
-           .wayChoice
-             = f.collection_select(:way_id, Way.all, :id, :name, {include_blank:'選択してください'}, {class: "wayChoiceList"})
- 
-       .deriveryArea
-         %h3.deriveryAreaTitle
-           発送元の地域
-           %span.requireBox
-             必須
-         .deriveryAreaForm
-           .areaChoice
-           = f.collection_select(:prefecture_id, Prefecture.all, :id, :name, {include_blank: "選択してください"}, {class: "areaChoiceList"})
-       .deriveryDay
-         %h3.deriveryDayTitle
-           発送までの日数
-           %span.requireBox
-             必須
-         .deriveryDayForm             
-           .dayChoice
-             = f.collection_select(:day_id, Day.all, :id, :name, {include_blank: "選択してください"}, {class: 'dayChoiceList'})
-            
-     .price
-       .priceTitle
-         価格 (￥300~9,999,999)
-       .priceSellingprice
-         %h3.priceSellingpriceTitle
-           販売価格
-           %span.requireBox
-             必須
-         .priceSellingSymbol
-           ￥
-           = f.number_field :price, placeholder: "金額を入力してください", class: "moneyForm"  
-       .priceFee
-         .priceFeeTitle
-           .priceFeeTitleLeft
-             %h3 販売手数料 (10%)
-           .priceFeeTitleRight
-             %h3 ー
-         .priceProfit
-           .priceProfitTitleLeft
-             %h3 販売利益
-           .priceProfitTitleRight
-             %h3 ー
-       .status
-         %h3.statusName
-          出品中を選択してください
-           %span.requireBox
-             必須
-           .statusForm
-             = f.collection_select(:status_id, Status.all, :id, :name, {include_blank: "選択してください"}, {class: 'statusCheck'})
-      
-       .button
-         = f.submit "出品する", class: "buttonBlue"
- 
-         %button{type: "submit", class: "buttonGrey"}
-           下書きに保存
-         .backToTopPage
-           = link_to "root_path" do
-             戻る
-       .importantPoint
-         %p 禁止されている行為及出品物を必ずご確認ください。偽ブランド品や盗品物などの販売は犯罪であり、法律により処罰される可能性があります。また、出品をもちまして加盟店規約に同意したことになります。
- .footer1
- .logo1
-   =link_to "root_path" do
-     = image_tag("logo-white.png", size: '150x50',class: "footerLogo")
+%footer
+  %list
+    %a.item2 プライバシーポリシー
+    %a.item2 FURIMA利用規約
+    %a.item2 特定商取引に関する表記
+    %br
+  = link_to image_tag ("material/logo/logo-white.png"), class: "footer__logo"
+  %p.copyright ©︎FURIMA

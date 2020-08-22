@@ -10,8 +10,10 @@
       .header__bottom
         .header__bottom__nav__left
           .header__bottom__nav__left__category
+            =icon('fas','list', class: "category-icon")
             カテゴリー
           .header__bottom__nav__left__brand
+            =icon('fas','shopping-bag', class: "brand-icon")
             ブランド
         .header__bottom__nav__right
           - if user_signed_in?

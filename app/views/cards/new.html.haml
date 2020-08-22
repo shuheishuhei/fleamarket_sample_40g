@@ -1,71 +1,89 @@
-.card_add 
-  = link_to image_tag 'logo.png', alt: '失敗', height: '100px', width: '150px', class: 'pic1'
-  .title2 クレジットカード情報入力
+.header2
+  .header__top
+    = link_to image_tag("material/logo/logo.png", class: "header__top__logo"), root_path
+    .header__top__search
+      %input{ class: "header__top__search__form", placeholder: "キーワードから探す"}
+      %button.header__top__search__btn 
+        = image_tag ("material/icon/icon-search 1.png"), class: "header__top__search__btn__icon" 
+  .header__bottom
+    .header__bottom__nav__left
+      .header__bottom__nav__left__category
+        =icon('fas','list', class: "category-icon")
+        カテゴリー
+      .header__bottom__nav__left__brand
+        =icon('fas','shopping-bag', class: "brand-icon")
+        ブランド
+    .header__bottom__nav__right
+      .header__bottom__nav__right__like
+        イイね！一覧
+      .header__bottom__nav__right__info
+        お知らせ
+      .header__bottom__nav__right__mypage
+        =link_to "マイページ", "/users/#{current_user.id}"
+
+.cardAdd
+  %h2 クレジットカード情報入力
+  .cardAdd__form
   = form_tag(cards_path, method: :post, id: "charge-form", class: "details", name: "inputForm") do
-    .number-details
-      .card-number カード番号
-      %span.requireBox 必須
-    .number
-      = text_field_tag 'payment_card_no', "", class: 'cardnumber', id: "payment_card_no", placeholder: '半角数字のみ', type: "text", maxlength: "16"
-    -#.image
-      = image_tag(image_path('cards/visa.png'), class: 'visa')
-      = image_tag(image_path('cards/master.png'), class: 'master')
-      = image_tag(image_path('cards/jcb.png'), class: 'jcb')
-      = image_tag(image_path('cards/amex.png'), class: 'amex')
-      = image_tag(image_path('cards/diners.png'), class: 'diners')
-      = image_tag(image_path('cards/discover.png'), class: 'discover')
-
-    .expirationdate
-      .expirationdate__details
-        .date 有効期限
+    .FormField
+      .FormField__label--normal
+        カード番号
         %span.requireBox 必須
-      .expirationdate__choice
-        .month
-          %select#payment_card_month.card-default{name: "payment_card_month", type: "text"}
-            %option{value: "1"} 01
-            %option{value: "2"} 02
-            %option{value: "3"} 03
-            %option{value: "4"} 04
-            %option{value: "5"} 05
-            %option{value: "6"} 06
-            %option{value: "7"} 07
-            %option{value: "8"} 08
-            %option{value: "9"} 09
-            %option{value: "10"} 10
-            %option{value: "11"} 11
-            %option{value: "12"} 12
-          .month-details 月
-        .year
-          %select#payment_card_year.card-default{name: "payment_card_year", type: "text"}
-            %option{value: "2020"} 20
-            %option{value: "2021"} 21
-            %option{value: "2022"} 22
-            %option{value: "2023"} 23
-            %option{value: "2024"} 24
-            %option{value: "2025"} 25
-            %option{value: "2026"} 26
-            %option{value: "2027"} 27
-            %option{value: "2028"} 28
-            %option{value: "2029"} 29
-            %option{value: "2030"} 30
-          .year-details 年
+      .FormField__input--normal
+        = text_field_tag 'payment_card_no', "", class: 'cardnumber', id: "payment_card_no", placeholder: '半角数字のみ', type: "text", maxlength: "16"
+      -#.image
+        = image_tag(image_path('cards/visa.png'), class: 'visa')
+        = image_tag(image_path('cards/master.png'), class: 'master')
+        = image_tag(image_path('cards/jcb.png'), class: 'jcb')
+        = image_tag(image_path('cards/amex.png'), class: 'amex')
+        = image_tag(image_path('cards/diners.png'), class: 'diners')
+        = image_tag(image_path('cards/discover.png'), class: 'discover')
 
-    .securitycode
-      .securitycode__details
-        .securitycode-details__title セキュリティコード
+      .FormField__label--normal
+        有効期限
         %span.requireBox 必須
-      .securitycode__cardsecurity
+      .FormField__input--normal
+        %select#payment_card_month.card-default{name: "payment_card_month", type: "text"}
+          %option{value: "1"} 01
+          %option{value: "2"} 02
+          %option{value: "3"} 03
+          %option{value: "4"} 04
+          %option{value: "5"} 05
+          %option{value: "6"} 06
+          %option{value: "7"} 07
+          %option{value: "8"} 08
+          %option{value: "9"} 09
+          %option{value: "10"} 10
+          %option{value: "11"} 11
+          %option{value: "12"} 12
+        月
+        %select#payment_card_year.card-default{name: "payment_card_year", type: "text"}
+          %option{value: "2020"} 20
+          %option{value: "2021"} 21
+          %option{value: "2022"} 22
+          %option{value: "2023"} 23
+          %option{value: "2024"} 24
+          %option{value: "2025"} 25
+          %option{value: "2026"} 26
+          %option{value: "2027"} 27
+          %option{value: "2028"} 28
+          %option{value: "2029"} 29
+          %option{value: "2030"} 30
+        年
+
+      .FormField__label--normal
+        セキュリティコード
+        %span.requireBox 必須
+      .FormField__input--normal
         = text_field_tag  "payment_card_cvc", "", type: 'text', class: 'securitycode__cardsecurity__form', id: "payment_card_cvc", maxlength: "3", placeholder: 'カード裏面3桁の番号'
-      -# .card-question カード裏面の番号とは？
-    .add 
-      
+        -# .card-question カード裏面の番号とは？
       = submit_tag "登録する", class: "add__btn", id: "payment_card_submit-button"
 
-  %footer
-    %list
-      %a.item プライバシーポリシー
-      %a.item FURIMA利用規約
-      %a.item 特定商取引に関する表記
-      %br
-    = link_to image_tag ("material/logo/logo-white.png"), class: "footer__logo"
-    %p.copyright ©︎FURIMA
+%footer
+  %list
+    %a.item2 プライバシーポリシー
+    %a.item2 FURIMA利用規約
+    %a.item2 特定商取引に関する表記
+    %br
+  = link_to image_tag ("material/logo/logo-white.png"), class: "footer__logo"
+  %p.copyright ©︎FURIMA

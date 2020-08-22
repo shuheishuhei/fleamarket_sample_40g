@@ -58,11 +58,7 @@ class ItemsController < ApplicationController
   end
   
   def show
-
-
-
     @item = Item.find(params[:id])
-
   end
 
   def buy
@@ -109,9 +105,10 @@ class ItemsController < ApplicationController
   #商品購入確認
   def purchase_comfirmation
     @item = Item.find(params[:id])
+    @address = Address.where(user_id: current_user.id).first
   end
 
-  def pay
+  def pay    
     @item = Item.find(params[:id])
     #とりあえずステイ
     # @images = @item.images.all 
@@ -152,6 +149,7 @@ class ItemsController < ApplicationController
   def item_params
     params.require(:item).permit(:name, :introduction, :price, :prefecture_id, :condition_id, :postage_id, :way_id, :day_id, :category_id, :brand, :status_id,item_images_attributes: [:id, :item_id, :image, :_destroy]).merge(user_id: current_user.id)
   end
+
   #出品カテゴリーでエラー発生するためコメントアウト
   # def set_item
   #   @item = Item.find(params[:id])
