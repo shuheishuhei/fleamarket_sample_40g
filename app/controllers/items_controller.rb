@@ -65,6 +65,7 @@ class ItemsController < ApplicationController
   end
 
   def buy
+    @item = Item.find(params[:id])
     # 商品ごとに複数枚写真を登録できるから全て。とりあえずステイ
     # @images = @item.images.all
     if user_signed_in?
@@ -109,7 +110,8 @@ class ItemsController < ApplicationController
     @item = Item.find(params[:id])
   end
 
-  def pay    
+  def pay
+    @item = Item.find(params[:id])
     #とりあえずステイ
     # @images = @item.images.all 
     if @item.status_id == 1
