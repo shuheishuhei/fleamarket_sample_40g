@@ -1,18 +1,46 @@
-.destroy
-  .destroy__frame
-    = link_to image_tag 'logo.png', alt: '失敗', height: '100px', width: '150px', class: 'pic1'
-    .destroy__frame__message
-      削除が完了しました。
-    %ul.destroy__frame__btns
-      %li.credit_card_new_link
+.header2
+  .header__top
+    = link_to image_tag("material/logo/logo.png", class: "header__top__logo"), root_path
+    .header__top__search
+      %input{ class: "header__top__search__form", placeholder: "キーワードから探す"}
+      %button.header__top__search__btn 
+        = image_tag ("material/icon/icon-search 1.png"), class: "header__top__search__btn__icon" 
+  .header__bottom
+    .header__bottom__nav__left
+      .header__bottom__nav__left__category
+        =icon('fas','list', class: "category-icon")
+        カテゴリー
+      .header__bottom__nav__left__brand
+        =icon('fas','shopping-bag', class: "brand-icon")
+        ブランド
+    .header__bottom__nav__right
+      - if user_signed_in?
+        .header__bottom__nav__right__mypage
+          =link_to "マイページ", "/users/#{current_user.id}"
+        .header__bottom__nav__right__logout
+          =link_to "ログアウト", destroy_user_session_path, method: :delete
+      - else
+        .header__bottom__nav__right__login
+          =link_to "ログイン", new_user_session_path
+        .header__bottom__nav__right__registration
+          =link_to "新規会員登録", new_user_registration_path
+
+.buy
+  .main_buycontents
+    .purchase_registration
+      .purchase_registration_main
+        %h5.payment
+          削除が完了しました。
+      .purchase_registration_main__radio
         = link_to "クレジットカード新規登録", new_card_path, class: "purchaseBtn__buy"
-      %li.my_page_link
+      .purchase_registration_main__radio
         = link_to "マイページに戻る", user_path(current_user.id), class: "purchaseBtn__buy"
-  %footer
-    %list
-      %a.item プライバシーポリシー
-      %a.item FURIMA利用規約
-      %a.item 特定商取引に関する表記
-      %br
-      = link_to image_tag ("material/logo/logo-white.png"), class: "footer__logo"
-    %p.copyright ©︎FURIMA 
+
+%footer
+  %list
+    %a.item2 プライバシーポリシー
+    %a.item2 FURIMA利用規約
+    %a.item2 特定商取引に関する表記
+    %br
+  = link_to image_tag ("material/logo/logo-white.png"), class: "footer__logo"
+  %p.copyright ©︎FURIMA

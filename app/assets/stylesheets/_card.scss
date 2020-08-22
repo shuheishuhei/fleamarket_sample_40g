@@ -50,7 +50,7 @@
 .add__btn {
   margin-left: 60px;
   color: #fff;
-  background-color: #00ECFF;
+  background-color: $mainBlueColor;
   border: none;
   padding: 10px 30px;
   border-radius: 5px;
@@ -235,14 +235,16 @@ h5.payment {
   }
 }
 .purchaseBtn__buy {
-  width: 400px;
+  display: block;
+  cursor: pointer;
+  width: 300px;
   background-color: $mainBlueColor;
   color: white;
   border: none;
   outline: none;
-  padding: 10px 0;
+  padding: 10px 30px;
   margin-top: 10px;
   border-radius: 20px;
   text-decoration: none;
-
+  text-align: center;
 }
