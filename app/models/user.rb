@@ -9,7 +9,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   with_options presence: true do
-    validates :nickname
+    validates :nickname, uniqueness: true
     validates :email, uniqueness: {case_sensitive: false}
     validates :password, length: {minimum: 7}
   end
