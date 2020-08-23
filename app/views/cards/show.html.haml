@@ -1,25 +1,4 @@
-.header2
-  .header__top
-    = link_to image_tag("material/logo/logo.png", class: "header__top__logo"), root_path
-    .header__top__search
-      %input{ class: "header__top__search__form", placeholder: "キーワードから探す"}
-      %button.header__top__search__btn 
-        = image_tag ("material/icon/icon-search 1.png"), class: "header__top__search__btn__icon" 
-  .header__bottom
-    .header__bottom__nav__left
-      .header__bottom__nav__left__category
-        =icon('fas','list', class: "category-icon")
-        カテゴリー
-      .header__bottom__nav__left__brand
-        =icon('fas','shopping-bag', class: "brand-icon")
-        ブランド
-    .header__bottom__nav__right
-      .header__bottom__nav__right__like
-        イイね！一覧
-      .header__bottom__nav__right__info
-        お知らせ
-      .header__bottom__nav__right__mypage
-        =link_to "マイページ", "/users/#{current_user.id}"
+= render "items/header"
 
 .show1      
   .show__frame
@@ -51,12 +30,4 @@
       -# .payment-details
       -#   = link_to "支払い方法について", "", class: "purchaseBtn__buy"
 
-
-%footer
-  %list
-    %a.item2 プライバシーポリシー
-    %a.item2 FURIMA利用規約
-    %a.item2 特定商取引に関する表記
-    %br
-  = link_to image_tag ("material/logo/logo-white.png"), class: "footer__logo"
-  %p.copyright ©︎FURIMA
+= render "footer"
