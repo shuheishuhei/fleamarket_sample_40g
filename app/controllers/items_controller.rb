@@ -58,11 +58,7 @@ class ItemsController < ApplicationController
   end
   
   def show
-
-
-
     @item = Item.find(params[:id])
-
   end
 
   def buy
@@ -144,6 +140,8 @@ class ItemsController < ApplicationController
           currency: 'jpy'
           )
         end
+        
+        @item.update(status_id: 2)
       end
     end
   end
