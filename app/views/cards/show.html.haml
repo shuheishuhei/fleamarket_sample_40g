@@ -1,0 +1,39 @@
+.show1
+  = link_to image_tag 'logo.png', alt: '失敗', height: '100px', width: '150px'
+  .show__frame
+    .show__frame__title
+      登録クレジットカード情報
+    .credit_card__list
+      .credit_card__list__title
+        クレジットカード一覧
+      .credit_card__list__frame
+        .credit_card_info
+          .credit_card_info__brand
+            // showメソッドで定義した@card_srcを呼び出し
+            // 画像をcardsというフォルダを作り、入れておく
+            //= image_tag "cards/#{@card_src}", class: "credit_card_info__brand__img", alt: @card_brand
+          .credit_card_info__numbers
+            .number
+              // Pay.jpから取得したカード番号の末尾４桁を取得
+              = "**** **** **** " + @customer_card.last4
+            .expiration_date
+              .expiration_date__title
+                有効期限
+              .expiration_date__info
+                // showメソッドで定義した有効期限の年と月を取得
+                = @exp_month + " / " + @exp_year
+        .destroy__function
+          .destroy__function__link
+            // 削除ボタンを作成、押すとdestroyメソッドが働くように
+            = link_to card_path, method: :delete, class: "purchaseBtn__buy" do 
+              削除する
+      .payment-details
+        = link_to "支払い方法について", "", class: "purchaseBtn__buy"
+  %footer
+    %list
+      %a.item プライバシーポリシー
+      %a.item FURIMA利用規約
+      %a.item 特定商取引に関する表記
+      %br
+    = link_to image_tag ("material/logo/logo-white.png"), class: "footer__logo"
+    %p.copyright ©︎FURIMA 

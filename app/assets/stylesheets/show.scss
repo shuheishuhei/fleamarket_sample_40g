@@ -13,7 +13,7 @@ ul.headerCategory {
     color: $mainBlueColor;
   }
 }
-
+  
 .main-show {
   height: 1500px;
   overflow: scroll;
@@ -36,24 +36,48 @@ ul.headerCategory {
         font-size: 20px;
         font-weight: bold;
         padding-bottom: 20px;
-      }
-      &__price {
-        padding-bottom: 20px;
-        .itemprice {
-          font-size: 40px;
-        }
-        .taxPostage {
-          font-size: 13px;
-        }
-      }
-      &__image {
-        .mainimage__down {
-          .images {
-            display: inline;
+     }
+     &__price {
+       padding-bottom: 20px;
+       .itemprice {
+         font-size: 40px;
+       }
+       .taxPostage {
+         font-size: 13px;
+       }
+     }
+     &__image {
+       .mainimage__down {
+         .images {
+           display: inline;
+         }
+       }
+     }
+  
+     &__introduction {
+       text-align: left;
+       margin: 20px;
+     }
+     table {
+       border: solid 1px lightgray;
+       tr {
+         border-bottom: solid 1px lightgray;
+         th {
+           width:150px;
+           padding: 15px;
+           text-align: center;
+           background-color: rgba(233, 227, 227, 0.87);
+         }
+         td {
+           width: 400px;
+           padding: 15px;
+           text-align: left;
+           a {
+            text-decoration: none;
+            color: $mainBlueColor;
           }
         }
       }
-    
       &__introduction {
         text-align: left;
         margin: 20px;
@@ -100,7 +124,7 @@ ul.headerCategory {
           border-radius: 20px;
           font-size: 18px;
         }
-      }
+       }
       &--btn {
         height: 80px;
         margin-top: 20px;
@@ -114,12 +138,11 @@ ul.headerCategory {
           background-color: $mainBlueColor;
           color: white;
           border: none;
-          outline: none;
           padding: 10px 0;
           margin-bottom: 10px;
           border-radius: 20px;
           text-decoration: none;
-        }
+         }
         .purchaseBtn {
           display: block;
           cursor: pointer;
@@ -132,7 +155,7 @@ ul.headerCategory {
           margin-bottom: 10px;
           border-radius: 20px;
           text-decoration: none;
-        }
+         }
         .purchaseBtn__buy {
           display: block;
           cursor: pointer;
@@ -151,3 +174,4 @@ ul.headerCategory {
     }
   }
 }
+ 

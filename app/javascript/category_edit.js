@@ -4,48 +4,51 @@ $(function(){
     var html = `<option value="${category.id}" data-category="${category.id}">${category.name}</option>`;
     return html;
   }
+  
   // 子カテゴリーの表示作成
-  function appendChildrenBox(insertHTML){
+  function appendChildrenBox(insertHTML) {
     var childSelectHtml = '';
     childSelectHtml = 
-        `<div class='categoryWrapper' id= 'children_wrapper'>
-          <div class='categoryWrapper__box'>
-            <select class='categoryWrapper__box--select' id="child_category" name="item[category_id]">
+        `<div class='categoryWrapperEdit' id= 'children_wrapper_edit'>
+          <div class="categoryWrapperEdit__box">
+            <select class="categoryWrapperEdit__box--select" id="child_category_edit" name="">
               <option value="---" data-category="---">---</option>
               ${insertHTML}
             </select>
           </div>
         </div>`;
-    $('.showCategoryDetail').append(childSelectHtml);
+    $('.showCategoryEditDetail').append(childSelectHtml);
   }
+
   // 孫カテゴリーの表示作成
-  function appendGrandChildrenBox(insertHTML){
+  function appendGrandChildrenBox(insertHTML) {
     var grandchildSelectHtml = '';
     grandchildSelectHtml = 
-          `<div class='categoryWrapper' id= 'grandchildren_wrapper'>
-            <div class='categoryWrapper__box'>
-              <select class='categoryWrapper__box--select' id="grandchild_category" name="item[category_id]">
+          `<div class='categoryWrapperEdit' id= 'grandchildren_wrapper_edit'>
+            <div class="categoryWrapperEdit__box">
+              <select class="categoryWrapper__box--select" id="grandchild_category_edit" name="item[category_id]">
                 <option value="---" data-category="---">---</option>
                 ${insertHTML}
               </select>
             </div>
           </div>`;
-    $('.showCategoryDetail').append(grandchildSelectHtml);
+    $('.showCategoryEditDetail').append(grandchildSelectHtml);
   }
-  // 親カテゴリー選択後のイベント
-  $('#parent_category').on('change', function(){
-    var parentCategory = document.getElementById('parent_category').value;
-    if (parentCategory != "---"){
+
+// 親カテゴリー変更後のイベント
+  $('#parent_category_edit').on('change', function() {
+    var parentCategoryEdit = document.getElementById('parent_category_edit').value;
+    if (parentCategoryEdit != '---'){
       $.ajax({
         url: 'get_category_children',
         type: 'GET',
-        data: { parent_id: parentCategory },
+        data: { parent_id: parentCategoryEdit },
         dataType: 'json'
       })
       .done(function(children){
-        //親が変更された時、子以下を削除
-        $('#children_wrapper').remove();
-        $('#grandchildren_wrapper').remove();
+      // 親が変更された時、子以下を削除
+        $('#child_category_edit').remove();
+        $('#grandchild_category_edit').remove();
         var insertHTML = '';
         children.forEach(function(child){
           insertHTML += appendOption(child);
@@ -55,24 +58,25 @@ $(function(){
       .fail(function(){
         alert('カテゴリー取得に失敗しました');
       })
-    }else{
-      $('#children_wrapper').remove();
-      $('#grandchildren_wrapper').remove();
+    }else {
+      $('#child_category_edit').remove();
+      $('#grandchild_category_edit').remove();
     }
   });
-  // 子カテゴリー選択後のイベント
-  $('.showCategoryDetail').on('change', '#child_category', function(){
-    var childId = $('#child_category option:selected').data('category');
-    if (childId != "---"){
+
+  //子カテゴリー選択後のイベント
+  $('.showCategoryEditDetail').on('change', '#child_category_edit', function(){
+    var childIdEdit = document.getElementById('child_category_edit').value;
+    if (childIdEdit !== "---") {
       $.ajax({
         url: 'get_category_grandchildren',
         type: 'GET',
-        data: { child_id: childId },
+        data: { child_id: childIdEdit },
         dataType: 'json'
       })
-      .done(function(grandchildren){
+      .done(function(grandchildren) {
         if (grandchildren.length != 0) {
-          $('#grandchildren_wrapper').remove();
+          $('#grandchild_wrapper_edit').remove();
           var insertHTML = '';
           grandchildren.forEach(function(grandchild){
             insertHTML += appendOption(grandchild);
@@ -83,8 +87,8 @@ $(function(){
       .fail(function(){
         alert('カテゴリー取得に失敗しました');
       })
-    }else{
-      $('#grandchildren_wrapper').remove();
+    }else {
+      $('#grandchild_wrapper_edit').remove();
     }
-  });
-});
+  })
+})

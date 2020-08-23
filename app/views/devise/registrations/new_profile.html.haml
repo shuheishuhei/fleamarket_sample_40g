@@ -1,6 +1,6 @@
 .accountRegistration
   .accountRegistration__title
-  = image_tag 'logo.png', alt: '失敗', height: '50px', width: '100%', class: 'pic'
+    = link_to image_tag('logo.png',  class: 'pic1'), root_path
   .accountRegistration__title
     %h2 ユーザー情報登録2
   = form_for(@profile, url: profiles_path, method: :post) do |f|
@@ -35,8 +35,8 @@
         %span.requireBox
           必須
       .FormField__input--normal
-        %p.birthday
-        != sprintf(f.date_select(:birthday, require:true,with_css_classes:'XXXXX', prompt:"--",use_month_numbers:true, start_year:Time.now.year, end_year:1900, date_separator:'%s'),'年 ','月 ')+'日' 
+    %p.birthday
+      != sprintf(f.date_select(:birthday, require:true,with_css_classes:'XXXXX', prompt:"--",use_month_numbers:true, start_year:Time.now.year, end_year:1900, date_separator:'%s'),'年','月')+'日'
     
     .actions
       = f.submit "Next!",class: "Button"
