@@ -76,7 +76,7 @@ $(function(){
       })
       .done(function(grandchildren) {
         if (grandchildren.length != 0) {
-          $('#grandchild_wrapper_edit').remove();
+          $('#grandchild_category_edit').remove();
           var insertHTML = '';
           grandchildren.forEach(function(grandchild){
             insertHTML += appendOption(grandchild);
@@ -88,7 +88,7 @@ $(function(){
         alert('カテゴリー取得に失敗しました');
       })
     }else {
-      $('#grandchild_wrapper_edit').remove();
+      $('#grandchild_category_edit').remove();
     }
   })
 })
