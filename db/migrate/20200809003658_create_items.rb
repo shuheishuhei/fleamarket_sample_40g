@@ -10,7 +10,7 @@ class CreateItems < ActiveRecord::Migration[6.0]
       t.integer :day_id, null: false
       t.integer :postage_id, null: false
       t.integer :way_id, null: false
-      t.integer :status_id, null: false
+      t.integer :status_id, null: false, default: 1
       t.timestamps
     end
   end
