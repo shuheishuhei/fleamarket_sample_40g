@@ -24,10 +24,38 @@
           =link_to "ログイン", new_user_session_path
         .header__bottom__nav__right__registration
           =link_to "新規会員登録", new_user_registration_path
-  
+
 .formContent
   .contentFlame
     = form_for @item do |f|
+      .image
+        .image__block
+          .image__block__form
+            %h3.imageWordTop
+              出品画像
+              %span.requireBox
+                必須
+            %p 最大5枚までアップロードできます
+          .image__block__box  
+            .image__block__area
+              %label.image__block__area__label{for: "item_images_attributes_#{@item.item_images.length - 1}_image"}
+                .fileBox クリックして画像をアップロード
+            .image__prev
+              #image-box
+                #previews
+                  - if @item.persisted?
+                    - @item.item_images.each_with_index do |image, i|
+                      - if image.persisted?
+                        .image__post__area{data:{index: i}}
+                          = image_tag image.image.url, width: "124", height: "124","data-index": "#{i}"
+                          .js-remove
+                            削除
+                = f.fields_for :item_images do |image|
+                  .js-file_group{"data-index" => "#{image.index}"}
+                    = image.file_field :image, class: "js-file",id: "item_images_attributes_#{image.index}_image"                        
+                    - if image.object.persisted?
+                      = image.check_box :_destroy, data:{ index: image.index }, class: "hidden-destroy"
+
       .name
         %h3.nameTitle
           商品名
@@ -59,6 +87,7 @@
                 = f.collection_select :category_id, @item.category.parent.parent.children, :id, :name ,{prompt: "選択してください", selected: @item.category.parent_id}, {class: 'categoryWrapperEdit__box--select',  id: 'child_category_edit', name: "" }
               .categoryWrapperEdit__box
                 = f.collection_select :category_id,@item.category.parent.children, :id, :name ,{prompt: "選択してください", selected: @item.category.id}, {class: 'categoryWrapperEdit__box--select',  id: 'grandchild_category_edit', name: "item[category_id]" }
+
           .showBrand
             %h3.showBrandTitle
               ブランド

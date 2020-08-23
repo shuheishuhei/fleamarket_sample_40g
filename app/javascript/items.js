@@ -3,8 +3,7 @@ $(document).on("turbolinks:load", ()=> {
     const html = `<div data-index="${num}" class="js-file_group">
                     <input class="js-file" type="file"
                     name="item[item_images_attributes][${num}][image]"
-                    id="item_images_attributes_${num}_image"><br>
-                    <div class="js-remove">削除</div>
+                    id="item_images_attributes_${num}_image">
                   </div>`;
     return html;
   }
@@ -14,7 +13,7 @@ $(document).on("turbolinks:load", ()=> {
   }
 
   const buildImg = (index, url)=> {
-    const html = `<div class="image__post__area">
+    const html = `<div class="image__post__area" data-index="${index}">
                     <img data-index="${index}" src="${url}" width="100%" height="80%">
                     <div class="js-remove">削除</div>
                   </div>`;
@@ -39,11 +38,13 @@ $(document).on("turbolinks:load", ()=> {
       $("#previews").append(buildImg(targetIndex, blobUrl));
 
       $("#image-box").append(buildFileField(fileIndex[0]));  
-        if($(".js-file_group").length > 5){  
-          return false;
+        
+        // ５枚以上投稿しようとしたら投稿範囲がなくなる
+        if ($(".image__post__area").length >= 5){  
+          $(".image__block__area").hide();
         }
+        
       
-      // label for属性をinputタグのid属性に変更する記述が必要
       let num = $(`.js-file_group`).last().data("index")
       changeLabelFor(num)
       fileIndex.shift();
@@ -54,13 +55,26 @@ $(document).on("turbolinks:load", ()=> {
 
 
   $("#image-box").on("click", ".js-remove", function() {
-    const targetIndex = $(this).parent().data("index")
-    const hiddenCheck = $(`input[data-index="${targetIndex}"].hidden-destroy`);
-    if (hiddenCheck) hiddenCheck.prop("checked", true);
+    const targetIndex = $(this).parent().data("index");
+    const hiddenCheck = $(`#item_item_images_attributes_${targetIndex}__destroy`)[0];
+    if ($(hiddenCheck).prop("checked", true));
 
     $(this).parent().remove();
+    $(`#item_images_attributes_${targetIndex}_image`).remove();
     $(`img[data-index="${targetIndex}"]`).remove();
 
+    if ($(".image__post__area").length < 5){  
+      $(".image__block__area").show();
+    }
+
     if ($(".js-file").length == 0) $("#image-box").append(buildFileField(fileIndex[0]));
+
   });
+
+  if ($(".image__post__area").length >= 5){  
+    $(".image__block__area").hide();
+  }
+  if ($(".image__post__area").length < 5){  
+    $(".image__block__area").show();
+  }
 });
