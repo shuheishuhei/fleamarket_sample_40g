@@ -57,7 +57,6 @@ $(document).on("turbolinks:load", ()=> {
   $("#image-box").on("click", ".js-remove", function() {
     const targetIndex = $(this).parent().data("index");
     const hiddenCheck = $(`#item_item_images_attributes_${targetIndex}__destroy`)[0];
-    console.log(hiddenCheck)
     if ($(hiddenCheck).prop("checked", true));
 
     $(this).parent().remove();
