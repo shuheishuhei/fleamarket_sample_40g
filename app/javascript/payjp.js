@@ -10,10 +10,10 @@ window.addEventListener('turbolinks:load', function(){
     e.preventDefault(); //ボタンを1度無効化
       // console.log(222)
     let card = { //入力されたカード情報を取得
-        number: document.getElementById("payment_card_no").value,
-        cvc: document.getElementById("payment_card_cvc").value,
-        exp_month: document.getElementById("payment_card_month").value,
-        exp_year: document.getElementById("payment_card_year").value
+      number: document.getElementById("payment_card_no").value,
+      cvc: document.getElementById("payment_card_cvc").value,
+      exp_month: document.getElementById("payment_card_month").value,
+      exp_year: document.getElementById("payment_card_year").value
     };
 
     Payjp.createToken(card, function(status, response) {  // トークンを生成
