@@ -142,6 +142,8 @@ class ItemsController < ApplicationController
           currency: 'jpy'
           )
         end
+        
+        @item.update(status_id: 2)
       end
     end
   end
