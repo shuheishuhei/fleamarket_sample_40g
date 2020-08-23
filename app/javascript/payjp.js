@@ -1,4 +1,4 @@
-window.addEventListener('DOMContentLoaded', function(){
+window.addEventListener('turbolinks:load', function(){
 
   //id名が"payment_card_submit-button"というボタンが押されたら取得
   let submit = document.getElementById("payment_card_submit-button");
@@ -8,16 +8,16 @@ window.addEventListener('DOMContentLoaded', function(){
     submit.addEventListener('click', function(e){ //ボタンが押されたらトークン作成
 
     e.preventDefault(); //ボタンを1度無効化
-      // console.log(222)
+      
     let card = { //入力されたカード情報を取得
         number: document.getElementById("payment_card_no").value,
         cvc: document.getElementById("payment_card_cvc").value,
         exp_month: document.getElementById("payment_card_month").value,
         exp_year: document.getElementById("payment_card_year").value
     };
-    console.log(card)
+    
     Payjp.createToken(card, function(status, response) {  // トークンを生成
-      console.log(response)
+      
       if (status === 200) { 
         $(".number").removeAttr("name");
         $(".cvc").removeAttr("name");
