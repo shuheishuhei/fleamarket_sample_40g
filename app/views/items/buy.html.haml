@@ -34,13 +34,6 @@
       .purchase_registration_main
         %h5.payment
           支払い方法選択
-        .purchase_registration_main__radio
-        %input{name: "gender", type: "radio", value: "male"}クレジットカード払い
-        .purchase_registration_main__radio
-        %input{name: "gender", type: "radio", value: "male"}コンビニ/ATM払い
-        .purchase_registration_main__radio
-        %input{name: "gender", type: "radio", value: "male"}PayPay払い
-        
         
       // クレジットカードを登録済みの場合の表示
       - if current_user.card.present?
@@ -60,12 +53,12 @@
                   .expiration_date__info
                     = @exp_month + " / " + @exp_year
           .purchase_function__btn
-            = link_to "登録クレジットカードで購入する", pay_item_path(@item.id), method: :post, class: "purchaseBtn__buy"
+            = link_to "登録クレジットカードで購入する", pay_item_path(@item.id), method: :post, class: "purchaseBtn__buy2"
       - else 
         .purchase_none_btn
           // Checkoutのフォームを開く記述
           = form_tag(action: :pay, method: :post) do
-            %script.payjp-button{src: "https://checkout.pay.jp", type: "text/javascript" ,"data-text": "購入する" ,"data-key": "pk_test_4352092f8deb95210dde9e0e",}
+            %script.payjp-button{src: "https://checkout.pay.jp", type: "text/javascript" ,"data-text": "新しくクレジットカードを登録する" ,"data-key": "pk_test_4352092f8deb95210dde9e0e",}
 
 %footer
   %list
