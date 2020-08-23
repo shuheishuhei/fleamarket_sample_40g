@@ -104,6 +104,7 @@
               = @item.day[:name]
               
         .itemDetail__box--btn
+
           - if user_signed_in? && (current_user.id == @item.user_id)            
             = link_to "商品の編集", edit_item_path,data: {"turbolinks" => false}, class: 'purchaseBtn__edit'
             = link_to "この商品を削除する", item_path(@item.id), class: 'purchaseBtn', method: :delete
@@ -112,14 +113,13 @@
 
 
 
-        -# コメントフォームは実装完了までコメントアウト
         -# .itemDetail__box__comment
         -#   =form_with local: true do |f|
         -#     = f.text_area :comment, class: 'commentText'
         -#     相手のことを考え、丁寧なコメントを心掛けましょう。
         -#     %br
         -#     不快な言葉遣いなどは利用制限や退会処分となることがあります。
-        -#     = f.submit "コメントする（未実装）", class: 'commentBtn'
+        -#     = f.submit "コメントする(未実装)”, class: 'commentBtn'
 
 
 

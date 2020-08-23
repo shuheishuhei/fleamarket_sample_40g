@@ -36,31 +36,16 @@
               %span.requireBox
                 必須
             %p 最大5枚までアップロードできます
+          .image__block__box 
             .image__block__area
               %label.image__block__area__label{for: "item_images_attributes_0_image"}
-                -# .fileBox クリックして画像をアップロード
-                .image__prev
-                  #image-box
-                    #previews
-                      - if @item.persisted?
-                        - @item.item_images.each do |image,i|
-                          - if image.persisted?
-                            = @item.item_images.each_with_index do |image, i|
-                              = image_tag item_image.image.url, data: { index: i }
-                    = f.fields_for :item_images do |image|
-                      .js-file_group{"data-index" => "#{image.index}"}
-                        = image.file_field :image, class: "js-file",id: "item_images_attributes_#{image.index}_image"
-                        %br
-                        %span.js-remove 削除
-                    - @item.item_images.each do |image|
-                      - if @item.persisted?
-                        = image.check_box :_destroy, data:{ index: image.index }, class: "hidden-destroy"
-                      - if @item.persisted?
-                        .js-file_group{"data-index" => "#{@item.item_images.count}"}
-                          = file_field_tag :image, name: "item[item_images_attributes][#{@item.item_images.count}][image]", class: "js-file"
-                          %span.js-remove 削除
-
-      
+                .fileBox クリックして画像をアップロード
+            .image__prev
+              #image-box
+                #previews
+                  = f.fields_for :item_images do |image|
+                    .js-file_group{"data-index" => "#{image.index}"}
+                      = image.file_field :image, class: "js-file",id: "item_images_attributes_#{image.index}_image"
       .name
         %h3.nameTitle
           商品名
