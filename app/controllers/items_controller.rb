@@ -149,6 +149,8 @@ class ItemsController < ApplicationController
         end
         
         @item.update(status_id: 2)
+        
+
       end
     end
   end
