@@ -15,6 +15,7 @@ $(document).on("turbolinks:load", ()=> {
   const buildImg = (index, url)=> {
     const html = `<div class="image__post__area" data-index="${index}">
                     <img data-index="${index}" src="${url}" width="100%" height="80%">
+                    <div class="js-edit">編集</div>
                     <div class="js-remove">削除</div>
                   </div>`;
   
