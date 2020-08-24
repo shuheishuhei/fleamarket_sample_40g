@@ -14,118 +14,83 @@
   justify-content: center;
 }
 
-.myPage{
+//マイページ
+.myPage {
   height: 670px;
-  background-color: #EEEEEE;
-  &__header{
-    width: 100%;
-    background-color: white;
+  &__main {
+    @include flexBox-center;
   }
-  &__headerTop{
-    margin-top: 10px;
-    @include flexBox-around
-  }
-  
-  &__headerMiddle{
-    height: 50px;
-    border-bottom: solid 1px lightgray;
-    @include flexBox-around
-  }
-  li{
-    display: inline-block;  
-  }
-  &__headerSearchL{
-    @include flexBox-around;
-  }
-  &__headerSearchR{
-    @include flexBox-around;
-  }
-  &__headerSearchbox{
-    margin: 10px;
-    a {
-      text-decoration: none;
-      color: black;
+}
+
+.myPageRight {
+  @include flexBox-center;
+  text-align: center;
+  &__info {
+    &__pic {
+      position: relative;
+      &__inner {
+        position: absolute;
+        top: 80px;
+        left: 290px;
+        text-align: center;
+        font-size: bold;
+        color: white;
+      } 
     }
-  }
-
-  .header1 {
-    background-color: white;
-    height: 100px;
-    padding: 10px 60px;
-    margin: 5px 0;
-    font-size: 16px;
-  }
-
-  .header2 {
-    height: 100px;
-    padding: 10px 60px;
-    margin: 5px 0;
-    font-size: 16px;
-  }
-
-
-  &__main{
-    @include flexBox-center;
-  }
-  &__leftBox{
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-  }
-  &__rightBox{
-    @include flexBox-center;
-    text-align: center;
-  }
-  &__picBox{
-    height: 150px;
-    width: 800px;
-    @include flexBox-center;
-    position: relative;
-  }
-  &__picinBox{
-    height: 100px;
-    width: 100px;
-    position: absolute;
-  }
-  &__nameBox{
-    font-size: 16px;
-    font-weight: bold;
-    position: relative;
-    color: #EFEFEF;
-  }
-  &__name{
-    display: flex;
-    position: absolute;
-    left: 320px;  
-  }
-  &__in {
-    margin: 5px;
-  }
-  .myPage__contentinfo {
-    margin: 50px 0 0 22px;
-    width: 750px;
-    background-color: white;
-    border-radius: 5px;
     &__profile {
-      background-color: $mainBlueColor;
+      margin-top: 20px;
+      width: 700px;
       border-radius: 5px;
-      color: white;
+      border: solid 1px rgb(104, 104, 104);
+      &__title {
+        background-color: $mainBlueColor;
+        color: white;
+      }
+    }
+    &__news {
+      margin-top: 20px;
+      overflow: scroll;
+      height: 180px;
+      border-radius: 5px;
+      border: solid 1px rgb(104, 104, 104);
+      &__title {
+        background-color: $mainBlueColor;
+        color: white;
+      }
+      &__list {
+        margin-top: 5px;
+      }
     }
   }
-  //お知らせ
-  .newscontents {
-    margin-top: 20px;
-    overflow: scroll;
-    background-color: #ffffff;
-    height: 200px;
-    border-radius: 5px;
-  }
-  .newscontent__info {
-    background-color: $mainBlueColor;
+}
+
+.mypage-pic {
+  height: 220px;
+  width: 700px;
+  border-radius: 5px;
+}
+
+.mypage-pic2 {
+  height: 70px;
+  width: 70px;
+  border-radius: 5px;
+  
+}
+ 
+//マイページのサイドメニュー
+.sideMenu__contentBox {
+  height: 60px;
+  width: 250px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 30px;
+  border-radius: 5px;
+  background-color: $mainBlueColor;
+  color: white;
+  a {
+    text-decoration: none;
     color: white;
-  }
-  .newscontent {
-    margin-top: 5px;
   }
 }
 
@@ -139,49 +104,4 @@
   width: 770px;
   margin-top: 25px;
   border-radius: 5px;
-}
-
-.header2 {
-  height: 100px;
-  padding: 10px 60px;
-  margin: 5px 0;
-  font-size: 16px;
-  border-bottom: solid 1px lightgray;
-  box-shadow: 0 3px 6px -5px rgba(0, 0, 0, 0.5);
-}
-
-.headerSearchbox {
-  padding: 5px 10px;
-  width: 400px;
-}
-
-.category-icon, .brand-icon {
-  color: $mainBlueColor;
-}
-
-//サイドメニューバー
-.contentBox{
-  height: 60px;
-  width: 250px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background-color: #ffffff;
-  margin: 30px;
-  border-radius: 5px;
-}
-
-.contentBox2 {
-  height: 60px;
-  width: 250px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background-color: #ffffff;
-  margin: 30px;
-  border-radius: 5px;
-  a {
-    text-decoration: none;
-    color: $mainBlueColor;
-  }
 }

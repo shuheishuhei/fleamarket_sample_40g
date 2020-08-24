@@ -1,0 +1,76 @@
+//四角い + 青色ボタン
+.square-btn {
+  color: #fff;
+  background-color: $mainBlueColor;
+  border: none;
+  padding: 10px 30px;
+  border-radius: 5px;
+  text-decoration: none;
+  a {
+    text-decoration: none;
+  }
+}
+
+//四角い + グレーボタン
+.square-btn2 {
+  color: #fff;
+  background-color: lightgray;
+  border: none;
+  padding: 10px 30px;
+  border-radius: 5px;
+  text-decoration: none;
+  a {
+    text-decoration: none;
+  }
+}
+
+//ボタン中央寄せclass名
+.FormField__btn2 {
+  text-align: center;
+  margin-top: 30px;
+}
+
+//丸い + 青ボタン
+.purchaseBtn__buy {
+  display: block;
+  cursor: pointer;
+  width: 300px;
+  background-color: $mainBlueColor;
+  color: white;
+  border: none;
+  outline: none;
+  padding: 10px 30px;
+  margin-top: 10px;
+  border-radius: 20px;
+  text-decoration: none;
+  text-align: center;
+}
+
+//丸い + 青ボタン2
+.purchaseBtn__edit {
+  cursor: pointer;
+  display: block;
+  width: 400px;
+  background-color: $mainBlueColor;
+  color: white;
+  border: none;
+  padding: 10px 0;
+  margin-bottom: 10px;
+  border-radius: 20px;
+  text-decoration: none;
+ }
+
+ //丸い + グレーボタン
+ .purchaseBtn {
+ display: block;
+ cursor: pointer;
+ width: 400px;
+ background-color: lightgray;
+ color: white;
+ border: none;
+ outline: none;
+ padding: 10px 0;
+ margin-bottom: 10px;
+ border-radius: 20px;
+ text-decoration: none;
+}

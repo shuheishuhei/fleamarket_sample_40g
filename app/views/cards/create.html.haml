@@ -1,46 +1,13 @@
-.header2
-  .header__top
-    = link_to image_tag("material/logo/logo.png", class: "header__top__logo"), root_path
-    .header__top__search
-      %input{ class: "header__top__search__form", placeholder: "キーワードから探す"}
-      %button.header__top__search__btn 
-        = image_tag ("material/icon/icon-search 1.png"), class: "header__top__search__btn__icon" 
-  .header__bottom
-    .header__bottom__nav__left
-      .header__bottom__nav__left__category
-        =icon('fas','list', class: "category-icon")
-        カテゴリー
-      .header__bottom__nav__left__brand
-        =icon('fas','shopping-bag', class: "brand-icon")
-        ブランド
-    .header__bottom__nav__right
-      - if user_signed_in?
-        .header__bottom__nav__right__mypage
-          =link_to "マイページ", "/users/#{current_user.id}"
-        .header__bottom__nav__right__logout
-          =link_to "ログアウト", destroy_user_session_path, method: :delete
-      - else
-        .header__bottom__nav__right__login
-          =link_to "ログイン", new_user_session_path
-        .header__bottom__nav__right__registration
-          =link_to "新規会員登録", new_user_registration_path
+= render "items/header-mypage"
 
-.buy
-  .main_buycontents
-    .purchase_registration
-      .purchase_registration_main
-        %h5.payment
+.mainPage
+  .mainPage__box
+    .mainBox
+      .mainBox__title
+        %h5.mainBox__title__header
           登録が完了しました。
-    .purchase_registration_main__radio
-        = link_to "マイページに戻る", user_path(current_user.id), class: "purchaseBtn__buy"
-      .purchase_registration_main__radio
-        = link_to "登録カード一覧", card_path(current_user.id), class: "purchaseBtn__buy"
+    .FormField__btn2
+      = link_to "マイページに戻る", user_path(current_user.id), class: "square-btn"
 
-%footer
-  %list
-    %a.item2 プライバシーポリシー
-    %a.item2 FURIMA利用規約
-    %a.item2 特定商取引に関する表記
-    %br
-  = link_to image_tag ("material/logo/logo-white.png"), class: "footer__logo"
-  %p.copyright ©︎FURIMA
+
+= render "items/footer"
