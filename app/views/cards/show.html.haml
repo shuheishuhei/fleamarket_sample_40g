@@ -1,62 +1,34 @@
-.header2
-  .header__top
-    = link_to image_tag("material/logo/logo.png", class: "header__top__logo"), root_path
-    .header__top__search
-      %input{ class: "header__top__search__form", placeholder: "キーワードから探す"}
-      %button.header__top__search__btn 
-        = image_tag ("material/icon/icon-search 1.png"), class: "header__top__search__btn__icon" 
-  .header__bottom
-    .header__bottom__nav__left
-      .header__bottom__nav__left__category
-        =icon('fas','list', class: "category-icon")
-        カテゴリー
-      .header__bottom__nav__left__brand
-        =icon('fas','shopping-bag', class: "brand-icon")
-        ブランド
-    .header__bottom__nav__right
-      .header__bottom__nav__right__like
-        イイね！一覧
-      .header__bottom__nav__right__info
-        お知らせ
-      .header__bottom__nav__right__mypage
-        =link_to "マイページ", "/users/#{current_user.id}"
+= render "items/header-mypage"
 
-.show1      
-  .show__frame
-    %h2.show__frame__title 登録クレジットカード情報
-    .credit_card__list
-      .credit_card__list__title
-        クレジットカード一覧
-      .credit_card__list__frame
-        .credit_card_info
-          .credit_card_info__brand
-            // showメソッドで定義した@card_srcを呼び出し
-            // 画像をcardsというフォルダを作り、入れておく
-            //= image_tag "cards/#{@card_src}", class: "credit_card_info__brand__img", alt: @card_brand
-          .credit_card_info__numbers
-            .number
-              // Pay.jpから取得したカード番号の末尾４桁を取得
-              = "**** **** **** " + @customer_card.last4
-            .expiration_date
-              .expiration_date__title
-                有効期限
-              .expiration_date__info
-                // showメソッドで定義した有効期限の年と月を取得
-                = @exp_month + " / " + @exp_year
-        .destroy__function
-          .destroy__function__link
-            // 削除ボタンを作成、押すとdestroyメソッドが働くように
-            = link_to card_path, method: :delete, class: "purchaseBtn__buy" do 
-              削除する
-      -# .payment-details
-      -#   = link_to "支払い方法について", "", class: "purchaseBtn__buy"
+.mainPage
+  .mainPage__box
+    .mainBox
+      .mainBox__title
+        %h5.mainBox__title__header 登録クレジットカード情報
+        .mainBox__title__info
+          .mainBox__title__info__list
+            ■ クレジットカード一覧
+          .credit_card__list__frame
+            .credit_card_info
+              .credit_card_info__brand
+                // showメソッドで定義した@card_srcを呼び出し
+                // 画像をcardsというフォルダを作り、入れておく
+                //= image_tag "cards/#{@card_src}", class: "credit_card_info__brand__img", alt: @card_brand
+              .mainBox__title__info__list2
+                .number
+                  // Pay.jpから取得したカード番号の末尾４桁を取得
+                  = "**** **** **** " + @customer_card.last4
+                .expiration_date
+                  .expiration_date__title
+                    有効期限
+                  .expiration_date__info
+                    // showメソッドで定義した有効期限の年と月を取得
+                    = @exp_month + " / " + @exp_year
+            .FormField__btn
+              // 削除ボタンを作成、押すとdestroyメソッドが働くように
+              = link_to card_path, method: :delete, class: "square-btn" do 
+                削除する
+          -# .payment-details
+          -#   = link_to "支払い方法について", "", class: "square-btn"
 
-
-%footer
-  %list
-    %a.item2 プライバシーポリシー
-    %a.item2 FURIMA利用規約
-    %a.item2 特定商取引に関する表記
-    %br
-  = link_to image_tag ("material/logo/logo-white.png"), class: "footer__logo"
-  %p.copyright ©︎FURIMA
+= render "items/footer"

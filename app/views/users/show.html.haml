@@ -1,59 +1,33 @@
 .myPage
-
-  .header1
-    .header__top
-      = link_to image_tag("material/logo/logo.png", class: "header__top__logo"), root_path
-      .header__top__search
-        %input{ class: "header__top__search__form", placeholder: "キーワードから探す"}
-        %button.header__top__search__btn 
-          = image_tag ("material/icon/icon-search 1.png"), class: "header__top__search__btn__icon" 
-    .header__bottom
-      .header__bottom__nav__left
-        .header__bottom__nav__left__category
-          =icon('fas','list', class: "category-icon")
-          カテゴリー
-        .header__bottom__nav__left__brand
-          =icon('fas','shopping-bag', class: "brand-icon")
-          ブランド
-      .header__bottom__nav__right
-        .header__bottom__nav__right__like
-          イイね！一覧
-        .header__bottom__nav__right__info
-          お知らせ
-        .header__bottom__nav__right__mypage
-          =link_to "マイページ", "/users/#{current_user.id}"
-
+  = render "items/header-mypage"
   .myPage__main
-    .myPage__leftBox
-      .myPage__indexBox
-        = render 'sideBox'
-    .myPage__rightBox
-      .myPage__infoBox    
-        .myPage__picBox
-          = link_to image_tag 'background.png', class: 'pic2'
-          .myPage__picinBox
-            = image_tag 'toshiki-no-pic.jpg', alt: '失敗', height: '100%', width: '100%', class: 'pic3'
-        .myPage__nameBox
-          = current_user.nickname
-          .myPage__name
-            .myPage__in
-              イイね数 8  
-            .myPage__in
-              出品数 6
-          //= current_user.name イイね数
-        .myPage__contentinfo
-          .myPage__contentinfo__profile
+    .myPageLeft
+      = render 'sideBox'
+    .myPageRight
+      .myPageRight__info    
+        .myPageRight__info__pic
+          = image_tag 'background.png', class: 'mypage-pic'
+          .myPageRight__info__pic__inner
+            = image_tag 'toshiki-no-pic.jpg', class: 'mypage-pic2'
+            %br
+            = current_user.nickname
+            %br
+            イイね数8   出品数6
+        .myPageRight__info__profile
+          .myPageRight__info__profile__title
             プロフィール
-          .myPage__contentinfo__list
+          .myPageRight__info__profile__list
             筋トレグッズを中心に出品しています
-        .myPage__contentnews
-          = render 'news'
+        .myPageRight__info__news
+          .myPageRight__info__news__title
+            お知らせ
+          .myPageRight__info__news__list
+            今週中にお買い物すると500pプレゼント！
+          .myPageRight__info__news__list
+            明日の12:00にCP発表
+          .myPageRight__info__news__list
+            お友達紹介 de 100pキャンペーン！
+          .myPageRight__info__news__list
+            新型コロナウイルスに伴ううがい薬の出品について
 
-%footer
-  %list
-    %a.item2 プライバシーポリシー
-    %a.item2 FURIMA利用規約
-    %a.item2 特定商取引に関する表記
-    %br
-  = link_to image_tag ("material/logo/logo-white.png"), class: "footer__logo"
-  %p.copyright ©︎FURIMA
+= render "items/footer"

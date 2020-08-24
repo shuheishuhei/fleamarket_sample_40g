@@ -1,0 +1,12 @@
+.header2 {
+  height: 100px;
+  padding: 10px 60px;
+  margin: 5px 0;
+  font-size: 16px;
+  border-bottom: solid 1px lightgray;
+  box-shadow: 0 3px 6px -5px rgba(0, 0, 0, 0.5);
+}
+
+.category-icon, .brand-icon {
+  color: $mainBlueColor;
+}

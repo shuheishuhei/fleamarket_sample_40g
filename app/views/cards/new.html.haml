@@ -1,25 +1,4 @@
-.header2
-  .header__top
-    = link_to image_tag("material/logo/logo.png", class: "header__top__logo"), root_path
-    .header__top__search
-      %input{ class: "header__top__search__form", placeholder: "キーワードから探す"}
-      %button.header__top__search__btn 
-        = image_tag ("material/icon/icon-search 1.png"), class: "header__top__search__btn__icon" 
-  .header__bottom
-    .header__bottom__nav__left
-      .header__bottom__nav__left__category
-        =icon('fas','list', class: "category-icon")
-        カテゴリー
-      .header__bottom__nav__left__brand
-        =icon('fas','shopping-bag', class: "brand-icon")
-        ブランド
-    .header__bottom__nav__right
-      .header__bottom__nav__right__like
-        イイね！一覧
-      .header__bottom__nav__right__info
-        お知らせ
-      .header__bottom__nav__right__mypage
-        =link_to "マイページ", "/users/#{current_user.id}"
+= render "items/header-mypage"
 
 .cardAdd
   %h2 クレジットカード情報入力
@@ -77,13 +56,7 @@
       .FormField__input--normal
         = text_field_tag  "payment_card_cvc", "", type: 'text', class: 'securitycode__cardsecurity__form', id: "payment_card_cvc", maxlength: "3", placeholder: 'カード裏面3桁の番号'
         -# .card-question カード裏面の番号とは？
-      = submit_tag "登録する", class: "add__btn", id: "payment_card_submit-button"
+      .FormField__btn
+        = submit_tag "登録する", class: "square-btn", id: "payment_card_submit-button"
 
-%footer
-  %list
-    %a.item2 プライバシーポリシー
-    %a.item2 FURIMA利用規約
-    %a.item2 特定商取引に関する表記
-    %br
-  = link_to image_tag ("material/logo/logo-white.png"), class: "footer__logo"
-  %p.copyright ©︎FURIMA
+= render "items/footer"

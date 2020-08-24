@@ -4,8 +4,8 @@
   margin: 60px auto;
   padding: 60px;
   text-align: center;
-  
 }
+
 .AccountPage__title {
   h2 {
     margin: 10px;
@@ -18,19 +18,17 @@
       margin-top: 5px;
     }
   }
-
   .Button {
     margin-top: 40px;
     color: #fff;
     background-color: #00ECFF;
   }
 }
+
 .AccountPage__snsBox {
   font-size: 14px;
   font-weight: 200;
   margin-top: 20px;
-
-
   &__google {
     height: 20px;
     width: 60px;
@@ -42,8 +40,6 @@
   &__facebook {
   }
 }
-
-
 
 .AccountPage__form {
   margin-top: 30px;
@@ -90,7 +86,6 @@
     }
     .field_with_errors {
       position: relative;
-
       &:after {
         content: "";
         display: block;
@@ -102,6 +97,9 @@
         background-color: #d65f4c;
       }
     }
+  }
+  &__btn {
+    text-align: center;
   }
 }
 
@@ -128,20 +126,16 @@
   padding: 20px 30px;
   border: 1px solid #ddd;
   border-radius: 2px;
-
   h2 {
     margin-bottom: 10px;
     color: #d65f4c;
     font-size: 14px;
   }
-  
-
   ul {
     margin: 0;
     padding-left: 17px;
     list-style: square;
   }
-
   li {
     margin: 0;
     padding: 0;
@@ -163,13 +157,6 @@
   color: gray;
 }
 
-
-.actions{
-}
-
-
 //passward忘れ画面
 
 //passward変更画面
-
-//新規登録画面

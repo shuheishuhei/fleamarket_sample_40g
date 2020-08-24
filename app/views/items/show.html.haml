@@ -104,15 +104,13 @@
               = @item.day[:name]
               
         .itemDetail__box--btn
-
-          - if user_signed_in? && (current_user.id == @item.user_id)            
+          - if user_signed_in? && (current_user.id == @item.user_id)
             = link_to "商品の編集", edit_item_path,data: {"turbolinks" => false}, class: 'purchaseBtn__edit'
             = link_to "この商品を削除する", item_path(@item.id), class: 'purchaseBtn', method: :delete
           - if user_signed_in? && (current_user.id != @item.user_id)            
             = link_to "購入手続きへ", purchase_comfirmation_item_path, class: 'purchaseBtn__buy'
 
-
-
+        // コメント機能実装時に使用
         -# .itemDetail__box__comment
         -#   =form_with local: true do |f|
         -#     = f.text_area :comment, class: 'commentText'
@@ -121,39 +119,7 @@
         -#     不快な言葉遣いなどは利用制限や退会処分となることがあります。
         -#     = f.submit "コメントする(未実装)”, class: 'commentBtn'
 
-
-
-  .bottomDl
-    .bottomDl__content
-      .bottomDl__content__title
-        だれでもかんたん、人生を変えるフリマアプリ
-      .bottomDl__content__text
-        今すぐ無料ダウンロード！
-      .bottomDl__content__icon
-      = link_to image_tag ("material/icon/Download_on_the_App_Store_Badge_US-UK_RGB_blk_092917.svg"), class: "icon--app"
-      = link_to image_tag ("material/icon/google-play-badge.png"), class: "icon--google"
-  .footer
-    .footer__overview
-      .footer__overview__list
-        %h2.title FURIMAについて
-        %p.list
-          %a.item 会社概要(運営会社)
-          %a.item プライバシーポリシー
-          %a.item FURIMA利用規約
-          %a.item ポイントに関する特約
-      .footer__overview__list
-        %h2.title FURIMAを見る
-        %p.list
-          %a.item カテゴリー一覧
-          %a.item ブランド一覧
-      .footer__overview__list
-        %h2.title ヘルプ&ガイド
-        %p.list
-          %a.item FURIMAガイド
-          %a.item FURIMAロゴ利用ガイドライン
-          %a.item お知らせ
-    = link_to image_tag ("material/logo/logo-white.png"), class: "footer__logo"
-    %p.copyright ©︎FURIMA
+= render "footer"
   
 - if user_signed_in? && current_user.id 
   = link_to new_item_path,data: {"turbolinks" => false}, class: "sellBtn" do
