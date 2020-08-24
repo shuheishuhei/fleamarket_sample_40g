@@ -4,10 +4,7 @@ FactoryBot.define do
     name         {"テスト"}
     introduction {"テスト用のアイテムです"}
     price        {500}
-<<<<<<< Updated upstream
     # image        {"logo.png"}
-=======
->>>>>>> Stashed changes
     condition_id    {2}
     prefecture_id   {2}
     day_id          {2}

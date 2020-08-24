@@ -14,13 +14,18 @@ $(document).on("turbolinks:load", ()=> {
 
   const buildImg = (index, url)=> {
     const html = `<div class="image__post__area" data-index="${index}">
-                    <img data-index="${index}" src="${url}" width="100%" height="80%">
-                    <div class="js-edit">編集</div>
-                    <div class="js-remove">削除</div>
+                    <img data-index="${index}" src="${url}" width="124px" height="135px">
+                    <div class="edit__image__box" data-index="${index}">
+                      <div class="js-edit">編集</div>
+                      <div class="js-remove">削除</div>
+                    </div>
                   </div>`;
   
     return html;
   }
+
+
+  
 
   let fileIndex = [1,2,3,4,5];
 
@@ -55,12 +60,24 @@ $(document).on("turbolinks:load", ()=> {
   });
 
 
+
+// 編集機能
+  $("#image-box").on("click", ".js-edit", function() {
+    const targetIndex = $(this).parent().data("index");
+    console.log(targetIndex)
+    // クラス名js-fileかつ該当のdata-indexをもつinputをクリックする
+    $(`.js-file[data-index="${targetIndex}"]`).click();
+    // $('クラス名がjs-fileかつdata-indexがtargetIndexと同じinput{type=file}').クリックメソッド
+  });
+
+
+
   $("#image-box").on("click", ".js-remove", function() {
     const targetIndex = $(this).parent().data("index");
     const hiddenCheck = $(`#item_item_images_attributes_${targetIndex}__destroy`)[0];
     if ($(hiddenCheck).prop("checked", true));
 
-    $(this).parent().remove();
+    $(this).parent().parent().remove();
     $(`#item_images_attributes_${targetIndex}_image`).remove();
     $(`img[data-index="${targetIndex}"]`).remove();
 
