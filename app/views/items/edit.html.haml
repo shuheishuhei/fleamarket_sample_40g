@@ -22,12 +22,15 @@
                     - @item.item_images.each_with_index do |image, i|
                       - if image.persisted?
                         .image__post__area{data:{index: i}}
-                          = image_tag image.image.url, width: "124", height: "124","data-index": "#{i}"
-                          .js-remove
-                            削除
+                          = image_tag image.image.url, width: "124", height: "135","data-index": "#{i}"
+                          .edit__image__box{data:{index: i}}
+                            .js-edit
+                              編集
+                            .js-remove
+                              削除
                 = f.fields_for :item_images do |image|
                   .js-file_group{"data-index" => "#{image.index}"}
-                    = image.file_field :image, class: "js-file",id: "item_images_attributes_#{image.index}_image"                        
+                    = image.file_field :image, class: "js-file",id: "item_images_attributes_#{image.index}_image","data-index" => "#{image.index}"
                     - if image.object.persisted?
                       = image.check_box :_destroy, data:{ index: image.index }, class: "hidden-destroy"
 

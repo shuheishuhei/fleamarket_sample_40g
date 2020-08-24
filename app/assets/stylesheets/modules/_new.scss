@@ -269,13 +269,28 @@ body {
 .js-file_group {
   display: none;
 }
-.js-remove{
-  background-color: $mainBlueColor;
-  color: white;
+
+.edit__image__box {
+  display: flex;
   text-align: center;
-  width: 100%;
-  height: 20%;
-  cursor: pointer;
+  .js-edit {
+    background-color: $mainBlueColor;
+    color: white;
+    text-align: center;
+    width: 50%;
+    height: 20%;
+    cursor: pointer;
+    border-right: dashed 1px white;
+  }
+  .js-remove{
+    background-color: $mainBlueColor;
+    color: white;
+    text-align: center;
+    width: 50%;
+    height: 20%;
+    border-right: solid 1px white;
+    cursor: pointer;
+  }
 }
 
 #previews {

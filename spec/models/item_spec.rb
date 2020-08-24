@@ -3,6 +3,9 @@ require 'rails_helper'
 
 describe Item do
   describe "#create" do
+    user = create(:user)
+
+    
     
     it "商品画像、商品名、商品説明、カテゴリー、商品の状態、配送料の負担、配送方法、発送物の地域、発送までの日数、価格が入力されていれば出品可能" do
       item = build(:item)

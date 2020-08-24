@@ -12,5 +12,6 @@ FactoryBot.define do
     way_id          {2}
     category_id     {11}
     status_id       {2}
+    user_id         {2}
   end
 end
