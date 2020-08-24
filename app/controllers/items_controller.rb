@@ -105,8 +105,13 @@ class ItemsController < ApplicationController
   
   #商品購入確認
   def purchase_comfirmation
-    @item = Item.find(params[:id])
-    @address = Address.where(user_id: current_user.id).first
+      @item = Item.find(params[:id])
+      # 出品者が直接購入ページのURLを直打ちした場合
+      if @item.user_id == current_user.id
+        redirect_to root_path, alert: "出品者であるため購入できません"
+      else
+      @address = Address.where(user_id: current_user.id).first
+    end
   end
 
   def pay    
