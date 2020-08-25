@@ -20,7 +20,7 @@
                 #previews
                   = f.fields_for :item_images do |image|
                     .js-file_group{"data-index" => "#{image.index}"}
-                      = image.file_field :image, class: "js-file",id: "item_images_attributes_#{image.index}_image"
+                      = image.file_field :image, class: "js-file",id: "item_images_attributes_#{image.index}_image", "data-index" => "#{image.index}"
       .name
         %h3.nameTitle
           商品名
