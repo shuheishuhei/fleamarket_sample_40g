@@ -10,6 +10,8 @@
 
 # 制作メンバー
 ## hiromimatsu
+<img src= "https://user-images.githubusercontent.com/67910543/91537482-566f9f00-e951-11ea-966d-0531f62b768a.jpeg" width= "80">
+
 ### 実装内容
 
 - DB設計
