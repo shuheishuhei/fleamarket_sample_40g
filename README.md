@@ -35,6 +35,7 @@
 
 ## tottiman
 <img src="https://user-images.githubusercontent.com/67910543/91537072-aef26c80-e950-11ea-84c4-a1546c277032.jpg" width= "80">
+
 ### 実装内容
 - DB設計
 #### フロントエンド
