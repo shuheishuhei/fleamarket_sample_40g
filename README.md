@@ -24,6 +24,7 @@
 - ユーザー新規登録、ログイン（ウィザード形式）
 - 商品編集ページ （画像除く）
 - 商品一覧ページ
+- テストコード実装(ユーザー)
 
 ## ympon
 <img src="https://user-images.githubusercontent.com/67910543/91537080-b154c680-e950-11ea-98f8-364967c48a17.jpg" width= "80">
