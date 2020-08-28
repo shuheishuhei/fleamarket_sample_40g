@@ -62,6 +62,47 @@
 - 商品削除機能
 - テストコード実装(商品出品)
 
+### Gem一覧
+- gem 'rails', '~> 6.0.0'
+- gem 'mysql2', '>= 0.4.4'
+- gem 'puma', '~> 3.11'
+- gem 'sass-rails', '~> 5'
+- gem 'webpacker', '~> 4.0'
+- gem 'turbolinks', '~> 5'
+- gem 'jbuilder', '~> 2.7'
+- gem 'redis', '~> 4.0'
+- gem 'bcrypt', '~> 3.1.7'
+- gem 'image_processing', '~> 1.2'
+- gem 'bootsnap', '>= 1.4.2', require: false 
+- gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
+- gem 'pry-rails'
+- gem 'rspec-rails'
+- gem 'capistrano'
+- gem 'capistrano-rbenv'
+- gem 'capistrano-bundler'
+- gem 'capistrano-rails'
+- gem 'capistrano3-unicorn'
+- gem 'capistrano-rails-console'
+- gem 'factory_bot_rails'
+- gem 'web-console', '>= 3.3.0'
+- gem 'listen', '>= 3.0.5', '< 3.2'
+- gem 'spring'
+- gem 'spring-watcher-listen', '~> 2.0.0'
+- gem 'capybara', '>= 2.15'
+- gem 'selenium-webdriver'
+- gem 'webdrivers'
+- gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+- gem 'unicorn'
+- gem 'active_hash'
+- gem 'devise'
+- gem 'carrierwave'
+- gem 'mini_magick'
+- gem 'ancestry'
+- gem 'jquery-rails'
+- gem 'payjp'
+- gem 'haml-rails'
+- gem 'fog-aws' 
+- gem 'font-awesome-sass'
 
 
 # サイトURL (Basic認証キー)
