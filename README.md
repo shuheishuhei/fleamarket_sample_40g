@@ -1,6 +1,6 @@
 # README
 
-![Uploading furima-top.jpg…]()
+![furima-top](https://user-images.githubusercontent.com/67910543/91539600-8bc9bc00-e954-11ea-8d25-cf040901d288.jpg)
 
 # このアプリについて
 - フリマサイトのクローン
