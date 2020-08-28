@@ -49,6 +49,8 @@
 - クレジットカード決済機能
 
 ## shuheishuhei
+<img src="https://user-images.githubusercontent.com/67910543/91542185-68087500-e958-11ea-8bc2-9e9f2682e2ce.jpeg" width= "80" height= "80">
+
 ### 実装内容
 
 # サイトURL (Basic認証キー)
